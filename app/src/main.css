@@ -1,0 +1,100 @@
+:root {
+    --purple: #854AB1;
+    --dark-purple: #673F6C;
+    --orange: #DC9849;
+    --gold: #997C50;
+    --grey: #A59788;
+  }/* CSS Reset */
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Font Family */
+body {
+    font-family: "Raleway", sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+  /* Colors */
+body {
+    background-color: #ffffff;
+    color: #3f3f3f;
+}
+
+  /* Primary Color */
+.primary {
+    color: #8246AF;
+}
+
+  /* Secondary Color */
+.secondary {
+    color: #5F5F5F;
+}
+
+  /* Accent Color */
+.accent {
+    color: #FFA300;
+}
+
+  /* Button Styles */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+  /* Header Styles */
+.header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 36px;
+}
+
+  /* Footer Styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+  /* Responsive Styles (adjust as needed) */
+@media (max-width: 768px) {
+
+    /* Add responsive styles here */
+}
