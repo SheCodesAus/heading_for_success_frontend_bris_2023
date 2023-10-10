@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 //import App from './App.jsx'
-//import './index.css'
+import './main.css'
 //import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HomePage from './Pages/Homepage';
 import NavBar from './components/NavBar';
