@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom/client'
 // Import Pages
 import WelcomePage from "";
 import LoginPage from "";
-import AdminHomePage from "";
+import AdminHome from "AdminHome.jsx";
 import NewUserPage from "";
 import ProgramsPage from "";
 import NewProgramPage from "";
@@ -14,7 +14,7 @@ import ProgramUpdatePage from "";
 import ApplicationListPage from "";
 import ApplicantInfoPage from "";
 import ScholarshipPage from "";
-import ApplicantHomePage from "";
+import ApplicantHome from "ApplicantHome.jsx";
 import ApplicationPage from "";
 
 const router = createBrowserRouter([
