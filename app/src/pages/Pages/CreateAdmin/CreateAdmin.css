@@ -1,0 +1,15 @@
+#background {
+    background-color: #DC9849
+}
+
+
+.create-admin-container {
+    display: flex;
+    flex-direction: column; /* To stack items vertically */
+    justify-content: center; /*  center items vertically */
+    align-items: center; /*  center items horizontally */
+    background-color: #404756;  /* CHANGE THIS */
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}

@@ -1,22 +1,23 @@
-# Instructions For Setting Up This Repo
+SheFunds - Frontend
 
-## FIRST, One Person In The Group Should:
-1. Clone this repo down using `git clone insert_quick_setup_link_here`
-2. Create a Vite project with `npm create vite@latest insert_project_name_frontend -- --template react`
-3. Delete:
-   - `App.css`
-   - `index.css`
-   - `App.jsx`
-4. Check you're happy with the files to stage, using `git status` (check that there's nothing on that list you don't want to push to github)
-4. If all looks good, stage files with `git add .`
-5. Create the initial commit with `git commit -m "initial commit"`
-6. Push to origin/main, using `git push origin main`
+SheFunds was born as a class project for SheCodes cohort of Brisbane 2023.
 
-## THEN, All Other Group Members Should:
+The goal of the project is to provide a one-stop-shop for students to browse and apply to programs.
+
+For admins, to upkeep and maintain a dynamic view of available open programs, review applications and match students with the best scholarship for them.
+
+Contributors - 
+Cinzia Loi
+Julie Powell
+Mienke Dreyer
+Sarah Kernahan
+Tracey N
+
+
+Features - 
+
+
 Clone the repo down with `git clone insert_quick_setup_link_here`
 
-## Finally:
-1. One group member should make a push replacing this readme text with the skeleton of your readme document.
-2. All other group members should pull down this change (`git pull origin main`)
 
-## Tips for using Git in a group will be posted on Thinkific shortly. :) 
+

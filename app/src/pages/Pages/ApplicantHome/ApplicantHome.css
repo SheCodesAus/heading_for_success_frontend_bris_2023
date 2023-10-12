@@ -1,0 +1,27 @@
+#apply-instructions {
+    justify-content: center;
+}
+
+#program-list {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    column-gap: 10px;
+    row-gap: 10px;
+    }
+
+#background {
+        background-color: #8246AF
+    }
+
+    .top-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px; /* Set the desired height for the image container */
+    }
+    
+    .top-image img {
+        max-width: 100%; /* Ensure the image does not exceed its container */
+        max-height: 100%; 
+    }
+    

@@ -1,0 +1,24 @@
+
+#admin-home {
+    justify-content: center;
+    grid-template-columns: 30% 30% 30%;
+    column-gap: 10px;
+    row-gap: 10px;
+    }
+
+#background {
+        background-color: #DC9849
+    }
+
+    img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px; /* Set the desired height for the image container */
+    }
+    
+     img {
+        max-width: 100%; /* Ensure the image does not exceed its container */
+        max-height: 100%; 
+    }
+    
