@@ -1,5 +1,5 @@
 import "./HomePage.css";
-import heroLogo from "../../components/HeroLogo/heroLogo";
+import HeroLogo from '../../components/HeroLogo/HeroLogo';
 //react functions go here
 
 const HomePage = () => {
@@ -11,7 +11,7 @@ const HomePage = () => {
             <h1> My homepage</h1>
 
             <p>this is my homepage</p>
-
+            <HeroLogo />
             {/* {console.log("hello world")} */}
                 
 

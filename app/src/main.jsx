@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 //import App from './App.jsx'
 import './main.css'
 //import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import HomePage from './pages/HomePage/HomePage';
+import HomePage from './pages/HomePage/Homepage';
 import NavBar from './components/NavBar/NavBar';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -25,10 +25,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 // ]);
 
 // ReactDOM.createRoot(document.getElementById('root')).render(
-  //<React.StrictMode>
+//   <React.StrictMode>
     {/* <AuthProvider> */}
     {/* Wrap app in router provider to render  */}
-     // <RouterProvider router={router} />
+      {/* <RouterProvider router={router} /> */}
     {/* </AuthProvider> */}
- // </React.StrictMode>,
-//)
+  {/* </React.StrictMode> */}
+{/* ) */}
