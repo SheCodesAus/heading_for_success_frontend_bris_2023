@@ -16,11 +16,7 @@ const HomePage = () => {
                 
 
         </div>
-    
 
-    
-    
-    
     );
 }
 
