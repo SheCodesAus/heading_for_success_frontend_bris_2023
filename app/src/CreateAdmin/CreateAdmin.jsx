@@ -1,5 +1,5 @@
 import "AdminLogin.css";
-import CreateAccountForm from "../../../components/CreateAdminForm";
+import CreateAccountForm from "../components/CreateAdminForm";
 import Purplelogo from /images/PurpleLogo.png;
 
 
