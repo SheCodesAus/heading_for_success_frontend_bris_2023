@@ -1,12 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import postNewUser from "../../api/post-user";
-import postLogin from "../../api/post-login";
 
 function NewApplicantForm() {
   const navigate = useNavigate();
-  const [errorMessage, setErrorMessage] = useState("");
-  const [formIsInvalid, setFormIsInvalid] = useState("");
+  const [errorMessage, setErrorMessage] = useState([]); // Initialize as an empty array
+  const [formIsInvalid, setFormIsInvalid] = useState(false); // Change to boolean
   const [userDetails, setUserDetails] = useState({
 
     first_name: "",
@@ -41,46 +40,35 @@ function NewApplicantForm() {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    setFormIsInvalid("");
-    setErrorMessage("");
-    //what do these parameters need to be? As we won't be using a logged in user with authorisation etc?
-    // if (userDetails.username && userDetails.password && userDetails.email) {
-      postNewUser(
-        userDetails.first_name,
-        userDetails.last_name,
-        userDetails.email,
-        userDetails.age,
-        userDetails.mobile,
-        userDetails.home_city,
-        userDetails.pronouns,
-        userDetails.qualities,
-        userDetails.location,
-        userDetails.reason,
-        userDetails.previous_education,
-        userDetails.work_experience,
-        userDetails.currently_employed,
-        userDetails.biography,
-        userDetails.gender_eligible,
-        userDetails.resume,
-        // userDetails.program_id,
-        // userDetails.status,
-        // userDetails.scholarship_id,
+    setFormIsInvalid(false);
+    setErrorMessage([]); // Clear previous error messages
 
-
-      )
-        // .then(() => {
-        //   postLogin(userDetails.username, userDetails.password).then(
-        //     (response) => {
-        //       window.localStorage.setItem("token", response.token);
-        //       navigate("/");
-        //     }
-        //   );
-        // })
+    // Check for required fields and radio button selections
+    if (
+      userDetails.first_name &&
+      userDetails.last_name &&
+      userDetails.email &&
+      userDetails.age &&
+      userDetails.mobile &&
+      userDetails.home_city &&
+      userDetails.pronouns &&
+      userDetails.qualities &&
+      userDetails.location &&
+      userDetails.reason &&
+      userDetails.previous_education &&
+      userDetails.work_experience &&
+      userDetails.biography &&
+      userDetails.current_employer &&
+      userDetails.resume &&
+      userDetails.currently_employed &&
+      userDetails.gender_eligible
+    ) {
+      postNewUser(userDetails)
         .catch((error) => {
           setErrorMessage(error.message.split(","));
         });
     } else {
-      setFormIsInvalid("Please complete required fields.");
+      setFormIsInvalid(true);
     }
   };
 
@@ -197,25 +185,27 @@ function NewApplicantForm() {
         />
       </div>
       <div>
-        <label htmlFor="currently_employed">currently employed:</label>
+        <label htmlFor="currently_employed">Currently Employed:</label>
         <input
-          type="boolean" //should this be boolean? how do i add a toggle between yes/no?
+          type="radio"
           id="currently_employed"
           name="currently_employed"
-          placeholder="currently employed?"
+          value="yes"
+          checked={userDetails.currently_employed === "yes"}
           onChange={handleChange}
         />
-      </div>
-      <div>
-        <label htmlFor="current_employer">current employer:</label>
+        <label htmlFor="currently_employed">Yes</label>
         <input
-          type="text"
-          id="current_employer"
-          name="current_employer"
-          placeholder="current employer"
+          type="radio"
+          id="currently_employed"
+          name="currently_employed"
+          value="no"
+          checked={userDetails.currently_employed === "no"}
           onChange={handleChange}
         />
+        <label htmlFor="currently_employed">No</label>
       </div>
+      
       <div>
         <label htmlFor="biography">biography:</label>
         <input
@@ -227,12 +217,33 @@ function NewApplicantForm() {
         />
       </div>
       <div>
-        <label htmlFor="gender_eligible">gender eligible:</label>
+        <label htmlFor="gender_eligible">Gender Eligible:</label>
         <input
-          type="boolean" //should this be boolean? how do i add a toggle between yes/no?
+          type="radio"
           id="gender_eligible"
           name="gender_eligible"
-          placeholder="true "
+          value="true"
+          checked={userDetails.gender_eligible === "true"}
+          onChange={handleChange}
+        />
+        <label htmlFor="gender_eligible">Yes</label>
+        <input
+          type="radio"
+          id="gender_eligible"
+          name="gender_eligible"
+          value="false"
+          checked={userDetails.gender_eligible === "false"}
+          onChange={handleChange}
+        />
+        <label htmlFor="gender_eligible">No</label>
+      </div>
+      <div>
+        <label htmlFor="current_employer">current employer:</label>
+        <input
+          type="text"
+          id="current_employer"
+          name="current_employer"
+          placeholder="current employer"
           onChange={handleChange}
         />
       </div>
@@ -255,17 +266,17 @@ function NewApplicantForm() {
         */}
 
 
-
-
       <button type="submit" className="button" onClick={handleSubmit}>
         Submit application
       </button>
       <div className="error-message">
-        {Object.values(errorMessage).map((error, key) => (
+        {errorMessage.map((error, key) => (
           <p key={key}>Error: {error}</p>
         ))}
       </div>
-      <p className="error-message">{formIsInvalid}</p>
+      {formIsInvalid && (
+        <p className="error-message">Please complete all required fields.</p>
+      )}
     </form>
   );
 }

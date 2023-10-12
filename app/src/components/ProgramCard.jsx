@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import "./.css"
+//import "./.css"
 
 function ProgramCard(props) {
     const { programData } = props;
-    const projectLink = `/program/${programData.id}`;
+    const programLink = `/program/${programData.id}`;
 
     return (
     <div className="program-card">
