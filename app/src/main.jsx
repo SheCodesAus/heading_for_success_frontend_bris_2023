@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client'
 //import App from './App.jsx'
 import './main.css'
 //import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import HomePage from './Pages/Homepage';
-import NavBar from './components/NavBar';
+import HomePage from './pages/HomePage/HomePage';
+import NavBar from './components/NavBar/NavBar';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
