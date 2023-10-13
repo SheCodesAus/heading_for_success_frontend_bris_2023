@@ -1,20 +1,15 @@
 import "./NavBar.css";
-// import {Link} from "react-router-dom";
+import{ Link, Outlet }from "react-router-dom";
 
-const NavBar = () => {
+function NavBar() {
     return ( 
-        <header>
             <div>
                 <nav>
-                    <ul>
-                        <li>
-                            <p>Placeholder for Login Link</p>
-                            {/* <Link to="/login">Login</Link> */}
-                        </li>
-                    </ul>
+                    <p>Placeholder for Login Link</p>
+                    {/* <Link to="/login">Login</Link> */}
                 </nav>
+                <Outlet />
             </div>
-        </header>
     )    
 }
 
