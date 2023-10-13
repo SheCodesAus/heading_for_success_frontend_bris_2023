@@ -3,14 +3,6 @@
 /* do not do styling for specific pages in here - styling here will affect ALL pages */
 
 
-p {
-    border: 5px solid red;
-}
-
-div {
-    border: 2px dashed purple;
-}
-
 html {
     box-sizing: border-box;
     font-size: 16px;
