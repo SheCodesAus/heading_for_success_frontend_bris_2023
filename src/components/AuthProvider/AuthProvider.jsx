@@ -8,7 +8,6 @@ export const AuthProvider = (props) => {
         
         token: window.localStorage.getItem('token'),
         username: window.localStorage.getItem('username'),
-        id: window.localStorage.getItem('id'),
     });
 
     return (
