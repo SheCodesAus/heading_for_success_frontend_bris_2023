@@ -20,6 +20,7 @@ import Flash from './pages/Aplicant/Flash';
 import Plus from './pages/Aplicant/Plus';
 import ThanksForApplying from './pages/Aplicant/ThanksForApplying';
 import Workshops from './pages/Aplicant/Workshops';
+import { AuthProvider } from './components/AuthProvider/AuthProvider';
 
 //COMPONENTS IMPORTS 
 import NavBar from './components/NavBar/NavBar';
@@ -53,6 +54,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
   </React.StrictMode>,
 );
