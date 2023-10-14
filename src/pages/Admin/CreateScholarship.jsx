@@ -1,4 +1,4 @@
-import ScholarshipForm from "../../components/NEwScholarship/ScholarshipForm";
+import ScholarshipForm from "../../components/NewScholarship/ScholarshipForm";
 
 function CreateScholarship() {
     return(
