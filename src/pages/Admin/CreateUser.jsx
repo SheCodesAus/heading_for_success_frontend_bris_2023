@@ -1,5 +1,9 @@
-function AddUser() {
-    return<h1>This is the project page.</h1>;
+import AddUser from '../../components/AddUser/AddUser'
+
+function CreateUser() {
+    return(
+        <AddUser />
+    )
 }
 
-export default AddUser
+export default CreateUser

@@ -1,29 +1,24 @@
-export async function postUser(username, password, first_name, last_name, email, image ) {
-    const url = `${import.meta.env.VITE_API_URL}/user`;
-    const userToken = window.localStorage.getItem('token');
-
+export async function postLogin(username, password) {
+    const url = `${import.meta.env.VITE_API_URL}/api-token-auth`;
     const response = await fetch(url, { method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Token ' + userToken,
         },
         body: JSON.stringify({
             'username': username,
-            'first_name': first_name,
-            'last_name': last_name,
-            'email': email,
-            'image': image,
             'password': password,
         }),
     });
 
     if (!response.ok) {
-        const fallbackError = `Error trying to signup`;
+        const fallbackError = `Error trying to login`;
 
         const data = await response.json().catch(() => {
             throw new Error(fallbackError);
         });
-        let  errorMessage = data?.detail ?? fallbackError;
+
+        let errorMessage = data?.non_field_errors ?? fallbackError;
+
         errorMessage = Object.values(data)[0].toString();
         throw new Error(errorMessage);
     }
