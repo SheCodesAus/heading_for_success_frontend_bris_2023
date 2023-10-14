@@ -10,7 +10,7 @@ import AdminLogin from './pages/Admin/AdminLogin';
 import ApplicationDetails from './pages/Admin/ApplicationDetails';
 import Applications from './pages/Admin/Applications';
 import CreateScholarship from './pages/Admin/CreateScholarship';
-import AddUser from './pages/Admin/CreateUser';
+import CreateUser from './pages/Admin/CreateUser';
 import NewProgram from './pages/Admin/NewProgram';
 import ProgramDetails from './pages/Admin/ProgramDetails';
 import Programs from './pages/Admin/Programs';
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       { path: "/application/:id", element: <ApplicationDetails /> },
       { path: "/application", element: <Applications /> },
       { path: "/scholarship", element: <CreateScholarship /> },
-      { path: "/user", element: <AddUser /> },
+      { path: "/user", element: <CreateUser /> },
       { path: "/newProgram", element: <NewProgram /> },
       { path: "/program/:id", element: <ProgramDetails /> },
       { path: "/programs", element: <Programs /> },
