@@ -1,0 +1,36 @@
+.application-page {
+    width: 70%;
+    margin: auto;
+    list-style-type: none;
+    background-color: white;
+}
+
+
+
+.scholarship-items {
+    padding-top:15px;
+    list-style-type: none;
+    border-bottom: 1px;
+    border-color: var(--main-background);
+    border-bottom-style: solid;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% 10% 10% 10% 15%; 
+    margin: auto;
+    height: 30px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.scholarship-grid-right {
+    text-align: right;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.scholarship-edit {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    vertical-align: middle;
+}

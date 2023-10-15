@@ -12,7 +12,7 @@ function ApplicationDetails() {
         <div>
             { auth.token ? (
                 <>
-                    <h1>Application Detail</h1>;  
+                    <h1>Application Detail</h1>
                         <EditApplicationForm id={id}/>
                 </>
                 ) : (

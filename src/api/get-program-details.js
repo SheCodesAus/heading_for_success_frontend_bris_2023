@@ -1,6 +1,13 @@
 export async function getProgramDetails(id) {
     const url = `${import.meta.env.VITE_API_URL}/program/${id}`;
-    const response = await fetch(url, { method: 'GET' });
+    const userToken = window.localStorage.getItem('token');
+
+    const response = await fetch(url, { method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Token ' + userToken,               
+        }, 
+    });
     
     if (!response.ok) {
         const fallbackError = `Error fetching program with id ${id}`;
