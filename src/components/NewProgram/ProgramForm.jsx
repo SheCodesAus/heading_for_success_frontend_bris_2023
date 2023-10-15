@@ -44,7 +44,7 @@ function ProgramForm() {
                 <input
                     type="text"
                     id="program_name"
-                    placeholder='Enter the name of the program'
+                    placeholder='Enter name of program'
                     onChange={handleChange}
                 />
             </div>
