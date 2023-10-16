@@ -18,9 +18,12 @@ const EditApplicationForm = () => {
     const { applicantDetail, isLoading: isLoadingApplicantDetail, error: errorApplicantDetail, setApplicantDetail } = useApplicantDetails(id);
     const { programDetail, isLoading: isLoadingProgramDetail, error: errorProgramDetail, setProgramDetail } = useProgramDetails(programId);
     const [messageBlock, setMessageBlock] = useState(false);
-    const [assigned, setAssigned] = useState(true);
-    const [assign, setAssign] = useState(false);
-    const [buttonAssigned, setButtonAssigned] = useState('Assigned');
+
+    // const assignedScholarship = 
+    // const [assigned, setAssigned] = useState(true);
+    // const [assign, setAssign] = useState(false);
+    // const [buttonAssigned, setButtonAssigned] = useState('Assigned');
+    // const [buttonAssign, setButtonAssign] = useState('Assign');
 
     if (isLoadingApplicantDetail || isLoadingProgramDetail) {
         return (<Spinner />)
@@ -55,36 +58,24 @@ const EditApplicationForm = () => {
         setApplicantDetail((prevApplicantDetail) => ({
             ...prevApplicantDetail,
             [id]: value,
-        }));
-        console.log(event.target.name, id, value)
-        // if ( event.target.name === 'gender_eligible' ) {
-        //     setGenderEligible(value);
-        // }
-        
+        }));        
     };
 
     const handleClick = (event) => {
-        console.log("click here even", event);
+        console.log("click here even", event.target);
         const { id, value } = event.target;
-        console.log("id/val of evt",id, value);
-        console.log("user clicked on apply or applicant");
-        console.log("key of scholarship on Click",id, value);
-        setButtonAssigned('Assign');
-        setButtonAssign('Assigned');
-        // setApplicantDetail((prevApplicantDetail) => ({
-        //     ...prevApplicantDetail,
-        //     [scholarship]: key,handle
-        // }));
-    }
+        console.log("id/val of evt click scholarship assign",id, value);
+        console.log("text of innerhtml of id",event.target.innerText);
 
-    const updateScholarship = (id) => {
-        // console.log("buttonclicked key value",id);
-        // console.log("current application scholarship", applicantDetail.scholarship);
+        // toggle Assign button
+        event.target.innerText = 'Assigned';
+        event.target.disabled = true;
+
+        // toggle Assigned button to be enabled and updated to Assign
+        // updated the assigned/remaining values
+
         applicantDetail.scholarship = id;
         setApplicantDetail(applicantDetail);
-        // update the button from Assigned to Assign
-
-        // update the button Assign to Assigned
     }
 
     const handleSubmit = (event) => {
@@ -132,10 +123,8 @@ const EditApplicationForm = () => {
         },
     ];
 
-    if ( auth.token ) {
 
-        
-        // console.log(applicantDetail.gender_eligible == false)
+    if ( auth.token ) {
         return (
             <div className='application-page'>
                 <>                       
@@ -373,7 +362,7 @@ const EditApplicationForm = () => {
                                 id='gender_eligible'
                                 name='gender_eligible'
                                 type='radio' 
-                                checked={applicantDetail.gender_eligible}
+                                defaultChecked={applicantDetail.gender_eligible}
                                 onChange={handleChange}
                                 value='true'
                             />
@@ -385,7 +374,7 @@ const EditApplicationForm = () => {
                                 id='gender_eligible'
                                 name='gender_eligible'
                                 type='radio' 
-                                checked={applicantDetail.gender_eligible === false && true}
+                                defaultChecked={applicantDetail.gender_eligible === false && true}
                                 onChange={handleChange}
                                 value='false'
                             />
@@ -397,6 +386,7 @@ const EditApplicationForm = () => {
                         </li>
                         <li className='label'>
                             <select 
+                                
                                 name='status'
                                 id='status' 
                                 onChange={handleChange}
@@ -422,58 +412,39 @@ const EditApplicationForm = () => {
                         </div>                         
                     </li>
 
-{/* new pledges map based on sorted desc top pledges */}
-                                    {/* {console.log(programDetail.scholarship)} */}
                     {programDetail.scholarship.map((scholarshipData, key) => {
-                            // let assigned = 0;
-                            // let availablePlaces = 0;
                             // find count of all applicants with scholarship number
                             let filteredAssigned = programDetail.applicant.filter((applicant) => applicant.scholarship === scholarshipData.id);
-                            // let filteredAssigned = programDetail.applicant.filter((applicant) => applicant.scholarship === applicantDetail.scholarship);
                             let assignedCount = filteredAssigned.length; 
-                            console.log("assigned count, assgined",assignedCount, filteredAssigned)
-                            // console.log("app schol",programDetail.applicant[0].scholarship)
-                            // console.log(programDetail.applicant[0].scholarship);
-                            console.log('scholarship',applicantDetail.scholarship);
-
                             let availablePlaces = (scholarshipData.number_available) - (assignedCount);
                             
                         return(
                         <>
-                        {/* {console.log(scholarshipData.organization, scholarshipData.number_available)} */}
-
                         <li key={key} className='scholarship-items'>
-                            
-                            {/* {scholarshipData.organization}
-                            {scholarshipData.number_available}
-                            {assignedCount}
-                            {availablePlaces} */}
-                            
-
                                 <div className='scholarship-grid-right'>
                                     <p>{scholarshipData.organization}</p>
                                 </div>
                                 <div className='scholarship-grid'>
                                     { scholarshipData.number_available }
                                 </div>
-                                <div className='scholarship-grid'>
+                                <div id='assigned' className='scholarship-grid'>
                                 {assignedCount}
                                 </div>
-                                <div className='scholarship-grid'>
+                                <div id='remaining' className='scholarship-grid'>
                                 {availablePlaces}
                                 </div>                                
                                 <div className='scholarship-edit'>
-                                {/* <button type='button' onClick={handleClick} value={key}> */}
                                 <button 
+                                    key={key}
                                     value={scholarshipData.id} 
                                     id={scholarshipData.id}
                                     type='button' 
                                     onClick={handleClick}
                                     // onClick={() => updateScholarship(scholarshipData.id)}
-                                    // disabled={ ( applicantDetail.scholarship === scholarshipData.id ) ? true : false}
-                                    disabled={ ( applicantDetail.scholarship === scholarshipData.id ) ? assigned : assign}
-                                >
-                                    { ( applicantDetail.scholarship === scholarshipData.id ) ? buttonAssigned : 'Assign' }
+                                    disabled={ ( applicantDetail.scholarship === scholarshipData.id ) ? true : false}
+                                    hidden={availablePlaces < 1 && true}
+                                > 
+                                    { ( applicantDetail.scholarship === scholarshipData.id ) ? 'Assigned' : 'Assign' }
                                 </button>
                                              {/* <EditPledgeButton 
                                                 pledgeId={pledgeData.id} 
