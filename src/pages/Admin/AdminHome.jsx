@@ -8,8 +8,7 @@ function AdminHome() {
     if ( auth.token ) {        
         return(
             <div>
-                <h1>This is the admin home page.</h1>;
-                <Link to='/user'>Create New Admin User</Link>
+                <h1>This is the admin home page.</h1>
             </div>
         )
     } else {
