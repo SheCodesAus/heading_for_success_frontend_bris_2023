@@ -1,17 +1,17 @@
-import { useProgram } from "../../hooks/use-program";
+import { useOpenProgram } from "../../hooks/use-program";
 import OpenPrograms from "../../components/OpenPrograms/OpenProgams";
 
 function ProgramOpenPage() {
-    const { programs, isLoading, error} = useProgram();
-    
+    const { programs, isLoading, error } = useOpenProgram();
+
     if (isLoading) {
         return (<p> Loading...</p>)
-      }
-    
-      if (error) {
+    }
+
+    if (error) {
         return (<p>{error.message}</p>)
-      }
-    
+    }
+
     return (
         <div className='program-list'>
             {programs.map((programOpen, key) => {
