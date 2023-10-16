@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate instead of useHistory
 import './ApplicationForm.css';
 
 function ApplicationForm() {
+    const navigate = useNavigate(); // Initialize useNavigate
+
     const [formData, setFormData] = useState({
         first_name: "",
         last_name: "",
@@ -29,10 +32,19 @@ function ApplicationForm() {
         });
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevent the default form submission behavior (page reload)
+        
+        // Handle the form submission here (you can replace this with your actual logic)
+        // ...
+
+        // Redirect to the "/thanks" page after successful submission
+        navigate('/thanks');
+    };
+
     return (
         <div>
-            
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>
                     First Name:
                     <input type="text" name="first_name" placeholder="Enter your first name" value={formData.first_name} onChange={handleChange} />
@@ -46,7 +58,8 @@ function ApplicationForm() {
                 <label>
                     Email:
                     <input type="email" name="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} />
-                </label>
+                </label> 
+                {/* //should this be email? or just text field? */}
 
                 <label>
                     Age:
@@ -57,6 +70,7 @@ function ApplicationForm() {
                     Mobile:
                     <input type="text" name="mobile" placeholder="Enter your mobile number" value={formData.mobile} onChange={handleChange} />
                 </label>
+                {/* should this be in different format? */}
 
                 <label>
                     Home City:
@@ -70,7 +84,7 @@ function ApplicationForm() {
 
                 <label>
                     Qualities:
-                    <input type="text" name="qualities" placeholder="Enter your qualities" value={formData.qualities} onChange={handleChange} />
+                    <input type="text" name="qualities" placeholder="Enter your qualities, ie Bring unique perspective to the community" value={formData.qualities} onChange={handleChange} />
                 </label>
 
                 <label>
@@ -84,7 +98,7 @@ function ApplicationForm() {
 
                 <label>
                     Reason:
-                    <input type="text" name="reason" placeholder="Enter your reason" value={formData.reason} onChange={handleChange} />
+                    <input type="text" name="reason" placeholder="Enter your reason for wanting to do this program now" value={formData.reason} onChange={handleChange} />
                 </label>
 
                 <label>
@@ -159,7 +173,7 @@ function ApplicationForm() {
                     <input type="file" name="resume" onChange={handleChange} />
                 </label>
 
-                {/* Add the rest of the fields here using a similar structure */}
+                <button type="submit">Submit</button>
             </form>
         </div>
     );
