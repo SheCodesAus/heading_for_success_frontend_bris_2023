@@ -1,5 +1,15 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 function ThanksForApplying() {
-    return<h1>This is the project page.</h1>;
+    return (
+        <div>
+            <h1>Thank you for applying</h1>
+            <h2>
+                Keep browsing our Programs. <Link to="/programs">Click here</Link>
+            </h2>
+        </div>
+    );
 }
 
-export default ThanksForApplying
+export default ThanksForApplying;
