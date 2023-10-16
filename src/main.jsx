@@ -29,11 +29,11 @@ const router = createBrowserRouter([
 
       { path: "/adminHome", element: <AdminHome /> },
       { path: "/login", element: <AdminLogin /> },
-      { path: "/application/:id", element: <ApplicationDetails /> },
+      { path: "/application/:id/:programId", element: <ApplicationDetails /> },
       { path: "/program/:id/application", element: <Applications /> },
       { path: "/user", element: <CreateUser /> },
       { path: "/newProgram", element: <NewProgram /> },
-      { path: "/program/1", element: <ProgramDetails /> }, ///Changing to hardcoded 1 to test scholarship component. will need to change to /program/:id
+      { path: "/program/:id", element: <ProgramDetails /> }, ///Changing to hardcoded 1 to test scholarship component. will need to change to /program/:id
       { path: "/programs", element: <Programs /> },
       //For applicants
       { path: "/", element: <HomePage /> },
