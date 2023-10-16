@@ -17,4 +17,6 @@ export async function getOpenPrograms() {
         errorMessage = `${response.status} - ${errorMessage}`;
         throw new Error(errorMessage);
     }
+    return await response.json();
 }
+export default getOpenPrograms;

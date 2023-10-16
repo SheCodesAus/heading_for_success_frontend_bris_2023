@@ -16,4 +16,6 @@ export async function getProgramDetails(id) {
         errorMessage = `${response.status} - ${errorMessage}`;
         throw new Error(errorMessage);
     }
+    return await response.json();
 }
+export default getProgramDetails;
