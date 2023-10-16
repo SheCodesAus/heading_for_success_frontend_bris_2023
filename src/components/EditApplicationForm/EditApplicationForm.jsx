@@ -18,6 +18,9 @@ const EditApplicationForm = () => {
     const { applicantDetail, isLoading: isLoadingApplicantDetail, error: errorApplicantDetail, setApplicantDetail } = useApplicantDetails(id);
     const { programDetail, isLoading: isLoadingProgramDetail, error: errorProgramDetail, setProgramDetail } = useProgramDetails(programId);
     const [messageBlock, setMessageBlock] = useState(false);
+    const [assigned, setAssigned] = useState(true);
+    const [assign, setAssign] = useState(false);
+    const [buttonAssigned, setButtonAssigned] = useState('Assigned');
 
     if (isLoadingApplicantDetail || isLoadingProgramDetail) {
         return (<Spinner />)
@@ -61,7 +64,27 @@ const EditApplicationForm = () => {
     };
 
     const handleClick = (event) => {
+        console.log("click here even", event);
+        const { id, value } = event.target;
+        console.log("id/val of evt",id, value);
+        console.log("user clicked on apply or applicant");
+        console.log("key of scholarship on Click",id, value);
+        setButtonAssigned('Assign');
+        setButtonAssign('Assigned');
+        // setApplicantDetail((prevApplicantDetail) => ({
+        //     ...prevApplicantDetail,
+        //     [scholarship]: key,handle
+        // }));
+    }
 
+    const updateScholarship = (id) => {
+        // console.log("buttonclicked key value",id);
+        // console.log("current application scholarship", applicantDetail.scholarship);
+        applicantDetail.scholarship = id;
+        setApplicantDetail(applicantDetail);
+        // update the button from Assigned to Assign
+
+        // update the button Assign to Assigned
     }
 
     const handleSubmit = (event) => {
@@ -440,8 +463,17 @@ const EditApplicationForm = () => {
                                 {availablePlaces}
                                 </div>                                
                                 <div className='scholarship-edit'>
-                                <button onClick={handleChange}>
-                                    { ( applicantDetail.scholarship === scholarshipData.id ) ? 'Assigned' : 'Assign' }
+                                {/* <button type='button' onClick={handleClick} value={key}> */}
+                                <button 
+                                    value={scholarshipData.id} 
+                                    id={scholarshipData.id}
+                                    type='button' 
+                                    onClick={handleClick}
+                                    // onClick={() => updateScholarship(scholarshipData.id)}
+                                    // disabled={ ( applicantDetail.scholarship === scholarshipData.id ) ? true : false}
+                                    disabled={ ( applicantDetail.scholarship === scholarshipData.id ) ? assigned : assign}
+                                >
+                                    { ( applicantDetail.scholarship === scholarshipData.id ) ? buttonAssigned : 'Assign' }
                                 </button>
                                              {/* <EditPledgeButton 
                                                 pledgeId={pledgeData.id} 
