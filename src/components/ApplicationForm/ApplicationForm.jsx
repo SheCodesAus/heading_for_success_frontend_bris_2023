@@ -1,3 +1,5 @@
+// help check the format/ input types for each data point, weren't confirmed in MVP doc
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate instead of useHistory
 import './ApplicationForm.css';
