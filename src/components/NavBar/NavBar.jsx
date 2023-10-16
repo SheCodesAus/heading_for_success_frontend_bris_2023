@@ -19,7 +19,19 @@ function NavBar() {
                 <nav>
                     <Link to="/"><img src={homeIcon} alt="AdminIcon"></img></Link>
                     {auth.token ? (
-                        <Link to="/" onClick={handleLogout}>Log Out</Link>
+                        <Link to="/adminHome">Admin Home</Link>
+                    ) : (null)}
+                    {auth.token ? (
+                        <Link to="/user">Create User</Link>
+                    ) : (null)}
+                    {auth.token ? (
+                        <Link to="/newProgram">Create new program</Link>
+                    ) : (null)}
+                    {auth.token ? (
+                        <Link to="/programs">Programs</Link>
+                    ) : (null)}
+                    {auth.token ? (
+                        <Link to="/" onClick={handleLogout}><img src={adminIcon} alt="AdminIcon"></img>Log Out</Link>
                     ) : (
                     <Link to="/login"><img src={adminIcon} alt="AdminIcon"></img></Link>
                     )}

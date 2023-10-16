@@ -20,6 +20,7 @@ import Plus from './pages/Aplicant/Plus';
 import ThanksForApplying from './pages/Aplicant/ThanksForApplying';
 import Workshops from './pages/Aplicant/Workshops';
 import { AuthProvider } from './components/AuthProvider/AuthProvider';
+//import ProgramOpenPage from './pages/Aplicant/ProgramOpenPage';
 
 //COMPONENTS IMPORTS 
 import NavBar from './components/NavBar/NavBar';
@@ -40,6 +41,7 @@ const router = createBrowserRouter([
       { path: "/programs", element: <Programs /> },
       //For applicants
       { path: "/", element: <HomePage /> },
+      //{ path: "/programOpen", element: <ProgramOpenPage /> },
       { path: "/apply", element: <Apply /> },
       { path: "/femaleFounders", element: <FemaleFounders /> },
       { path: "/flash", element: <Flash /> },
