@@ -2,7 +2,7 @@ import "./NavBar.css";
 import{ Link, Outlet }from "react-router-dom";
 import { useAuth } from "../../hooks/use-auth";
 import adminIcon from '../../Images/Admin-Icon.svg'
-import homeIcon from '../../Images/home-2.svg'
+import homeIcon from '../../Images/Home-2.svg'
 
 function NavBar() {
     const {auth, setAuth} = useAuth();
