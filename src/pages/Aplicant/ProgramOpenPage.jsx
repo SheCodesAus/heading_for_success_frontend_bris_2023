@@ -1,5 +1,5 @@
 import { useOpenProgram } from "../../hooks/use-program";
-import OpenPrograms from "../../components/OpenPrograms/OpenPrograms";
+import OpenPrograms from "../../components/OpenPrograms/OpenProgams"
 
 function ProgramOpenPage() {
     const { programs, isLoading, error } = useOpenProgram();
