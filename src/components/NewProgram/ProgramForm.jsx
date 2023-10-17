@@ -22,7 +22,7 @@ function ProgramForm() {
     }
     const handleChecked = (e) => {
         setprogramData({
-          ...projectData,
+          ...programData,
           [e.target.id]: e.target.checked
         })
     }
