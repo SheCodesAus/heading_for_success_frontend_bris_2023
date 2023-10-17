@@ -21,7 +21,7 @@ function ProgramForm() {
         })
     }
     const handleChecked = (e) => {
-        setProjectData({
+        setprogramData({
           ...projectData,
           [e.target.id]: e.target.checked
         })
@@ -36,7 +36,7 @@ function ProgramForm() {
             })
             .catch(() => {
                 setIsLoading(false);
-                console.log("postProject Failed")
+                console.log("postProgram Failed")
             });
     }
     return (
