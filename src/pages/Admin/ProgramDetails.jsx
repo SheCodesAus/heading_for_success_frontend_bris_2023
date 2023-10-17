@@ -49,7 +49,7 @@ function ProgramDetails() {
             <h3>Application Date End: {programDetail.application_date_end}</h3>
 
             <h2>This is the related scholarships Section.</h2>
-            { programDetail.scholarship.length > 0 &&
+            { programDetail.scholarship &&
                 programDetail.scholarship.map((scholarshipData, key) => {
                     return (
                     <>    
@@ -64,7 +64,7 @@ function ProgramDetails() {
             <h2>This is the Related Applicants Section.</h2>
 
                                     {/* <Link to={applicantLink}> */}
-            {   programDetail.applicant.length > 0 &&
+            {   programDetail.applicant &&
                 programDetail.applicant.map((applicantData, key) => {
                 return (
                 <>    
