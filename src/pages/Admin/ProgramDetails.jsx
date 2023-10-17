@@ -20,7 +20,6 @@ function ProgramDetails() {
     }
 
     if (error) {
-
         return (
             <div>
                 <MessageCard 
@@ -30,18 +29,12 @@ function ProgramDetails() {
             </div>
             );
     }
-
-    // console.log("progr details",programDetail);
-    // console.log("app det", programDetail.applicant);
-    // console.log("scholarship", programDetail.scholarship);
-
-    // let applicantLink = "";
-    // let scholarshipLink = "";
-// let applicantLink = `/application/${applicantData.id}/${id}`;
+    
     return (
         <div>
-        { auth.token ? (
+        { ( auth.token )? (
         <>
+        
 
             <h1>Program Detail page for {programDetail.program_name}.</h1>
             <p>Here we will see the program details, the related scholarships, the related applicants</p>
@@ -56,20 +49,23 @@ function ProgramDetails() {
             <h3>Application Date End: {programDetail.application_date_end}</h3>
 
             <h2>This is the related scholarships Section.</h2>
-            {programDetail.scholarship.map((scholarshipData, key) => {
-                return (
-                <>    
-                    <li key={key}>
-                            {scholarshipData.organization}
-                    </li>
-                </>
-                )
-            })}
+            { programDetail.scholarship.length > 0 &&
+                programDetail.scholarship.map((scholarshipData, key) => {
+                    return (
+                    <>    
+                        <li key={key}>
+                                {scholarshipData.organization}
+                        </li>
+                    </>
+                    )
+                })
+            }
 
             <h2>This is the Related Applicants Section.</h2>
 
                                     {/* <Link to={applicantLink}> */}
-            {programDetail.applicant.map((applicantData, key) => {
+            {   programDetail.applicant.length > 0 &&
+                programDetail.applicant.map((applicantData, key) => {
                 return (
                 <>    
                     <li key={key}>
@@ -90,6 +86,7 @@ function ProgramDetails() {
         ) }
         </div>
     );
+    
 }
 
 export default ProgramDetails;
