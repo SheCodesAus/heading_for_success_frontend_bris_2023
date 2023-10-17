@@ -1,12 +1,18 @@
-import ApplicationForm from "../../components/ApplicationForm/ApplicationForm";
+import React from 'react';
+import ApplicationForm from '../../components/ApplicationForm/ApplicationForm';
 
 function Apply() {
-    return(
-        <>
-            <h1>This is the project page.</h1>
-            <ApplicationForm />
-        </>
+    return (
+        <div className="application-page">
+            <div className="application-header">
+                <h1>Apply to Program</h1>
+                <p>Welcome to our application page. Please fill out the form below to apply.</p>
+            </div>
+            <div className="application-form-container">
+                <ApplicationForm />
+            </div>
+        </div>
     );
 }
 
-export default Apply
+export default Apply;
