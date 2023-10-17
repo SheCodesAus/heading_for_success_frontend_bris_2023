@@ -1,12 +1,12 @@
 import React from 'react';
-import Purplelogo from /images/PurpleLogo.png;
+// import PurpleLogo from /images/PurpleLogo.png;
 import { Link } from 'react-router-dom';
 
 function AdminHome() {
     return (
         <>
             <div id="purple-logo">
-                <img src={Purplelogo} alt="Purple Cupcake Logo" />
+                <img src={PurpleLogo} alt="Purple Cupcake Logo" />
             </div>
         <div id="admin-home">
             <Link to="/program">
