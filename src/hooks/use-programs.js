@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
-import { getProgramDetails } from '../api/get-program-details';
+import { getPrograms } from '../api/get-all-programs';
 
-export function useProgramDetails(id) {
-    const [programDetail, setProgramDetail] = useState([]);
+export function usePrograms() {
+    const [allPrograms, setAllPrograms] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState();
     
     useEffect(() => {
-        getProgramDetails(id)
-            .then((programDetail) => {
-                setProgramDetail(programDetail);
+        getPrograms()
+            .then((allPrograms) => {
+                setAllPrograms(allPrograms);
                 setIsLoading(false);
             })
             .catch((error) => {
@@ -17,6 +17,12 @@ export function useProgramDetails(id) {
                 setIsLoading(false);
             });
     }, []);
-    return { programDetail, isLoading, error, setProgramDetail };
+    return { allPrograms, isLoading, error, setAllPrograms };
 }
+
+
+
+
+
+
 
