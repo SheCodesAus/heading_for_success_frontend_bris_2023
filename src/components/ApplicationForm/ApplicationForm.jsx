@@ -1,18 +1,15 @@
-// help check the format/ input types for each data point, weren't confirmed in MVP doc
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate instead of useHistory
 import './ApplicationForm.css';
 
 function ApplicationForm() {
     const navigate = useNavigate(); // Initialize useNavigate
-
     const [formData, setFormData] = useState({
         first_name: "",
         last_name: "",
         email: "",
         age: "",
-        mobile: "",
+        contact_mobile: "",
         home_city: "",
         pronouns: "",
         qualities: "",
@@ -21,32 +18,35 @@ function ApplicationForm() {
         previous_education: "",
         work_experience: "",
         currently_employed: "yes",
+        current_employer: "",
         biography: "",
         gender_eligible: "yes",
         resume: "",
     });
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
         setFormData({
             ...formData,
-            [name]: value,
-        });
+            [e.target.id]: e.target.value
+        })
     };
-
     const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent the default form submission behavior (page reload)
-        
-        // Handle the form submission here (you can replace this with your actual logic)
-        // ...
+        e.preventDefault()
+        setIsLoading(true)
 
-        // Redirect to the "/thanks" page after successful submission
-        navigate('/thanks');
-    };
+        postApplication(formData)
+            .then(() => {
+                navigate(0)
+            })
+            .catch(() => {
+                setIsLoading(false);
+                console.log("postApplication Failed")
+            });
+        };
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form className='application-form'>
                 <label>
                     First Name:
                     <input type="text" name="first_name" placeholder="Enter your first name" value={formData.first_name} onChange={handleChange} />
@@ -59,8 +59,8 @@ function ApplicationForm() {
 
                 <label>
                     Email:
-                    <input type="email" name="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} />
-                </label> 
+                    <input type="" name="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} />
+                </label>
                 {/* //should this be email? or just text field? */}
 
                 <label>
@@ -136,12 +136,16 @@ function ApplicationForm() {
                             />
                             No
                         </label>
+
                     </div>
                 </label>
-
+                <label>
+                    Current Employer:
+                    <input type="text" name="current_employer" placeholder="Enter your current employer" value={formData.qualities} onChange={handleChange} />
+                </label>
                 <label>
                     Biography:
-                    <textarea name="biography" placeholder="Tell us about yourself" value={formData.biography} onChange={handleChange} />
+                    <textarea type="text" name="biography" placeholder="Tell us about yourself" value={formData.biography} onChange={handleChange} />
                 </label>
 
                 <label>
@@ -175,7 +179,7 @@ function ApplicationForm() {
                     <input type="file" name="resume" onChange={handleChange} />
                 </label>
 
-                <button type="submit">Submit</button>
+                <button type="submit" onChange={handleSubmit}>Submit</button>
             </form>
         </div>
     );
