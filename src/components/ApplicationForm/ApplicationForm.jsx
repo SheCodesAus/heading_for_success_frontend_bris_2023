@@ -4,12 +4,13 @@ import './ApplicationForm.css';
 
 function ApplicationForm() {
     const navigate = useNavigate(); // Initialize useNavigate
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         first_name: "",
         last_name: "",
         email: "",
-        age: "",
-        contact_mobile: "",
+        age: 0,
+        contact_mobile: 0,
         home_city: "",
         pronouns: "",
         qualities: "",
@@ -34,13 +35,13 @@ function ApplicationForm() {
         e.preventDefault()
         setIsLoading(true)
 
-        postApplication(formData)
+        postForm(formData)
             .then(() => {
                 navigate(0)
             })
             .catch(() => {
                 setIsLoading(false);
-                console.log("postApplication Failed")
+                console.log("postForm Failed")
             });
         };
 

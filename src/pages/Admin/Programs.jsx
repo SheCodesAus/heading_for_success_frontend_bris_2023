@@ -35,8 +35,8 @@ function Programs() {
         
         <>
         
-            <h1>This is where I will see the list of all programs, both open and closed.</h1>
-            <p>From here I will be able to click on each program and see the details</p>
+            <h1>This is where you will see the list of all programs, both open and closed.</h1>
+            <p>From here you will be able to click on each program and see the details</p>
             { auth.token ? (
                 <>  
                 { ( allPrograms.length > 0 ) && 
