@@ -26,4 +26,3 @@ export async function getProgramDetails(id) {
 
     return await response.json();
 }
-
