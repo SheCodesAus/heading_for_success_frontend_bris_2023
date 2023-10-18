@@ -19,3 +19,4 @@ export function useProgramDetails(id) {
     }, []);
     return { programDetail, isLoading, error, setProgramDetail };
 }
+
