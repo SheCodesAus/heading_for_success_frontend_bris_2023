@@ -1,4 +1,4 @@
-export async function postProgram() {
+export async function postProgram(programData) {
     const url = `${import.meta.env.VITE_API_URL}/programs`;
     const userToken = window.localStorage.getItem('token');
     const response = await fetch(url, {

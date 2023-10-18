@@ -1,4 +1,4 @@
-export async function postScholarship() {
+export async function postScholarship(scholarshipData) {
     const url = `${import.meta.env.VITE_API_URL}/scholarship`;
     const userToken = window.localStorage.getItem('token');
     const response = await fetch(url, {
