@@ -1,13 +1,10 @@
 import React from 'react';
-import PurpleLogo from '../../Images/PurpleLogo.png';
 import { Link } from 'react-router-dom';
+// import './AdminHome.css'
 
 function AdminHome() {
     return (
         <>
-            <div id="purple-logo">
-                <img src={PurpleLogo} alt="Purple Cupcake Logo" />
-            </div>
         <div id="admin-home">
             <Link to="/program">
                 <button type="submit">
@@ -34,5 +31,3 @@ function AdminHome() {
     );
 }
 export default AdminHome;
-
-
