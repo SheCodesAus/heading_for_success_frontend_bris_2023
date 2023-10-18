@@ -1,5 +1,5 @@
 import React from 'react';
-// import PurpleLogo from /Images/PurpleLogo.png;
+import PurpleLogo from '../../Images/PurpleLogo.png';
 import { Link } from 'react-router-dom';
 
 function AdminHome() {
