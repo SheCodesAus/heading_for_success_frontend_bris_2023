@@ -1,14 +1,14 @@
 #admin-home {
+    display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    height: 400px;
-    }
+    height: 100vh; /* Add this line */
+}
 
 .programs {
     max-width: 100px;
     max-height: 100px;
-
 }
 
 .scholarships {
