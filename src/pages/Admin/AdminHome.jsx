@@ -32,7 +32,7 @@ function AdminHome() {
                         <img src={ScholarshipsIcon} width="150" height="150" />
                     </Link>
                 </div>
-        </div>
+                </div>
         </>
     );
 }
