@@ -42,7 +42,7 @@ function ApplicationForm() {
             })
             .catch(() => {
                 setIsLoading(false);
-                console.log("postForm Failed")
+                console.log("postApplicant Failed")
             });
         };
 
@@ -61,7 +61,7 @@ function ApplicationForm() {
 
                 <label>
                     Email:
-                    <input type="" name="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} />
+                    <input type="email" name="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} />
                 </label>
                 {/* //should this be email? or just text field? */}
 
