@@ -53,7 +53,7 @@ function LoginForm() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form class="AppForm" onSubmit={handleSubmit}>
                 <div>
                     <h3>LOGIN</h3>
                     

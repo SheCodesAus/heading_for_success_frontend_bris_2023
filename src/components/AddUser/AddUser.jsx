@@ -50,7 +50,7 @@ function AddUser() {
     if ( auth.token ) {
         return (
 
-            <form onSubmit={handleSubmit}>
+            <form class="AppForm" onSubmit={handleSubmit}>
                 <div>
                     <h3>CREATE NEW ADMIN USER</h3>
                     <input 
