@@ -1,34 +1,39 @@
 import React from 'react';
-import PurpleLogo from '../../Images/PurpleLogo.png';
 import { Link } from 'react-router-dom';
+import ScholarshipsIcon from '../../Images/Scholarships-Icon.svg'
+import ApplicantsIcon from '../../Images/Applicants-Icon.svg'
 
 function AdminHome() {
     return (
         <>
-            <div id="purple-logo">
-                <img src={PurpleLogo} alt="Purple Cupcake Logo" />
-            </div>
-        <div id="admin-home">
+            <div id="admin-home">
+            <div className="programs">
             <Link to="/program">
                 <button type="submit">
-                    Programs
-                </button>
-            </Link>
-            <Link to="/applicant">
-                <button type="submit">
-                    Applications
-                </button>
-            </Link>
-            <Link to="/user">
-                <button type="submit">
+                    Programs  
+                        </button>
+                    </Link>
+                </div>
+
+                <div className="applicants">                    
+                    <Link to="/Applications">
+                        <img src={ApplicantsIcon} width="150" height="150" />
+                    </Link>
+                </div>
+
+                <div className="createAdmin">
+                    <Link to="/CreateUser">
+                        <button type="submit">
                     Create Admin
                 </button>
-            </Link>
-            <Link to="/scholarship">
-                <button type="submit">
-                    Scholarships
-                </button>
-            </Link>
+                </Link>
+                </div>
+
+                <div className="scholarships">
+                    <Link to="/scholarship">
+                        <img src={ScholarshipsIcon} width="150" height="150" />
+                    </Link>
+                </div>
         </div>
         </>
     );
