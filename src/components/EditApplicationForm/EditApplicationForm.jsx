@@ -95,7 +95,7 @@ const EditApplicationForm = () => {
 
         setApplicantDetail((prevApplicantDetail) => ({
             ...prevApplicantDetail,
-            [id]: value,
+            ['scholarship']: value,
         }));      
 
         console.log("click here event", event.target);
