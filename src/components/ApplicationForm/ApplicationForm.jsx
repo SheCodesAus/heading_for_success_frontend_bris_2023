@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate instead of useHistory
 import './ApplicationForm.css';
+import postApplicant from '../../api/post-applicant';
 
 function ApplicationForm() {
     const navigate = useNavigate(); // Initialize useNavigate
@@ -35,7 +36,7 @@ function ApplicationForm() {
         e.preventDefault()
         setIsLoading(true)
 
-        postForm(formData)
+        postApplicant(formData)
             .then(() => {
                 navigate(0)
             })

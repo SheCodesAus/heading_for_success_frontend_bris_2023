@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import postProgram from '../../api/post-program';
 
 function ProgramForm() {
     const [isLoading, setIsLoading] = useState(false);
-    const [programData, setprogramData] = useState({
+    const [programData, setProgramData] = useState({
         program_name: '',
         location: '',
         intake: 0,
@@ -14,14 +15,14 @@ function ProgramForm() {
         application_date_start: ''
     })
     const handleChange = (e) => {
-        setprogramData({
+        setProgramData({
             ...programData,
             [e.target.id]: e.target.value
         })
     }
     const handleChecked = (e) => {
-        setProjectData({
-          ...projectData,
+        setProgramData({
+          ...programData,
           [e.target.id]: e.target.checked
         })
     }
@@ -35,7 +36,7 @@ function ProgramForm() {
             })
             .catch(() => {
                 setIsLoading(false);
-                console.log("postProject Failed")
+                console.log("postProgram Failed")
             });
     }
     return (
@@ -79,7 +80,7 @@ function ProgramForm() {
             <div>
                 <label htmlFor='image'> Image link</label>
                 <input
-                    type='text'
+                    type='image'
                     id='image'
                     onChange={handleChange}
                 />
@@ -95,7 +96,7 @@ function ProgramForm() {
             <div>
                 <label htmlFor="date_start"> Start Date? </label>
                 <input
-                    type="text"
+                    type="date"
                     id="date_start"
                     placeholder='Start date?'
                     onChange={handleChange}
@@ -104,7 +105,7 @@ function ProgramForm() {
             <div>
                 <label htmlFor="date_end"> End Date? </label>
                 <input
-                    type="text"
+                    type="date"
                     id="date_end"
                     placeholder='End date?'
                     onChange={handleChange}
@@ -113,7 +114,7 @@ function ProgramForm() {
             <div>
                 <label htmlFor="application_date_start"> Date Applications Start </label>
                 <input
-                    type="text"
+                    type="date"
                     id="application_date_start"
                     placeholder='When Applications Start'
                     onChange={handleChange}
