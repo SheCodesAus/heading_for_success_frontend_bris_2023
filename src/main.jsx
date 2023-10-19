@@ -8,7 +8,6 @@ import HomePage from './pages/HomePage/HomePage';
 import AdminHome from './pages/Admin/AdminHome';
 import AdminLogin from './pages/Admin/AdminLogin';
 import ApplicationDetails from './pages/Admin/ApplicationDetails';
-import Applications from './pages/Admin/Applications';
 import CreateUser from './pages/Admin/CreateUser';
 import NewProgram from './pages/Admin/NewProgram';
 import ProgramDetails from './pages/Admin/ProgramDetails';
