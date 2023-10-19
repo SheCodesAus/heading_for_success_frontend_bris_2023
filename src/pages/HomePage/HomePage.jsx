@@ -1,7 +1,7 @@
 import "./HomePage.css";
 import HeroLogo from '../../components/HeroLogo/HeroLogo';
 import homeCartoon from '../../Images/HomePage-1-Cartoon.svg'
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 //react functions go here
 
