@@ -1,3 +1,6 @@
+import react, { useState } from "react";
+import postScholarship from "../../api/post-scholarship";
+
 function ScholarshipForm() { 
     const [isLoading, setIsLoading] = useState(false); 
     const [scholarshipData, setscholarshipData] = useState({
