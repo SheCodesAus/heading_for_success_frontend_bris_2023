@@ -46,8 +46,8 @@ function ApplicationForm() {
         };
 
     return (
-        <div>
-            <form className='application-form'>
+        <div className="AppForm">
+            <form onSubmit={handleSubmit}>
                 <label>
                     First Name:
                     <input type="text" name="first_name" placeholder="Enter your first name" value={formData.first_name} onChange={handleChange} />

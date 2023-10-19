@@ -39,7 +39,7 @@ function ProgramForm() {
             });
     }
     return (
-        <form className='programform'>
+        <form className='AppForm'>
             <div>
                 <label htmlFor="program_name"> Program Name </label>
                 <input
