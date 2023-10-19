@@ -45,7 +45,7 @@ function ApplicationForm() {
     };
 
     return (
-        <div>
+        <div className="AppForm">
             <form onSubmit={handleSubmit}>
                 <label>
                     First Name:
