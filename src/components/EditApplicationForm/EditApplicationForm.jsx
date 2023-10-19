@@ -13,17 +13,27 @@ const EditApplicationForm = () => {
 
     const {auth, setAuth} = useAuth();
     const { id, programId } = useParams();
-    // const [genderEligible, setGenderEligible] = useState() 
+    
+    // create a state for the scholarship details
+    // const [scholarshipsAvailable, setScholarshipsAvailable ] = useState([]);
+    // we don't have the application details loaded yet
+    // create a function to assign/unassign the scholarship
+    // this will check the assigned status
+    // this will update the assigned count and remaining count
+    // this will hide or show the button based on the count and if not assigned  
+    // {
+    //     id: 4,
+    //     organization: "She Codes",
+    //     number_available: 5,
+    //     assigned_count: 1,  // this should be previous value + or - 1
+    //     remaining_count: 4, // this should be number_available - assigned_count
+    //     isAssigned: false, //check if scholarship id is same as applicant scholarship
+    //     full: false,  //no further applicants can be assigned
+    //   },
     
     const { applicantDetail, isLoading: isLoadingApplicantDetail, error: errorApplicantDetail, setApplicantDetail } = useApplicantDetails(id);
-    const { programDetail, isLoading: isLoadingProgramDetail, error: errorProgramDetail, setProgramDetail } = useProgramDetails(programId);
+    const { programDetail, isLoading: isLoadingProgramDetail, error: errorProgramDetail, setProgramDetail, scholarshipAssigned, setScholarshipAssigned } = useProgramDetails(programId);
     const [messageBlock, setMessageBlock] = useState(false);
-
-    // const assignedScholarship = 
-    // const [assigned, setAssigned] = useState(true);
-    // const [assign, setAssign] = useState(false);
-    // const [buttonAssigned, setButtonAssigned] = useState('Assigned');
-    // const [buttonAssign, setButtonAssign] = useState('Assign');
 
     if (isLoadingApplicantDetail || isLoadingProgramDetail) {
         return (<Spinner />)
@@ -62,35 +72,70 @@ const EditApplicationForm = () => {
     };
 
     const handleClick = (event) => {
-        console.log("click here even", event.target);
         const { id, value } = event.target;
+        
+        const old_id = applicantDetail.scholarship;
+
+        // update the old id to have a count reduced and the radio button ?
+        let newScholarshipsAssigned = [...scholarshipAssigned];
+        
+        const old_index = newScholarshipsAssigned.findIndex((item) => item.id === parseInt(old_id));
+
+// unassign the count for old radio button selection
+        newScholarshipsAssigned[old_index].assigned_count = newScholarshipsAssigned[old_index].assigned_count - 1;
+        newScholarshipsAssigned[old_index].remaining_count = newScholarshipsAssigned[old_index].remaining_count + 1;
+        newScholarshipsAssigned[old_index].is_assigned = false;
+// assign the count for new radio button selection
+        newScholarshipsAssigned[id].assigned_count = newScholarshipsAssigned[id].assigned_count + 1;
+        newScholarshipsAssigned[id].remaining_count = newScholarshipsAssigned[id].remaining_count - 1;
+        newScholarshipsAssigned[id].is_assigned = true;
+        
+        setScholarshipAssigned(newScholarshipsAssigned);
+        // update the new id to have a count assigned to be increased and remaining decreased
+
+        setApplicantDetail((prevApplicantDetail) => ({
+            ...prevApplicantDetail,
+            [id]: value,
+        }));      
+
+        console.log("click here event", event.target);
         console.log("id/val of evt click scholarship assign",id, value);
-        console.log("text of innerhtml of id",event.target.innerText);
+        // console.log(applicantDetail);
+        // const { id, value } = event.target;
+
+        // console.log("text of innerhtml of id",event.target.innerText);
 
         // toggle Assign button
-        event.target.innerText = 'Assigned';
-        event.target.disabled = true;
+        // event.target.innerText = 'Assigned';
+        // event.target.disabled = true;
 
         // toggle Assigned button to be enabled and updated to Assign
         // updated the assigned/remaining values
 
-        applicantDetail.scholarship = id;
-        setApplicantDetail(applicantDetail);
+        // applicantDetail.scholarship = id;
+        // setApplicantDetail(applicantDetail);
+        // console.log(applicantDetail.scholarship);
     }
 
     const handleSubmit = (event) => {
         
         event.preventDefault();
-
+        // console.log(id, applicantDetail.status, applicantDetail.scholarship)
                 putApplicant(
                     id,
-                    applicantDetail.gender_eligible,
                     applicantDetail.status,
                     applicantDetail.scholarship,
-                ).then((response) => {                   
+                ).then((response) => { 
+                    
+                    // applicantDetail.scholarship = id;
+                    // applicantDetail.status,
+
+                    // setApplicantDetail                  
                     setMessageBlock(true);
                 });
     };
+
+
 
     const status_options = [
         {
@@ -123,8 +168,13 @@ const EditApplicationForm = () => {
         },
     ];
 
+    // setScholarshipsAvailable
 
     if ( auth.token ) {
+
+        if (scholarshipAssigned) {
+            console.log("scholar",scholarshipAssigned);
+        }
         return (
             <div className='application-page'>
                 <>                       
@@ -309,7 +359,7 @@ const EditApplicationForm = () => {
                                 type='text' 
                                 id='current_employer' 
                                 disabled
-                                defaultValue={applicantDetail.current_employer}
+                                defaultChecked={applicantDetail.current_employer}
                                 size='30'
                             />
                         </li>
@@ -359,16 +409,24 @@ const EditApplicationForm = () => {
                         <li className='label'>
                             <input 
                                 className='form-input'
+                                type='checkbox' 
+                                id='gender_eligible' 
+                                disabled
+                                defaultChecked={applicantDetail.gender_eligible}
+                                size='30'
+                            />
+                            {/* <input 
+                                className='form-input'
                                 id='gender_eligible'
                                 name='gender_eligible'
                                 type='radio' 
                                 defaultChecked={applicantDetail.gender_eligible}
                                 onChange={handleChange}
                                 value='true'
-                            />
-                            <label>Yes</label>
-                        </li>                 
-                        <li className='label'>
+                            /> */}
+                        {/* <label>Yes</label> */}
+                        </li>                
+                        {/* <li className='label'>
                             <input 
                                 className='form-input'
                                 id='gender_eligible'
@@ -379,7 +437,7 @@ const EditApplicationForm = () => {
                                 value='false'
                             />
                             <label>No</label>
-                        </li>                                   
+                        </li>                                    */}
 
                         <li className='label'>
                         <label htmlFor='status'>Program Status</label>
@@ -392,8 +450,9 @@ const EditApplicationForm = () => {
                                 onChange={handleChange}
                                 defaultValue={applicantDetail.status}
                             >
-                                {status_options.map((status_options) => (
+                                {status_options.map((status_options,key) => (
                                     <option 
+                                        key={key}
                                         value={status_options.value} 
                                         // selected={status_options.value == applicantDetail.status && 'selected'}
                                     >
@@ -403,23 +462,63 @@ const EditApplicationForm = () => {
                             </select>
                         </li>  
                         <ul className='scholarship-group'>
-                    <li className='scholarship-items'>
-                        <div className='scholarship-grid-right'><h4>Scholarship</h4></div>
-                        <div className='scholarship-grid'><h4>Places</h4></div>
-                        <div className='scholarship-grid'><h4>Assigned</h4></div>
-                        <div className='scholarship-grid'><h4>Remaining</h4></div>
-                        <div className='scholarship-assign'>
-                        </div>                         
-                    </li>
+                            <li key='table' className='scholarship-items'>
+                                <div className='scholarship-grid-right'><h4>Scholarship</h4></div>
+                                <div className='scholarship-grid'><h4>Places</h4></div>
+                                <div className='scholarship-grid'><h4>Assigned</h4></div>
+                                <div className='scholarship-grid'><h4>Remaining</h4></div>
+                                <div className='scholarship-assign'>Assigned
+                                </div>                         
+                            </li>
 
+                    {scholarshipAssigned.map((scholarshipData, key) => {
+                        return (
+                            <>
+                            <li key={key} className='scholarship-items'>
+                            <div className='scholarship-grid-right'>
+                                <p>{scholarshipData.organization}</p>
+                            </div>
+                            <div className='scholarship-grid'>
+                                { scholarshipData.number_available }
+                            </div>
+                            <div id='assigned' className='scholarship-grid'>
+                            {scholarshipData.assigned_count}
+                            </div>
+                            <div id='remaining' className='scholarship-grid'>
+                            {scholarshipData.remaining_count}
+                            </div>                             
+                            {/* //todo - when we click this button, we want to :
+                            // todo - disable it, set text as assigned (DONE), set the id/key of THIS button as the ONLY one that's clicked - set all other buttons to unclicked
+                            //todo - when we click this button, it should assign the scholarship against this provider, remove all other scholarship assignments in state */}
+                            <div className='scholarship-edit'>
+                            <input 
+                                key={key}
+                                type='radio'    
+                                id={key}
+                                value={scholarshipData.id} 
+                                name='scholarship_radio'
+                                defaultChecked={applicantDetail.scholarship === scholarshipData.id && true}
+                                onClick={handleClick}
+                             />   
+                             </div>
+                            </li>
+                            </>
+                          
+                        )
+                    })}
+
+
+<h1>Give me a break here</h1>
                     {programDetail.scholarship.map((scholarshipData, key) => {
-                            // find count of all applicants with scholarship number
+                            // find count of all applicants with scholarship number(
+                            // initialScholarships(scholarshipData);
                             let filteredAssigned = programDetail.applicant.filter((applicant) => applicant.scholarship === scholarshipData.id);
                             let assignedCount = filteredAssigned.length; 
                             let availablePlaces = (scholarshipData.number_available) - (assignedCount);
                             
                         return(
                         <>
+
                         <li key={key} className='scholarship-items'>
                                 <div className='scholarship-grid-right'>
                                     <p>{scholarshipData.organization}</p>
@@ -432,9 +531,21 @@ const EditApplicationForm = () => {
                                 </div>
                                 <div id='remaining' className='scholarship-grid'>
                                 {availablePlaces}
-                                </div>                                
+                                </div>                             
+                                {/* //todo - when we click this button, we want to :
+                                // todo - disable it, set text as assigned (DONE), set the id/key of THIS button as the ONLY one that's clicked - set all other buttons to unclicked
+                                //todo - when we click this button, it should assign the scholarship against this provider, remove all other scholarship assignments in state */}
                                 <div className='scholarship-edit'>
-                                <button 
+                                <input 
+                                    // key={key}
+                                    type='radio'    
+                                    id='scholarship'
+                                    value={scholarshipData.id} 
+                                    name='scholarship'
+                                    defaultChecked={applicantDetail.scholarship === scholarshipData.id && true}
+                                    onClick={handleClick}
+                                 />   
+                                {/* <button 
                                     key={key}
                                     value={scholarshipData.id} 
                                     id={scholarshipData.id}
@@ -445,7 +556,7 @@ const EditApplicationForm = () => {
                                     hidden={availablePlaces < 1 && true}
                                 > 
                                     { ( applicantDetail.scholarship === scholarshipData.id ) ? 'Assigned' : 'Assign' }
-                                </button>
+                                </button> */}
                                              {/* <EditPledgeButton 
                                                 pledgeId={pledgeData.id} 
                                             /> */}
@@ -477,3 +588,4 @@ const EditApplicationForm = () => {
 }
 
 export default EditApplicationForm;
+
