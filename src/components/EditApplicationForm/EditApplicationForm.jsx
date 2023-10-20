@@ -8,6 +8,7 @@ import LoginForm from '../AdminLogin/LoginForm';
 import { useParams } from 'react-router-dom';
 import MessageCard from '../MessageCard/MessageCard';
 import Spinner from '../Spinner/Spinner';
+import ScholarshipCard from '../ScholarshipCard/ScholarshipCard';
 
 const EditApplicationForm = () => {
 
@@ -474,34 +475,17 @@ const EditApplicationForm = () => {
                     {scholarshipAssigned.map((scholarshipData, key) => {
                         return (
                             <>
-                            <li key={key} className='scholarship-items'>
-                            <div className='scholarship-grid-right'>
-                                <p>{scholarshipData.organization}</p>
-                            </div>
-                            <div className='scholarship-grid'>
-                                { scholarshipData.number_available }
-                            </div>
-                            <div id='assigned' className='scholarship-grid'>
-                            {scholarshipData.assigned_count}
-                            </div>
-                            <div id='remaining' className='scholarship-grid'>
-                            {scholarshipData.remaining_count}
-                            </div>                             
-                            {/* //todo - when we click this button, we want to :
-                            // todo - disable it, set text as assigned (DONE), set the id/key of THIS button as the ONLY one that's clicked - set all other buttons to unclicked
-                            //todo - when we click this button, it should assign the scholarship against this provider, remove all other scholarship assignments in state */}
-                            <div className='scholarship-edit'>
-                            <input 
-                                key={key}
-                                type='radio'    
+                            <li 
+                                key={key} 
+                                className='scholarship-items'
+                            >
+                            <ScholarshipCard 
+                                key={key} 
                                 id={key}
-                                value={scholarshipData.id} 
-                                name='scholarship_radio'
-                                defaultChecked={applicantDetail.scholarship === scholarshipData.id && true}
-                                onClick={handleClick}
-                             />   
-                             </div>
-                            </li>
+                                scholarshipData={scholarshipData} 
+                                applicantDetail = {applicantDetail}
+                                onClick={handleClick} />
+                            </li> 
                             </>
                           
                         )
