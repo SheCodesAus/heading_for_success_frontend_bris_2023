@@ -5,7 +5,7 @@ import postApplicant from '../../api/post-applicant';
 
 function ApplicationForm() {
     const navigate = useNavigate(); // Initialize useNavigate
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading, error] = useState(false);
     const [formData, setFormData] = useState({
         first_name: "",
         last_name: "",
@@ -40,7 +40,7 @@ function ApplicationForm() {
             .then(() => {
                 navigate(0)
             })
-            .catch(() => {
+            .catch((error) => {
                 setIsLoading(false);
                 console.log("postApplicant Failed")
             });
@@ -48,7 +48,7 @@ function ApplicationForm() {
 
     return (
         <div className="AppForm">
-            <form onSubmit={handleSubmit}>
+            <form>
                 <label>
                     First Name:
                     <input type="text" name="first_name" id="first_name" placeholder="Enter your first name" value={formData.first_name} onChange={handleChange} />
