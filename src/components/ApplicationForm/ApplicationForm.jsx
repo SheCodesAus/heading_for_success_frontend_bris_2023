@@ -51,49 +51,48 @@ function ApplicationForm() {
             <form onSubmit={handleSubmit}>
                 <label>
                     First Name:
-                    <input type="text" name="first_name" placeholder="Enter your first name" value={formData.first_name} onChange={handleChange} />
+                    <input type="text" name="first_name" id="first_name" placeholder="Enter your first name" value={formData.first_name} onChange={handleChange} />
                 </label>
 
                 <label>
                     Last Name:
-                    <input type="text" name="last_name" placeholder="Enter your last name" value={formData.last_name} onChange={handleChange} />
+                    <input type="text" name="last_name" id="last_name" placeholder="Enter your last name" value={formData.last_name} onChange={handleChange} />
                 </label>
 
                 <label>
                     Email:
-                    <input type="email" name="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} />
+                    <input type="email" name="email" id="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} />
                 </label>
                 {/* //should this be email? or just text field? */}
 
                 <label>
                     Age:
-                    <input type="text" name="age" placeholder="Enter your age" value={formData.age} onChange={handleChange} />
+                    <input type="text" name="age" id="age" placeholder="Enter your age" value={formData.age} onChange={handleChange} />
                 </label>
 
                 <label>
                     Mobile:
-                    <input type="tel" name="mobile" placeholder="Enter your mobile number" value={formData.mobile} onChange={handleChange} />
+                    <input type="tel" name="mobile" id="mobile" placeholder="Enter your mobile number" value={formData.mobile} onChange={handleChange} />
                 </label>
-                {/* should this be in different format? */}
 
                 <label>
                     Home City:
-                    <input type="text" name="home_city" placeholder="Enter your home city" value={formData.home_city} onChange={handleChange} />
+                    <input type="text" name="home_city" id="home_city"  placeholder="Enter your home city" value={formData.home_city} onChange={handleChange} />
                 </label>
 
                 <label>
                     Pronouns:
-                    <input type="text" name="pronouns" placeholder="Enter your pronouns" value={formData.pronouns} onChange={handleChange} />
+                    <input type="text" name="pronouns" id="pronouns" placeholder="Enter your pronouns" value={formData.pronouns} onChange={handleChange} />
                 </label>
 
                 <label>
                     Qualities:
-                    <input type="text" name="qualities" placeholder="Enter your qualities, ie Bring unique perspective to the community" value={formData.qualities} onChange={handleChange} />
+                    <input type="text" name="qualities" id="qualities" placeholder="Enter your qualities, ie Bring unique perspective to the community" value={formData.qualities} onChange={handleChange} />
                 </label>
 
                 <label>
                     Location:
-                    <select name="location" value={formData.location} onChange={handleChange}>
+                    <select name="location" id="location" value={formData.location} onChange={handleChange}>
                         <option value="Sydney">Sydney</option>
                         <option value="Brisbane">Brisbane</option>
                         <option value="Perth">Perth</option>
@@ -102,17 +101,17 @@ function ApplicationForm() {
 
                 <label>
                     Reason:
-                    <input type="text" name="reason" placeholder="Enter your reason for wanting to do this program now" value={formData.reason} onChange={handleChange} />
+                    <input type="text" name="reason" id="reason" placeholder="Enter your reason for wanting to do this program now" value={formData.reason} onChange={handleChange} />
                 </label>
 
                 <label>
                     Previous Education:
-                    <input type="text" name="previous_education" placeholder="Enter your previous education" value={formData.previous_education} onChange={handleChange} />
+                    <input type="text" name="previous_education" id="previous_education" placeholder="Enter your previous education" value={formData.previous_education} onChange={handleChange} />
                 </label>
 
                 <label>
                     Work Experience:
-                    <input type="text" name="work_experience" placeholder="Enter your work experience" value={formData.work_experience} onChange={handleChange} />
+                    <input type="text" name="work_experience" id="work_experience" placeholder="Enter your work experience" value={formData.work_experience} onChange={handleChange} />
                 </label>
 
                 <label>
@@ -122,6 +121,7 @@ function ApplicationForm() {
                             <input
                                 type="radio"
                                 name="currently_employed"
+                                id="currently_employed"
                                 value="yes"
                                 checked={formData.currently_employed === "yes"}
                                 onChange={handleChange}
@@ -132,6 +132,7 @@ function ApplicationForm() {
                             <input
                                 type="radio"
                                 name="currently_employed"
+                                id="currently_employed"
                                 value="no"
                                 checked={formData.currently_employed === "no"}
                                 onChange={handleChange}
@@ -143,11 +144,11 @@ function ApplicationForm() {
                 </label>
                 <label>
                     Current Employer:
-                    <input type="text" name="current_employer" placeholder="Enter your current employer" value={formData.qualities} onChange={handleChange} />
+                    <input type="text" name="current_employer" id="current_employer" placeholder="Enter your current employer" value={formData.qualities} onChange={handleChange} />
                 </label>
                 <label>
                     Biography:
-                    <textarea type="text" name="biography" placeholder="Tell us about yourself" value={formData.biography} onChange={handleChange} />
+                    <textarea type="text" name="biography" id="biography" placeholder="Tell us about yourself" value={formData.biography} onChange={handleChange} />
                 </label>
 
                 <label>
@@ -157,6 +158,7 @@ function ApplicationForm() {
                             <input
                                 type="radio"
                                 name="gender_eligible"
+                                id="gender_eligible"
                                 value="yes"
                                 checked={formData.gender_eligible === "yes"}
                                 onChange={handleChange}
@@ -167,6 +169,7 @@ function ApplicationForm() {
                             <input
                                 type="radio"
                                 name="gender_eligible"
+                                id="gender_eligible"
                                 value="no"
                                 checked={formData.gender_eligible === "no"}
                                 onChange={handleChange}
@@ -178,7 +181,7 @@ function ApplicationForm() {
 
                 <label>
                     Resume:
-                    <input type="file" name="resume" onChange={handleChange} />
+                    <input type="url" name="Linkedin-url" id="resume" onChange={handleChange} />
                 </label>
 
                 <button type="submit" onChange={handleSubmit}>Submit</button>
