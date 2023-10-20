@@ -72,7 +72,7 @@ function ApplicationForm() {
 
                 <label>
                     Mobile:
-                    <input type="text" name="mobile" placeholder="Enter your mobile number" value={formData.mobile} onChange={handleChange} />
+                    <input type="tel" name="mobile" placeholder="Enter your mobile number" value={formData.mobile} onChange={handleChange} />
                 </label>
                 {/* should this be in different format? */}
 
