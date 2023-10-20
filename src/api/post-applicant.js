@@ -12,7 +12,7 @@ export async function postApplicant() {
             'last_name': formData.last_name,
             'email': formData.email,
             'age': formData.age,
-            'mobile': formData.mobile,
+            'contact_mobile': formData.contact_mobile,
             'home_city': formData.home_city,
             'pronouns': formData.pronouns,
             'qualities': formData.qualities,
