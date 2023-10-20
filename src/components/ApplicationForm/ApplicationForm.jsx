@@ -10,8 +10,8 @@ function ApplicationForm() {
         first_name: "",
         last_name: "",
         email: "",
-        age: 0,
-        contact_mobile: 0,
+        age: "",
+        contact_mobile: "",
         home_city: "",
         pronouns: "",
         qualities: "",
@@ -72,7 +72,7 @@ function ApplicationForm() {
 
                 <label>
                     Mobile:
-                    <input type="tel" name="mobile" id="mobile" placeholder="Enter your mobile number" value={formData.mobile} onChange={handleChange} />
+                    <input type="tel" name="contact_mobile" id="contact_mobile" placeholder="Enter your mobile number" value={formData.mobile} onChange={handleChange} />
                 </label>
 
                 <label>
@@ -91,7 +91,7 @@ function ApplicationForm() {
                 </label>
 
                 <label>
-                    Location:
+                    Location (Choose from the Dropdown):
                     <select name="location" id="location" value={formData.location} onChange={handleChange}>
                         <option value="Sydney">Sydney</option>
                         <option value="Brisbane">Brisbane</option>
@@ -152,7 +152,7 @@ function ApplicationForm() {
                 </label>
 
                 <label>
-                    Gender Eligible:
+                    Do You Identify as a Woman?
                     <div>
                         <label>
                             <input
@@ -180,8 +180,8 @@ function ApplicationForm() {
                 </label>
 
                 <label>
-                    Resume:
-                    <input type="url" name="Linkedin-url" id="resume" onChange={handleChange} />
+                    LinkedIn:
+                    <input type="url" name="resume" id="resume" onChange={handleChange} />
                 </label>
 
                 <button type="submit" onChange={handleSubmit}>Submit</button>
