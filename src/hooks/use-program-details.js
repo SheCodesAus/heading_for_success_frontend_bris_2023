@@ -34,7 +34,6 @@ export function useProgramDetails(id) {
                 setProgramDetail(programDetail);
                 setIsLoading(false);
 
-                setScholarshipAssigned([]); // had to put this here as this renders twice
                 programDetail.scholarship.map((scholarshipData, key) => {
                     let filteredAssigned = programDetail.applicant.filter((applicant) => applicant.scholarship === scholarshipData.id);
                     let assignedCount = filteredAssigned.length;    
@@ -52,14 +51,14 @@ export function useProgramDetails(id) {
                     // setScholarshipAssigned(newItems);
                     
                 })    
+                 
                 setScholarshipAssigned(newItems);
-                console.log("render in  hook)")
             })
             .catch((error) => {
                 setError(error);
                 setIsLoading(false);
             });
-    }, [scholarshipAssigned.id]);
+    }, [scholarshipAssigned]); // to stop rendering twice
     return { programDetail, isLoading, error, setProgramDetail, scholarshipAssigned, setScholarshipAssigned };
 }
 

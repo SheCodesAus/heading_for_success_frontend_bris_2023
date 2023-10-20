@@ -1,11 +1,18 @@
 
 const ScholarshipCard = (props) => {
     const { scholarshipData, applicantDetail } = props;
+    // console.log('props.id, application details', props.id, applicantDetail.scholarship, scholarshipData.id);
+    if (applicantDetail.scholarship === scholarshipData.id) {
+        console.log("matched scholarship id", scholarshipData.id)
+        scholarshipData.is_assigned = true;
+        console.log(scholarshipData.is_assigned)
+    }
+    // console.log("within card", scholarshipData);
 
 
     return (
             <>
-                <div className='scholarship-grid-right'>
+                <div className='scholarship-grid-left'>
                     <p>{scholarshipData.organization}</p>
                 </div>
                 <div className='scholarship-grid'>
@@ -27,8 +34,13 @@ const ScholarshipCard = (props) => {
                     id={props.id}
                     value={scholarshipData.id} 
                     name='scholarship_radio'
-                    defaultChecked={applicantDetail.scholarship === scholarshipData.id && true}
+                    // defaultChecked={applicantDetail.scholarship === scholarshipData.id && true}
+                    disabled={scholarshipData.remaining_count === 0 && true}
+                    // checked={scholarshipData.is_assigned}
+                    defaultChecked={scholarshipData.is_assigned}
                     onClick={props.onClick}
+                    // onClick={() => props.onClick()}
+                    // onChange={props.onClick}
                     />   
                 </div>
             </>       

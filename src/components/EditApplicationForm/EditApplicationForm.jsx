@@ -82,14 +82,19 @@ const EditApplicationForm = () => {
         
         const old_index = newScholarshipsAssigned.findIndex((item) => item.id === parseInt(old_id));
 
+        if (old_index > -1) { // index found
 // unassign the count for old radio button selection
-        newScholarshipsAssigned[old_index].assigned_count = newScholarshipsAssigned[old_index].assigned_count - 1;
-        newScholarshipsAssigned[old_index].remaining_count = newScholarshipsAssigned[old_index].remaining_count + 1;
-        newScholarshipsAssigned[old_index].is_assigned = false;
+            newScholarshipsAssigned[old_index].assigned_count = newScholarshipsAssigned[old_index].assigned_count - 1;
+            newScholarshipsAssigned[old_index].remaining_count = newScholarshipsAssigned[old_index].remaining_count + 1;
+            newScholarshipsAssigned[old_index].is_assigned = false;
+        }
 // assign the count for new radio button selection
         newScholarshipsAssigned[id].assigned_count = newScholarshipsAssigned[id].assigned_count + 1;
         newScholarshipsAssigned[id].remaining_count = newScholarshipsAssigned[id].remaining_count - 1;
         newScholarshipsAssigned[id].is_assigned = true;
+        console.log("old",newScholarshipsAssigned[old_index]);
+        console.log("new",newScholarshipsAssigned[id]);
+        console.log(newScholarshipsAssigned);
         
         setScholarshipAssigned(newScholarshipsAssigned);
         // update the new id to have a count assigned to be increased and remaining decreased
@@ -173,9 +178,9 @@ const EditApplicationForm = () => {
 
     if ( auth.token ) {
 
-        if (scholarshipAssigned) {
-            console.log("scholar",scholarshipAssigned);
-        }
+        // if (scholarshipAssigned) {
+        //     console.log("scholar",scholarshipAssigned);
+        // }
         return (
             <div className='application-page'>
                 <>                       
@@ -463,12 +468,13 @@ const EditApplicationForm = () => {
                             </select>
                         </li>  
                         <ul className='scholarship-group'>
+                            <h1>Scholarships</h1>
                             <li key='table' className='scholarship-items'>
-                                <div className='scholarship-grid-right'><h4>Scholarship</h4></div>
+                                <div className='scholarship-grid'><h4>Scholarship</h4></div>
                                 <div className='scholarship-grid'><h4>Places</h4></div>
                                 <div className='scholarship-grid'><h4>Assigned</h4></div>
                                 <div className='scholarship-grid'><h4>Remaining</h4></div>
-                                <div className='scholarship-assign'>Assigned
+                                <div className='scholarship-grid'><h4>Assigned</h4>
                                 </div>                         
                             </li>
 
@@ -491,66 +497,6 @@ const EditApplicationForm = () => {
                         )
                     })}
 
-
-<h1>Give me a break here</h1>
-                    {programDetail.scholarship.map((scholarshipData, key) => {
-                            // find count of all applicants with scholarship number(
-                            // initialScholarships(scholarshipData);
-                            let filteredAssigned = programDetail.applicant.filter((applicant) => applicant.scholarship === scholarshipData.id);
-                            let assignedCount = filteredAssigned.length; 
-                            let availablePlaces = (scholarshipData.number_available) - (assignedCount);
-                            
-                        return(
-                        <>
-
-                        <li key={key} className='scholarship-items'>
-                                <div className='scholarship-grid-right'>
-                                    <p>{scholarshipData.organization}</p>
-                                </div>
-                                <div className='scholarship-grid'>
-                                    { scholarshipData.number_available }
-                                </div>
-                                <div id='assigned' className='scholarship-grid'>
-                                {assignedCount}
-                                </div>
-                                <div id='remaining' className='scholarship-grid'>
-                                {availablePlaces}
-                                </div>                             
-                                {/* //todo - when we click this button, we want to :
-                                // todo - disable it, set text as assigned (DONE), set the id/key of THIS button as the ONLY one that's clicked - set all other buttons to unclicked
-                                //todo - when we click this button, it should assign the scholarship against this provider, remove all other scholarship assignments in state */}
-                                <div className='scholarship-edit'>
-                                <input 
-                                    // key={key}
-                                    type='radio'    
-                                    id='scholarship'
-                                    value={scholarshipData.id} 
-                                    name='scholarship'
-                                    defaultChecked={applicantDetail.scholarship === scholarshipData.id && true}
-                                    onClick={handleClick}
-                                 />   
-                                {/* <button 
-                                    key={key}
-                                    value={scholarshipData.id} 
-                                    id={scholarshipData.id}
-                                    type='button' 
-                                    onClick={handleClick}
-                                    // onClick={() => updateScholarship(scholarshipData.id)}
-                                    disabled={ ( applicantDetail.scholarship === scholarshipData.id ) ? true : false}
-                                    hidden={availablePlaces < 1 && true}
-                                > 
-                                    { ( applicantDetail.scholarship === scholarshipData.id ) ? 'Assigned' : 'Assign' }
-                                </button> */}
-                                             {/* <EditPledgeButton 
-                                                pledgeId={pledgeData.id} 
-                                            /> */}
-                                    
-                                </div>  
-                            </li>
-                            </>
-                            )
-                            
-                    })};
                 </ul>                                              
                     <button type='submit' className='btn-wide'>SAVE</button>
                     { messageBlock ? (
