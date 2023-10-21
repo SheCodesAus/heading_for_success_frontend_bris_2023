@@ -5,7 +5,7 @@ import Shefunds from "../../Images/Shefunds.svg"
 
 function Footer() {
     return (
-        <h1>Powered by <img src={Shefunds} /> </h1>
+        <h1>Powered by <img id="footerImage" src={Shefunds} /> </h1>
     );
 }
 

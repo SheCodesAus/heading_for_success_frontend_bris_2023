@@ -1,9 +1,30 @@
 .heroheader {
     display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
     justify-content: space-around;
     padding: 24px;
 }
 
+.HomeIcon {
+    display: flex;
+    justify-content: space-around;
+    left: 0;
+    position: fixed;
+    width: 90px; 
+}
+
+.adminhero {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 24px;
+}
+
 #headertextlogo {
-    width: 40%;
+    display: flex;
+    margin: auto;
 }

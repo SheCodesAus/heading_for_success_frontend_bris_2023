@@ -18,9 +18,15 @@ function Header() {
                     </Link>
                 </div>
                 <div>
-                    <img id="headertextlogo" src={Shefunds} />
-                    {/* <NavBar /> */}      
-            <img src={AdminLoginPink} />
+                <Link to= "/"> 
+                        <img id="headertextlogo"  height="400" width="400" src={Shefunds} />
+                        </Link>
+                    {/* <NavBar /> */}
+                    <div class="adminhero">
+                    <Link to= "/login"> 
+                        <img src={AdminLoginPink} />
+                        </Link>
+                        </div>
             </div>
             </div>
             </>
