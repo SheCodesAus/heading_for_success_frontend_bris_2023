@@ -1,5 +1,5 @@
 import React from 'react'
-import OpenPrograms from "../../components/OpenPrograms/OpenProgams";
+import OpenPrograms from "../../components/OpenProgramsList/OpenProgamsList";
 
 function ProgramOpenPage() {
     return (
