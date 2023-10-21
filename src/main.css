@@ -32,8 +32,9 @@ img {
 
 /* Font Family */
 body {
-    font-family: "Raleway", sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 20px;
+    /* font-weight: 600; */
     line-height: 1.5;
 }
 
