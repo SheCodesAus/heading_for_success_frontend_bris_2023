@@ -1,4 +1,4 @@
-export async function putApplicant(id, genderEligible, status, scholarship ) {
+export async function putApplicant(id, status, scholarship ) {
     const url = `${import.meta.env.VITE_API_URL}/applicant/${id}`;
     const userToken = window.localStorage.getItem('token');
 
@@ -8,7 +8,7 @@ export async function putApplicant(id, genderEligible, status, scholarship ) {
             'Authorization': 'Token ' + userToken,               
         },
         body: JSON.stringify({
-            'gender_eligible': genderEligible,
+            // 'gender_eligible': genderEligible,
             'status': status,
             'scholarship': scholarship,
         }),
