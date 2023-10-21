@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getOpenPrograms } from '../api/get-open-programs';
+import { getOpenPrograms} from '../api/get-open-programs';
 
 export function useOpenProgram() {
     const [program, setProgram] = useState([]);
