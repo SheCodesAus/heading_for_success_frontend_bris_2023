@@ -1,25 +1,10 @@
-
-#admin-home {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 400px;
+.homeCartoon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
 }
 
-#background {
-        background-color: #DC9849
-    }
 
-    img {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 20px; /* Set the desired height for the image container */
-    }
-    
-     img {
-        max-width: 10%; /* Ensure the image does not exceed its container */
-        max-height: 10%; 
-    }
-    
+html, h1 { background-color: #DC9849;}
+
