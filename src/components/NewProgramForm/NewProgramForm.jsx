@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import { useAuth } from '../../hooks/use-auth';
 import PostProgram, { postProgram } from '../../api/post-program';
 import MessageCard from '../MessageCard/MessageCard';
+import LoginForm from '../AdminLogin/LoginForm';
 
 
 function NewProgramForm() {
+    const {auth, setAuth} = useAuth();
     const [isLoading, setIsLoading] = useState(false);
     const [messageBlock, setMessageBlock] = useState(false);
     const [programData, setprogramData] = useState({
@@ -78,105 +81,115 @@ function NewProgramForm() {
             value: 'Tasmania',
         },
     ];
-    return (
-        <form className='AppForm'>
+
+    if ( auth.token ) {
+
+        return (
+            <form className='AppForm'>
+                <div>
+                    <label htmlFor='program_name'>Program Name</label>
+                    <input
+                        type='text'
+                        id='program_name'
+                        placeholder='Enter name of program'
+                        onChange={handleChange}
+                    />
+                </div>
+                <div>
+                    <label htmlFor='location'>Location</label>
+                    <select
+                        name='location'
+                        id='location'
+                        onChange={handleChange}>
+                        {location_options.map((location_options,key) => (
+                            <option 
+                                key={key}
+                                value={location_options.value}
+                            >
+                                {location_options.label}
+                            </option>
+                        ))}
+                    </select>                    
+                </div>
+                <div>
+                    <label htmlFor='intake'>Intake</label>
+                    <input
+                        type='text'
+                        id='intake'
+                        placeholder='Month/ Year'
+                        onChange={handleChange}
+                    />
+                </div>
+                <div>
+                    <label htmlFor='description'>Details</label>
+                    <textarea
+                        type='text-area'
+                        id='description'
+                        placeholder='Description of Program'
+                        onChange={handleChange}
+                        rows='5'
+                        cols='30'                     
+                    />
+                </div>
+                <div>
+                    <label htmlFor='image'>Image link</label>
+                    <input
+                        type='text'
+                        id='image'
+                        onChange={handleChange}
+                    />
+                </div>
+                <div>
+                    <label htmlFor='date_start'>Start Date</label>
+                    <input
+                        type='date'
+                        id='date_start'
+                        placeholder='Start date?'
+                        onChange={handleChange}
+                    />
+                </div>
+                <div>
+                    <label htmlFor='date_end'>End Date</label>
+                    <input
+                        type='date'
+                        id='date_end'
+                        placeholder='End date?'
+                        onChange={handleChange}
+                    />
+                </div>
+                <div>
+                    <label htmlFor='application_date_start'> Date Applications Start </label>
+                    <input
+                        type='date'
+                        id='application_date_start'
+                        placeholder='When Applications Start'
+                        onChange={handleChange}
+                    />
+                </div>
+                <div>
+                    <label htmlFor='application_date_end'> Date Applications End</label>
+                    <input
+                        type='date'
+                        id='application_date_end'
+                        placeholder='When Applications End'
+                        onChange={handleChange}
+                    />
+                </div>
+                <button type='submit' onClick={handleSubmit}>Create </button>
+                {messageBlock && 
+                    <MessageCard 
+                        message='Program created successfully' 
+                    />
+                }
+            </form>
+        )
+    } else {
+        return (
             <div>
-                <label htmlFor='program_name'>Program Name</label>
-                <input
-                    type='text'
-                    id='program_name'
-                    placeholder='Enter name of program'
-                    onChange={handleChange}
-                />
+            <LoginForm />
             </div>
-            <div>
-                <label htmlFor='location'>Location</label>
-                <select
-                    name='location'
-                    id='location'
-                    onChange={handleChange}>
-                    {location_options.map((location_options,key) => (
-                        <option 
-                            key={key}
-                            value={location_options.value}
-                        >
-                            {location_options.label}
-                        </option>
-                    ))}
-                </select>                    
-            </div>
-            <div>
-                <label htmlFor='intake'>Intake</label>
-                <input
-                    type='text'
-                    id='intake'
-                    placeholder='Month/ Year'
-                    onChange={handleChange}
-                />
-            </div>
-            <div>
-                <label htmlFor='description'>Details</label>
-                <textarea
-                    type='text-area'
-                    id='description'
-                    placeholder='Description of Program'
-                    onChange={handleChange}
-                    rows='5'
-                    cols='30'                     
-                />
-            </div>
-            <div>
-                <label htmlFor='image'>Image link</label>
-                <input
-                    type='text'
-                    id='image'
-                    onChange={handleChange}
-                />
-            </div>
-            <div>
-                <label htmlFor='date_start'>Start Date</label>
-                <input
-                    type='date'
-                    id='date_start'
-                    placeholder='Start date?'
-                    onChange={handleChange}
-                />
-            </div>
-            <div>
-                <label htmlFor='date_end'>End Date</label>
-                <input
-                    type='date'
-                    id='date_end'
-                    placeholder='End date?'
-                    onChange={handleChange}
-                />
-            </div>
-            <div>
-                <label htmlFor='application_date_start'> Date Applications Start </label>
-                <input
-                    type='date'
-                    id='application_date_start'
-                    placeholder='When Applications Start'
-                    onChange={handleChange}
-                />
-            </div>
-            <div>
-                <label htmlFor='application_date_end'> Date Applications End</label>
-                <input
-                    type='date'
-                    id='application_date_end'
-                    placeholder='When Applications End'
-                    onChange={handleChange}
-                />
-            </div>
-            <button type='submit' onClick={handleSubmit}>Create </button>
-            {messageBlock && 
-                <MessageCard 
-                    message='Program created successfully' 
-                />
-            }
-        </form>
-    )
+        );
+    }        
 }
 
-export default NewProgramForm
+export default NewProgramForm;
