@@ -17,10 +17,12 @@ function Header() {
             <img src={HomeIcon} class="HomeIcon"/>
                     </Link>
                 </div>
-                <div>
+                <div class="headerlogo" >
                 <Link to= "/"> 
-                        <img id="headertextlogo"  height="400" width="400" src={Shefunds} />
-                        </Link>
+                        <img id src={Shefunds} />
+                    </Link>
+                    </div>
+                    <div>
                     {/* <NavBar /> */}
                     <div class="adminhero">
                     <Link to= "/login"> 
