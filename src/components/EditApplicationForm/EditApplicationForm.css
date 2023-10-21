@@ -1,0 +1,60 @@
+.application-page {
+    width: 95%;
+    margin: auto;
+    list-style-type: none;
+    background-color: white;
+}
+
+.scholarship-items {
+    /* padding-top:15px; */
+    list-style-type: none;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40% 15% 15% 15% 15%; 
+    background-color: white;
+    /* margin: auto; */
+    height: 30px;
+    /* vertical-align: middle; */
+    text-align: center;
+    box-shadow: unset;
+    /* padding: unset; */
+}
+
+.scholarship-grid-left {
+    text-align: left;
+    vertical-align: middle;
+    /* border-style: solid; */
+    padding: 0px;
+    background-color: white;
+    /* background-color: unset; */
+    box-shadow: unset;
+}
+
+.scholarship-grid {
+    text-align: right;
+    vertical-align: middle;
+    /* border-style: solid; */
+    padding: 0px;
+    background-color: white;
+    box-shadow: unset;
+}
+
+.scholarship-edit {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    vertical-align: middle;
+    /* border-style: solid; */
+    padding: 0px;
+    background-color: white;
+    box-shadow: unset;
+}
+
+
+@media (min-width: 768px) {
+.root {
+        max-width: 80%;
+    }
+} 

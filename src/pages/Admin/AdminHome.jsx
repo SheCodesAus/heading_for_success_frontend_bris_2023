@@ -1,23 +1,14 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../hooks/use-auth';
-import LoginForm from '../../components/AdminLogin/LoginForm';
+import homeCartoon from '../../Images/HomePage-1-Cartoon.svg'
+import './AdminHome.css'
 
 function AdminHome() {
-    const {auth, setAuth} = useAuth();
-    
-    if ( auth.token ) {        
-        return(
-            <div>
-                <h1>This is the admin home page.</h1>
+    return (
+        <div>
+            <h1>Welcome, Administrator</h1>
+        <img src={homeCartoon} class="homeCartoon"></img>
             </div>
-        )
-    } else {
-        return (
-            <div>
-            <LoginForm />
-            </div>
-        );
-    }        
+    );
 }
-
-export default AdminHome
+export default AdminHome;

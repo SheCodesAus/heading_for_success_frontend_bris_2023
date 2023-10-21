@@ -1,7 +1,7 @@
 /* ApplicationForm.css */
 
 /* Container styling */
-div {
+.AppForm {
     max-width: 500px;
     margin: 0 auto;
     padding: 20px;
