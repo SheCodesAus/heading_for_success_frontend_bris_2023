@@ -1,11 +1,9 @@
 export async function getOpenPrograms() {
     const url = `${import.meta.env.VITE_API_URL}/program-open`;
-    const userToken = window.localStorage.getItem('token');
     const response = await fetch(url, {
         method: 'GET',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Token ' + userToken,
+            'Content-Type': 'application/json'
         },
     });
     if (!response.ok) {

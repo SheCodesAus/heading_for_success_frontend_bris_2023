@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 
 function OpenPrograms({ programOpen }) {
-    // const { programOpen } = props;
     const programPath = `get-open-programs/${programOpen.id}`;
 
     return (
