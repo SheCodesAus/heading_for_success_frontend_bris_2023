@@ -1,7 +1,9 @@
 import { useState } from 'react';
 
 function ProgramForm() {
+    const [isLoading, setIsLoading] = useState(false);
     const [programData, setprogramData] = useState({
+
         program_name: '',
         location: '',
         intake: 0,
@@ -19,8 +21,8 @@ function ProgramForm() {
         })
     }
     const handleChecked = (e) => {
-        setProjectData({
-          ...projectData,
+        setprogramData({
+          ...programData,
           [e.target.id]: e.target.checked
         })
     }
@@ -34,7 +36,7 @@ function ProgramForm() {
             })
             .catch(() => {
                 setIsLoading(false);
-                console.log("postProject Failed")
+                console.log("postProgram Failed")
             });
     }
     return (
