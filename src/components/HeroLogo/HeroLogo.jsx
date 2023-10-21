@@ -1,12 +1,11 @@
 import "./HeroLogo.css"
-import heroLogo from '../../Images/PurpleLogo.png'
+import heroLogo from '../../Images/LogoSheCodes-2V2.svg'
 // Test
 
 const HeroLogo = () =>{
     return(
         <div>
-            <h1> My Hero Logo</h1>
-            <img src={heroLogo} alt='Hero Cupcake Logo'></img>
+            <img src={heroLogo} alt='Hero Cupcake Logo' class="center"></img>
         </div> );
 
 }
