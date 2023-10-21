@@ -1,11 +1,11 @@
 import ScholarshipForm from "../../components/NewScholarship/ScholarshipForm";
 import { useProgramDetails } from "../../hooks/use-program-details";
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import { useAuth } from "../../hooks/use-auth";
 import { useParams, Link } from 'react-router-dom';
 import LoginForm from "../../components/AdminLogin/LoginForm";
 import MessageCard from "../../components/MessageCard/MessageCard";
-// import Spinner from "../Spinner/Spinner";
+import Spinner from "../../components/Spinner/Spinner";
 
 function ProgramDetails() {
 
@@ -15,8 +15,7 @@ function ProgramDetails() {
     const [messageBlock, setMessageBlock] = useState(false);
 
     if (isLoading) {
-        // return (<Spinner />)
-        <p>Is Loading..</p>
+        return (<Spinner />)
     }
 
     if (error) {
@@ -52,28 +51,26 @@ function ProgramDetails() {
             { programDetail.scholarship &&
                 programDetail.scholarship.map((scholarshipData, key) => {
                     return (
-                    <>    
+                    <Fragment key={key}>    
                         <li key={key}>
                                 {scholarshipData.organization}
                         </li>
-                    </>
+                    </Fragment>
                     )
                 })
             }
 
             <h2>This is the Related Applicants Section.</h2>
-
-                                    {/* <Link to={applicantLink}> */}
             {   programDetail.applicant &&
                 programDetail.applicant.map((applicantData, key) => {
                 return (
-                <>    
+                <Fragment key={key}>    
                     <li key={key}>
                         <Link to={`/application/${applicantData.id}/${id}`}>
                             {`${applicantData.first_name} ${applicantData.last_name}`}
                         </Link>
                     </li>
-                </>
+                </Fragment>
                 )
             })}
 

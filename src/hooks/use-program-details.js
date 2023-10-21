@@ -5,13 +5,13 @@ export function useProgramDetails(id) {
     const [programDetail, setProgramDetail] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState();
-    const [scholarshipAssigned, setScholarshipAssigned] = useState([]);
+    const [scholarshipAssigned, setScholarshipAssigned] = useState(null);
     
     const newItems = [];
 
     const addScholarshipItem = (scholarshipData, assignedCount) => {
         
-        const newItem = {
+        return {
             id: scholarshipData.id,
             organization: scholarshipData.organization,
             number_available: scholarshipData.number_available,
@@ -19,13 +19,7 @@ export function useProgramDetails(id) {
             remaining_count: scholarshipData.number_available - assignedCount,
             is_assigned: false
           };
-
-        newItems.push(newItem);
          
-        // setScholarshipAssigned((prevScholarshipAssigned) => [
-        // ...prevScholarshipAssigned,
-        // newItem,
-        // ]);
     };
 
     useEffect(() => {
@@ -34,31 +28,20 @@ export function useProgramDetails(id) {
                 setProgramDetail(programDetail);
                 setIsLoading(false);
 
-                programDetail.scholarship.map((scholarshipData, key) => {
+                const tempScholarshipAssigned =  programDetail.scholarship.map((scholarshipData, key) => {
                     let filteredAssigned = programDetail.applicant.filter((applicant) => applicant.scholarship === scholarshipData.id);
                     let assignedCount = filteredAssigned.length;    
-                    addScholarshipItem(scholarshipData, assignedCount);
-                    // const newItems = [
-                    //     ...scholarshipAssigned,
-                    //     {
-                    //         id: scholarshipData.id,
-                    //         number_available: scholarshipData.number_available,
-                    //         assigned_count: assignedCount,   
-                    //         remaining_count: scholarshipData.number_available - assignedCount,  
-                    //         isAssigned: false
-                    //     }
-                    // ];
-                    // setScholarshipAssigned(newItems);
-                    
+                    return addScholarshipItem(scholarshipData, assignedCount);                   
                 })    
-                 
-                setScholarshipAssigned(newItems);
+                setScholarshipAssigned(tempScholarshipAssigned);
             })
             .catch((error) => {
                 setError(error);
                 setIsLoading(false);
             });
-    }, [scholarshipAssigned]); // to stop rendering twice
+    }, []); // to stop rendering twice
+
+    
     return { programDetail, isLoading, error, setProgramDetail, scholarshipAssigned, setScholarshipAssigned };
 }
 
