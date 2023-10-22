@@ -1,0 +1,18 @@
+.program-icons-close {
+    /* display: flex;
+    align-items: center;
+     */
+    height: 20px;
+    color: grey;
+    /* box-shadow: none; */
+}
+
+.program-icons-open {
+    height: 20px;
+    color: purple;
+}
+
+.program-icons-future {
+    height: 20px;
+    color: goldenrod;
+}
