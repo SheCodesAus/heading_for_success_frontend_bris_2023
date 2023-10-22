@@ -17,13 +17,14 @@ import ThanksForApplying from './pages/Aplicant/ThanksForApplying';
 import { AuthProvider } from './components/AuthProvider/AuthProvider';
 import ProgramOpenPage from './pages/Aplicant/ProgramOpenPage';
 
-//COMPONENTS IMPORTS 
-// import NavBar from './components/NavBar/NavBar';
+//COMPONENTS IMPORTS
+// import NavBarResponsive from './components/NavBar/NavBarResponsive.jsx';
+import NavBar from './components/NavBar/NavBar.jsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    // element: <NavBar/>,
+    element: <NavBar />,
     children: [
 
       { path: "/adminHome", element: <AdminHome /> },
