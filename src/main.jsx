@@ -18,13 +18,14 @@ import { AuthProvider } from './components/AuthProvider/AuthProvider';
 import ProgramOpenPage from './pages/Aplicant/ProgramOpenPage';
 
 //COMPONENTS IMPORTS
-// import NavBarResponsive from './components/NavBar/NavBarResponsive.jsx';
-import NavBar from './components/NavBar/NavBar.jsx'
+import NavBarResponsive from './components/NavBar/NavBarResponsive.jsx';
+// import NavBar from './components/NavBar/NavBar.jsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <NavBar />,
+    // element: <NavBar />,
+    element: <NavBarResponsive />,
     children: [
 
       { path: "/adminHome", element: <AdminHome /> },

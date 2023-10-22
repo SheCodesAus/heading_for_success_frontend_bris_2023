@@ -1,16 +1,18 @@
-import "../../main.css"
+// import "../../main.css"
 import "./HomePage.css";
 import HeroLogo from '../../components/HeroLogo/HeroLogo';
 import UpdatedCartoon from '../../Images/UpdatedCartoon.svg'
 import { Link } from "react-router-dom";
 import Header from '../../components/Header/header.jsx';
-import  Footer  from '../../components/Footer/Footer.jsx';
+import Footer from '../../components/Footer/Footer.jsx';
+// import OpenPrograms from "../../components/OpenPrograms/OpenProgams";
 //react functions go here
 
 function HomePage() {
     return (
         <div className="homepage-container">
-            <Header/>
+            <Header />
+            {/* <OpenPrograms /> */}
             {/* <h1> My homepage</h1> */}
             {/* <div class="mainThings">
                 <HeroLogo /> 

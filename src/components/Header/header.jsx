@@ -1,7 +1,7 @@
 import NavBar from '../NavBar/NavBar';
 import React from 'react'
 import '../../main.css'
-import AdminLoginPink from "../../Images/AdminLoginPink.svg"
+// import AdminLoginPink from "../../Images/AdminLoginPink.svg"
 import HomeIcon from "../../Images/HomeIcon.svg"
 import "./header.css"
 import "../../main.jsx"
@@ -26,7 +26,7 @@ function Header() {
                     {/* <NavBar /> */}
                     <div class="adminhero">
                     <Link to= "/login"> 
-                        <img src={AdminLoginPink} />
+                        {/* <img src={AdminLoginPink} /> */}
                         </Link>
                         </div>
             </div>
