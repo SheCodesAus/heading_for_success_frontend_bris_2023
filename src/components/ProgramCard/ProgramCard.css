@@ -1,21 +1,89 @@
 .program-card {
-    width: 80%;
-    
+    width: 90%;
+    margin: auto;
+    list-style-type: none;
+    display: grid;
+    /* flex-direction: row; */
+    grid-template-columns: 30% 30% 30%;  
+    justify-content: center;   
     font-family: 'Montserrat', Arial, sans-serif; 
     background-color: white;
     color: black;
-    border-radius: 4px;
+    border-radius: 0px;
     margin-bottom: 8px;
-    font-size: 0.8rem;
+    font-size: 0.8rem;    
 }
 
-.program-icons {
+.program-legend {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 0.8rem;
+    display: flex;
+    width: 75%;
+    margin: auto;
+}
+
+.program-legend-icon svg {
+    font-size: 0.8rem;
+    vertical-align: middle;
+}
+
+.program-card-grid-none {
+    display:none;
+}
+
+.display-none {
+    display: none;
+}
+
+.program-card-sort h3 {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.program-card-link {
+    color: purple;
+}
+
+.program-card-link:hover {
+    color: goldenrod;
+}
+
+.program-card-header {
+    border-bottom-style: solid;
+    border-width: 1px;
+    font-weight: bold;
+}
+
+/* .program-icons {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 6px;
+    height: 10px;
     background-color: white;
     box-shadow: none;
+} */
+
+
+.program-icons-sort {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    background-color: white;
+    box-shadow: none;
+    vertical-align: center;
+}
+
+.program-card-sort-btn {
+    border-style: none;
+    background-color: white;
+    white-space: nowrap;
+}
+
+.program-card-sort-btn:hover {
+    cursor: pointer;
 }
 
 .program-card a {
@@ -51,16 +119,57 @@
     
 }
 
-.small-icons {
+.program-icons-edit {
     height: 20px;
     vertical-align: middle;
-    padding-left: 8px;
+    color: goldenrod;
+    /* padding-left: 8px;
     padding-top: 4px;
-    padding-bottom: 4px;
-    color: #997650;
+    padding-bottom: 4px; */
+    /* color: #997650; */
 }
 
 .small-icons:hover {
     color: grey;
     transition: 0.5s ease-in-out;
+}
+
+@media (min-width: 768px) {
+    .program-card {
+        width: 80%;
+        margin: auto;
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: 20% 12% 18% 18% 15% 10%;     
+        justify-content: center;
+        font-family: 'Montserrat', Arial, sans-serif; 
+        background-color: white;
+        color: black;
+        border-radius: 0px;
+        margin-bottom: 8px;
+        font-size: 0.8rem;
+    }
+
+    .program-card-grid-none {
+        display:inline;
+        text-align: center;
+    }
+
+    .program-legend {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin: auto;
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .program-legend-icon {
+        align-items: center;
+        vertical-align: middle;
+    }
 }
