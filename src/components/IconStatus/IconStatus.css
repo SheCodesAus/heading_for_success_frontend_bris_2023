@@ -3,16 +3,16 @@
     align-items: center;
      */
     height: 20px;
-    color: grey;
+    color: #A59788;
     /* box-shadow: none; */
 }
 
 .program-icons-open {
     height: 20px;
-    color: purple;
+    color: #894AB1;
 }
 
 .program-icons-future {
     height: 20px;
-    color: goldenrod;
+    color: #DC9849;
 }

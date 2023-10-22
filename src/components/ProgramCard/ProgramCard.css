@@ -14,6 +14,11 @@
     font-size: 0.8rem;    
 }
 
+.program-list-header {
+    color: #894AB1;
+
+}
+
 .program-legend {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -43,11 +48,11 @@
 }
 
 .program-card-link {
-    color: purple;
+    color: #894AB1;
 }
 
 .program-card-link:hover {
-    color: goldenrod;
+    color: #DC9849;
 }
 
 .program-card-header {
@@ -122,7 +127,7 @@
 .program-icons-edit {
     height: 20px;
     vertical-align: middle;
-    color: goldenrod;
+    color: #DC9849;
     /* padding-left: 8px;
     padding-top: 4px;
     padding-bottom: 4px; */
