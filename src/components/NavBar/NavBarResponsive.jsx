@@ -1,7 +1,6 @@
 import './NavbarResponsive.css';
 import { Link, Outlet } from 'react-router-dom';
 import { useAuth } from "../../hooks/use-auth";
-import AdminLoginPink from "../../Images/AdminLoginPink.svg"
 
 function NavBarResponsive() {
 
@@ -37,7 +36,7 @@ function NavBarResponsive() {
 
              <li> 
                 {auth.token ? (
-                        <Link to='/adminHome'>Admin Home <img src={AdminLoginPink} width="30"></img>  </Link>
+                        <Link to='/adminHome'>Admin Home</Link>
                 ) : (null)}
             </li>
 
@@ -48,26 +47,6 @@ function NavBarResponsive() {
             //   <Link to='/newProgram'>Create new program</Link> 
                 ) : (null)}
             
-              {/* OPTIONAL IF YOU HAVE MORE LINKS - DROPDOWN MENU */}
-              {/* <ul className='dropdown'>
-                <li className='dropdown-link'>
-                {auth.token ? (
-                        <Link to='/newProgram'>Create new program</Link>
-                ) : (null)}
-                </li>
-                <li className='dropdown-link'>
-                {auth.token ? (
-                        <Link to='/programs'>Programs</Link>
-                ) : (null)}
-                </li>
-                <li className='dropdown-link'>
-                {auth.token ? (
-                         <Link to="/" onClick={handleLogout}>Log Out</Link>
-                     ) : (
-                     <Link to="/login"></Link>
-                     )}
-                </li>
-              </ul> */}
             </li>
             <li>
               <Link to='/newProgram'>Create new program</Link> 
