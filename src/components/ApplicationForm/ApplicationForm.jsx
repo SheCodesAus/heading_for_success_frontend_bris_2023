@@ -118,6 +118,7 @@ function ApplicationForm() {
                     <div>
                         <label>
                             <input
+                                className="RoundButton"
                                 type="radio"
                                 name="currently_employed"
                                 value="yes"
@@ -128,6 +129,7 @@ function ApplicationForm() {
                         </label>
                         <label>
                             <input
+                                className="RoundButton"
                                 type="radio"
                                 name="currently_employed"
                                 value="no"
@@ -149,6 +151,7 @@ function ApplicationForm() {
                     <div>
                         <label>
                             <input
+                                className="RoundButton"
                                 type="radio"
                                 name="gender_eligible"
                                 value="yes"
@@ -159,6 +162,7 @@ function ApplicationForm() {
                         </label>
                         <label>
                             <input
+                                className="RoundButton"
                                 type="radio"
                                 name="gender_eligible"
                                 value="no"

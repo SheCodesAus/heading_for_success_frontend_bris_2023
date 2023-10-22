@@ -10,12 +10,16 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
   }
+  .RoundButton{
+    accent-color:  #673f6c; ;
+  }
+
   
   /* Form title styling */
   h1 {
     font-size: 28px;
     text-align: center;
-    color: #007bff;
+    color: #673f6C;
   }
   
   /* Form labels and input fields */
@@ -23,7 +27,7 @@
     display: block;
     margin: 15px 0;
     font-weight: bold;
-    color: #333;
+    color: #404040;
   }
   
   input[type="text"],
@@ -32,7 +36,7 @@
   select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #854ab1;
     border-radius: 4px;
     box-sizing: border-box;
   }
@@ -44,8 +48,8 @@
   
   /* Submit button styling */
   button[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
+    background-color:#673f6C;
+    color:whitesmoke;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
@@ -55,6 +59,6 @@
   }
   
   button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #673f6c;
   }
   
