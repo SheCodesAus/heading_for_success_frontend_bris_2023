@@ -2,12 +2,8 @@ import './Count.css';
 import React, { useEffect, useState } from 'react';
 
 const Count = (props) => {
-    // console.log(props);
-    // console.log(props.number, props.duration)
     const { number, duration, increment } = props;
-    // console.log(number, duration);
-    // const number = props.number;
-    // const duration = props.duration;
+
 
     const [count, setCount] = useState('0');
     
@@ -29,10 +25,14 @@ const Count = (props) => {
         let timer = setInterval(() => {
             start += parseInt(increment);
             // setCount(String(start) + parseInt(number).substring(3))
-            setCount(String(start));
-            if (start === end) {
+            
+            if ((start === end) || (start > end)) {
+                start = end;
                 clearInterval(timer);
             }
+            
+            setCount(String(start));
+
         }, incrementTime);
 
         // dependency array

@@ -1,3 +1,4 @@
+import './ScholarshipCard.css'
 
 const ScholarshipCard = (props) => {
     const { scholarshipData, applicantDetail } = props;
@@ -20,7 +21,7 @@ const ScholarshipCard = (props) => {
                 {scholarshipData.remaining_count}
                 </div>                             
                 
-                <div className='scholarship-edit'>
+                <div className='scholarship-grid'>
                 <input 
                     key={props.id}
                     type='radio'    

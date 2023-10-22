@@ -129,315 +129,203 @@ const EditApplicationForm = () => {
         },
     ];
 
+    let found = '';
+    if (applicantDetail.scholarship) {
+
+        found = scholarshipAssigned.find((scholarship) => scholarship.id === parseInt(applicantDetail.scholarship));
+        // console.log(found.organization);
+    }
+
+
+
     if ( auth.token ) {
 
         return (
             <div className='application-page'>
                 <>                       
-                <h3>EDIT APPLICATION</h3>
-
-                <h1 className='scholarship-header'>Scholarships</h1>
-                        <div className='scholarship-statistics-group'>
-                            <div className='scholarship-statistics-group-item'>
-                                {/* <div className='scholarship-statistics-group-number'> */}
-                                <Count 
-                                    number={scholarshipAssigned.length} 
-                                    duration='1'
-                                    increment='1'
-                                    />
-                                    
-                                {/* </div>   */}
-                                <div className='scholarship-statistics-group-label'>
-                                    Scholarships
-                                </div>  
-                            </div>    
-                            <div className='scholarship-statistics-group-item'>
-                                {/* <div className='scholarship-statistics-group-number'> */}
-                                <Count 
-                                    number={scholarshipAssigned.reduce((total,scholarship) => total + scholarship.number_available, 0)} 
-                                    duration='1'
-                                    increment='1'
-                                    />                                
-                                    
-                                {/* </div>   */}
-                                <div className='scholarship-statistics-group-label'>
-                                    Places
-                                </div>  
-                            </div>    
-                            <div className='scholarship-statistics-group-item'>
-                                {/* <div className='scholarship-statistics-group-number'> */}
-                                <Count 
-                                    number={scholarshipAssigned.reduce((total,scholarship) => total + scholarship.assigned_count, 0)} 
-                                    duration='1'
-                                    increment='1'
-                                    />
-                                {/* </div>   */}
-                                <div className='scholarship-statistics-group-label'>
-                                    Assigned
-                                </div>  
-                            </div>    
-                            <div className='scholarship-statistics-group-item'>
-                                {/* <div className='scholarship-statistics-group-number'> */}
-                                    <Count 
-                                    number={scholarshipAssigned.reduce((total,scholarship) => total + scholarship.remaining_count, 0)} 
-                                    duration='1'
-                                    increment='1'
-                                    />
-                                {/* </div>   */}
-                                <div className='scholarship-statistics-group-label'>
-                                    Available
-                                </div>  
-                            </div>                                                    
-                        </div>
-
-
-                <form className='user-form' onSubmit={handleSubmit}>
+                {/* <h1 className='scholarship-header'>Scholarships</h1> */}
+                    <div className='scholarship-statistics-group'>
+                        <div className='scholarship-statistics-group-item'>
+                            {/* <div className='scholarship-statistics-group-number'> */}
+                            <Count 
+                                number={scholarshipAssigned.length} 
+                                duration='1'
+                                increment='2'
+                                />
+                                
+                            {/* </div>   */}
+                            <div className='scholarship-statistics-group-label'>
+                                Scholarships
+                            </div>  
+                        </div>    
+                        <div className='scholarship-statistics-group-item'>
+                            {/* <div className='scholarship-statistics-group-number'> */}
+                            <Count 
+                                number={scholarshipAssigned.reduce((total,scholarship) => total + scholarship.number_available, 0)} 
+                                duration='2'
+                                increment='3'
+                                />                                
+                                
+                            {/* </div>   */}
+                        <div className='scholarship-statistics-group-label'>
+                            Places
+                        </div>  
+                    </div>    
+                    <div className='scholarship-statistics-group-item'>
+                        {/* <div className='scholarship-statistics-group-number'> */}
+                        <Count 
+                            number={scholarshipAssigned.reduce((total,scholarship) => total + scholarship.assigned_count, 0)} 
+                            duration='1'
+                            increment='1'
+                            />
+                        {/* </div>   */}
+                        <div className='scholarship-statistics-group-label'>
+                            Assigned
+                        </div>  
+                    </div>    
+                    <div className='scholarship-statistics-group-item'>
+                        {/* <div className='scholarship-statistics-group-number'> */}
+                            <Count 
+                            number={scholarshipAssigned.reduce((total,scholarship) => total + scholarship.remaining_count, 0)} 
+                            duration='1'
+                            increment='2'
+                            />
+                        {/* </div>   */}
+                        <div className='scholarship-statistics-group-label'>
+                            Available
+                        </div>  
+                    </div>                                                    
+                </div>
+                <form className='scholarship-applicant-detail-form' onSubmit={handleSubmit}>
+                    {/* <li>
+                        <h3 className='scholarship-header'>
+                            Applicant: {`${applicantDetail.first_name} ${applicantDetail.last_name}`}
+                        </h3>
+                    </li>
+                    <li>
+                        <h4 className='scholarship-details'>
+                            Email: {applicantDetail.email}
+                        </h4>
+                    </li> */}
+                    <div className='scholarship-applicant-profile'>
                     <li className='label'>
-                        <label htmlFor='first_name'>First Name</label>
+                        <label htmlFor='first_name'>Applicant Name</label>
                         </li>
                         <li className='label'>
-                            <input 
-                                className='form-input'
-                                type='text' 
-                                required
-                                id='first_name' 
-                                disabled
-                                defaultValue={applicantDetail.first_name}
-                                onChange = {handleChange}
-                                size='30'
-                            />
+                            {`${applicantDetail.first_name} ${applicantDetail.last_name}`}
+                                
                         </li>
                         <li className='label'>
-                        <label htmlFor='last_name'>Last Name</label>
+                        <label htmlFor='status'>Program Status</label>
                         </li>
                         <li className='label'>
-                            <input 
-                                className='form-input'
-                                type='text' 
-                                id='last_name' 
-                                disabled
-                                defaultValue={applicantDetail.last_name}
-                                onChange = {handleChange}
-                                size='30'
-                            />
+                            {applicantDetail.status}     
+                        </li>                       
+                        <li className='label'>
+                        <label htmlFor='location'>Program Name</label>
                         </li>
+                        <li className='label'>
+                            {programDetail.program_name}
+                        </li>
+                        <li className='label'>
+                        <label htmlFor='location'>Scholarship</label>
+                        </li>
+                        <li className='label'>
+                            { found && found.organization}
+                        </li>                        
+                        <li className='label'>
+                        <label htmlFor='location'>Program Location</label>
+                        </li>
+                        <li className='label'>
+                            {applicantDetail.location}
+                        </li>
+                        <li className='label'>
+                        <label htmlFor='location'>Program Intake</label>
+                        </li>
+                        <li className='label'>
+                            {programDetail.intake}
+                        </li>                       
                         <li className='label'>
                             <label htmlFor='email'>Email</label>
                         </li>
                         <li className='label'>
-                            <input 
-                                className='form-input'
-                                type='email' 
-                                id='email' 
-                                placeholder='Email' 
-                                disabled
-                                defaultValue={applicantDetail.email}    
-                                size='30'                            
-                            />
+                            {applicantDetail.email}    
                         </li> 
                         <li className='label'>
                             <label htmlFor='age'>Age</label>
                         </li>
                         <li className='label'>
-                            <input 
-                                className='form-input'
-                                type='number' 
-                                id='age' 
-                                placeholder='Age' 
-                                disabled
-                                defaultValue={applicantDetail.age}
-                                size='30'    
-                            />
+                            {applicantDetail.age}
                         </li>
                         <li className='label'>
                             <label htmlFor='mobile'>Mobile</label>
                         </li>
                         <li className='label'>
-                            <input 
-                                className='form-input'
-                                type='number' 
-                                id='mobile' 
-                                placeholder='Mobile' 
-                                disabled
-                                pattern='[0-9]{4}-[0-9]{3}-[0-9]{3}'
-                                // maxLength={}
-                                defaultValue={applicantDetail.contact_mobile}
-                                size='30'    
-                            />
+                            {`0${applicantDetail.contact_mobile}`}
                         </li>                        
                         <li className='label'>
                         <label htmlFor='home_city'>City</label>
                         </li>
                         <li className='label'>
-                            <input 
-                                className='form-input'
-                                type='text' 
-                                id='home_city' 
-                                disabled
-                                defaultValue={applicantDetail.home_city}
-                                onChange = {handleChange}
-                                size='30'
-                            />
-                        </li>
-                        <li className='label'>
-                        <label htmlFor='pronouns'>Pronouns</label>
-                        </li>
-                        <li className='label'>
-                            <input 
-                                className='form-input'
-                                type='text' 
-                                id='pronouns' 
-                                disabled
-                                defaultValue={applicantDetail.pronouns}
-                                onChange = {handleChange}
-                                size='30'
-                            />
-                        </li>   
-                        <li className='label'>
-                        <label htmlFor='qualities'>Qualities</label>
-                        </li>
-                        <li className='label'>
-                            <textarea 
-                                className='form-input'
-                                type='text-area' 
-                                id='qualities' 
-                                disabled
-                                rows='5'
-                                cols='30'                                
-                                defaultValue={applicantDetail.qualities}
-                            />
-                        </li>
-                        <li className='label'>
-                        <label htmlFor='reason'>Reason</label>
-                        </li>
-                        <li className='label'>
-                            <textarea 
-                                className='form-input'
-                                type='text-area' 
-                                id='reason' 
-                                disabled
-                                rows='5'
-                                cols='30'                                
-                                defaultValue={applicantDetail.reason}
-                            />
-                        </li>
-                        <li className='label'>
-                        <label htmlFor='previous_education'>Previous Education</label>
-                        </li>
-                        <li className='label'>
-                            <input 
-                                className='form-input'
-                                type='text' 
-                                id='previous_education' 
-                                disabled
-                                defaultValue={applicantDetail.previous_education}
-                                onChange = {handleChange}
-                                size='30'
-                            />
-                        </li>
-                        <li className='label'>
-                        <label htmlFor='work_experience'>Work Experience</label>
-                        </li>
-                        <li className='label'>
-                            <textarea 
-                                className='form-input'
-                                type='text-area' 
-                                id='work_experience' 
-                                disabled
-                                rows='5'
-                                cols='30'                                
-                                defaultValue={applicantDetail.work_experience}
-                            />
-                        </li>
-                        <li className='label'>
-                        <label htmlFor='currently_employed'>Currently Employed</label>
-                        </li>
-                        <li className='label'>
-                            <input 
-                                className='form-input'
-                                type='checkbox' 
-                                id='currently_employed' 
-                                disabled
-                                defaultValue={applicantDetail.currently_employed}
-                                size='30'
-                            />
-                        </li>
-                        <li className='label'>
-                        <label htmlFor='current_employer'>Current Employer</label>
-                        </li>
-                        <li className='label'>
-                            <input 
-                                className='form-input'
-                                type='text' 
-                                id='current_employer' 
-                                disabled
-                                defaultChecked={applicantDetail.current_employer}
-                                size='30'
-                            />
-                        </li>
-                        <li className='label'>
-                        <label htmlFor='biography'>Biography</label>
-                        </li>
-                        <li className='label'>
-                            <textarea 
-                                className='form-input'
-                                type='text-area' 
-                                id='biography' 
-                                disabled
-                                rows='5'
-                                cols='30'                                
-                                defaultValue={applicantDetail.biography}
-                            />
-                        </li>
-                        <li className='label'>
-                        <label htmlFor='location'>Program Name</label>
-                        </li>
-                        <li className='label'>
-                            <input 
-                                className='form-input'
-                                type='text' 
-                                id='location' 
-                                disabled
-                                defaultValue={programDetail.program_name}
-                                size='30'
-                            />
-                        </li>
-                        <li className='label'>
-                        <label htmlFor='location'>Program Location</label>
-                        </li>
-                        <li className='label'>
-                            <input 
-                                className='form-input'
-                                type='text' 
-                                id='location' 
-                                disabled
-                                defaultValue={applicantDetail.location}
-                                size='30'
-                            />
+                            {applicantDetail.home_city}
                         </li>
                         <li className='label'>
                         <label htmlFor='gender_eligible'>Gender Eligible</label>
                         </li>
                         <li className='label'>
-                            <input 
-                                className='form-input'
-                                type='checkbox' 
-                                id='gender_eligible' 
-                                disabled
-                                defaultChecked={applicantDetail.gender_eligible}
-                                size='30'
-                            />
-                            {/* <input 
-                                className='form-input'
-                                id='gender_eligible'
-                                name='gender_eligible'
-                                type='radio' 
-                                defaultChecked={applicantDetail.gender_eligible}
-                                onChange={handleChange}
-                                value='true'
-                            /> */}
-                        {/* <label>Yes</label> */}
-                        </li>                
+                            {applicantDetail.gender_eligible ? 'Yes': 'No'}
+                        </li>     
+                        <li className='label'>
+                        <label htmlFor='pronouns'>Pronouns</label>
+                        </li>
+                        <li className='label'>
+                            {applicantDetail.pronouns}
+                        </li>   
+                        </div>
+                        <div className='scholarship-applicant-detail'>
+                        <li className='label'>
+                        <label htmlFor='qualities'>Qualities</label>
+                        </li>
+                        <li className='label'>
+                            {applicantDetail.qualities}
+                        </li>
+                        <li className='label'>
+                        <label htmlFor='reason'>Reason</label>
+                        </li>
+                        <li className='label'>
+                            {applicantDetail.reason}
+                        </li>
+                        <li className='label'>
+                        <label htmlFor='previous_education'>Previous Education</label>
+                        </li>
+                        <li className='label'>
+                            {applicantDetail.previous_education}
+                        </li>
+                        <li className='label'>
+                        <label htmlFor='work_experience'>Work Experience</label>
+                        </li>
+                        <li className='label'>
+                            {applicantDetail.work_experience}
+                        </li>
+                        <li className='label'>
+                        <label htmlFor='currently_employed'>Currently Employed</label>
+                        </li>
+                        <li className='label'>
+                            {applicantDetail.currently_employed ? 'Yes' : 'No'}
+                        </li>
+                        <li className='label'>
+                        <label htmlFor='current_employer'>Current Employer</label>
+                        </li>
+                        <li className='label'>
+                            {applicantDetail.current_employer}
+                        </li>
+                        <li className='label'>
+                        <label htmlFor='biography'>Biography</label>
+                        </li>
+                        <li className='label'>
+                            {applicantDetail.biography}
+                        </li>
+            
                         {/* <li className='label'>
                             <input 
                                 className='form-input'
@@ -473,17 +361,22 @@ const EditApplicationForm = () => {
                                 ))}
                             </select>
                         </li>  
-                      
+                        </div>
+                        <div className='scholarship-assign'>
+                        <h3 
+                            className='scholarship-header'
+                        >
+                                Assign Scholarship
+                        </h3>                      
                         <ul className='scholarship-group'>
-                            <li className='scholarship-items'>
-                                <div className='scholarship-grid'><h4>Scholarship</h4></div>
-                                <div className='scholarship-grid'><h4>Places</h4></div>
-                                <div className='scholarship-grid'><h4>Assigned</h4></div>
-                                <div className='scholarship-grid'><h4>Remaining</h4></div>
-                                <div className='scholarship-grid'><h4>Assigned</h4>
+                            <li className='scholarship-items-header'>
+                                <div className='scholarship-items-header'><h4>Scholarship</h4></div>
+                                <div className='scholarship-items-header'><h4>Places</h4></div>
+                                <div className='scholarship-items-header'><h4>Assigned</h4></div>
+                                <div className='scholarship-items-header'><h4>Remaining</h4></div>
+                                <div className='scholarship-items-header'><h4>Assigned</h4>
                                 </div>                         
                             </li>
-
                     {scholarshipAssigned.map((scholarshipData, key) => {
                         return (
                             <Fragment key={key}>
@@ -501,8 +394,9 @@ const EditApplicationForm = () => {
                         )
                     })}
 
-                </ul>                                              
-                    <button type='submit' className='btn-wide'>SAVE</button>
+                </ul>
+                </div>                                                          
+                    <button type='submit' className='scholarship-btn'>SAVE</button>
                     { messageBlock ? (
                     <li key='test' className='message'><MessageCard message='Details updated successfully' />
                     </li>
