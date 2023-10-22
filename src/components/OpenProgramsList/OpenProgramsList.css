@@ -1,0 +1,12 @@
+.programs {
+    display: grid;
+    place-items: center; /* This centers both horizontally and vertically */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    border-radius: 25px;
+    padding: 0 4px;
+}
+    
+.programs img {
+    border-radius: 25px;
+}
