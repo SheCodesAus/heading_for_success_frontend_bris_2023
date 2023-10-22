@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 import MessageCard from '../MessageCard/MessageCard';
 import Spinner from '../Spinner/Spinner';
 import ScholarshipCard from '../ScholarshipCard/ScholarshipCard';
+import Count from '../Count/Count';
 
 const EditApplicationForm = () => {
 
@@ -80,6 +81,7 @@ const EditApplicationForm = () => {
         setApplicantDetail((prevApplicantDetail) => ({
             ...prevApplicantDetail,
             ['scholarship']: value,
+            ['status']: 'Scholarship Assigned',
         }));      
 
     }
@@ -133,6 +135,62 @@ const EditApplicationForm = () => {
             <div className='application-page'>
                 <>                       
                 <h3>EDIT APPLICATION</h3>
+
+                <h1 className='scholarship-header'>Scholarships</h1>
+                        <div className='scholarship-statistics-group'>
+                            <div className='scholarship-statistics-group-item'>
+                                {/* <div className='scholarship-statistics-group-number'> */}
+                                <Count 
+                                    number={scholarshipAssigned.length} 
+                                    duration='1'
+                                    increment='1'
+                                    />
+                                    
+                                {/* </div>   */}
+                                <div className='scholarship-statistics-group-label'>
+                                    Scholarships
+                                </div>  
+                            </div>    
+                            <div className='scholarship-statistics-group-item'>
+                                {/* <div className='scholarship-statistics-group-number'> */}
+                                <Count 
+                                    number={scholarshipAssigned.reduce((total,scholarship) => total + scholarship.number_available, 0)} 
+                                    duration='1'
+                                    increment='1'
+                                    />                                
+                                    
+                                {/* </div>   */}
+                                <div className='scholarship-statistics-group-label'>
+                                    Places
+                                </div>  
+                            </div>    
+                            <div className='scholarship-statistics-group-item'>
+                                {/* <div className='scholarship-statistics-group-number'> */}
+                                <Count 
+                                    number={scholarshipAssigned.reduce((total,scholarship) => total + scholarship.assigned_count, 0)} 
+                                    duration='1'
+                                    increment='1'
+                                    />
+                                {/* </div>   */}
+                                <div className='scholarship-statistics-group-label'>
+                                    Assigned
+                                </div>  
+                            </div>    
+                            <div className='scholarship-statistics-group-item'>
+                                {/* <div className='scholarship-statistics-group-number'> */}
+                                    <Count 
+                                    number={scholarshipAssigned.reduce((total,scholarship) => total + scholarship.remaining_count, 0)} 
+                                    duration='1'
+                                    increment='1'
+                                    />
+                                {/* </div>   */}
+                                <div className='scholarship-statistics-group-label'>
+                                    Available
+                                </div>  
+                            </div>                                                    
+                        </div>
+
+
                 <form className='user-form' onSubmit={handleSubmit}>
                     <li className='label'>
                         <label htmlFor='first_name'>First Name</label>
@@ -415,8 +473,8 @@ const EditApplicationForm = () => {
                                 ))}
                             </select>
                         </li>  
+                      
                         <ul className='scholarship-group'>
-                            <h1>Scholarships</h1>
                             <li className='scholarship-items'>
                                 <div className='scholarship-grid'><h4>Scholarship</h4></div>
                                 <div className='scholarship-grid'><h4>Places</h4></div>
