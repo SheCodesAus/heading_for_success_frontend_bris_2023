@@ -5,7 +5,11 @@
     width: 90%;
 }
 
-/* .homepage-container {
+#open-programs {
     background-color: #854AB1;
-} */
-
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 30% 30% 30%;
+    column-gap: 10px;
+    row-gap: 10px;
+}
