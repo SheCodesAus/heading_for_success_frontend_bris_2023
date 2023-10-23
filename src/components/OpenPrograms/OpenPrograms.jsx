@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 function OpenPrograms({ programOpen }) {
-    const programPath = `get-open-programs/${programOpen.id}`;
+    const programPath = `program/${programOpen.id}`;
 
     return (
         <div className='openprogram'>
