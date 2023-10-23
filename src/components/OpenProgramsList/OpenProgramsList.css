@@ -1,0 +1,7 @@
+#open-programs-list{
+    display:grid;
+    grid-template-columns: 30% 30% 30%;
+    column-gap: 24px;
+    row-gap: 24px;
+    padding: 80px;
+}
