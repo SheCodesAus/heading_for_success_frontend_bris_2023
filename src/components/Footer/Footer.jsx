@@ -1,4 +1,4 @@
-import "./footer.css"
+import "./Footer.css"
 import React from 'react'
 import '../../main.css'
 import Shefunds from "../../Images/Shefunds.svg"
