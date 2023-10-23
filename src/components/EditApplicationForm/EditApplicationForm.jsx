@@ -18,6 +18,7 @@ const EditApplicationForm = () => {
     const { applicantDetail, isLoading: isLoadingApplicantDetail, error: errorApplicantDetail, setApplicantDetail } = useApplicantDetails(id);
     const { programDetail, isLoading: isLoadingProgramDetail, error: errorProgramDetail, setProgramDetail, scholarshipAssigned, setScholarshipAssigned } = useProgramDetails(programId);
     const [messageBlock, setMessageBlock] = useState(false);
+    const [progressBlock, setProgressBlock] = useState(true);
 
     if (isLoadingApplicantDetail || isLoadingProgramDetail) {
         return (<Spinner />)
@@ -100,7 +101,7 @@ const EditApplicationForm = () => {
 
     const status_options = [
         {
-            label: 'New',
+            label: 'Applied',
             value: 'New',
         },
         {
@@ -112,12 +113,8 @@ const EditApplicationForm = () => {
             value: 'Interview',
         },
         {
-            label: 'Rejected',
+            label: 'Unsuccessful',
             value: 'Rejected',
-        },
-        {
-            label: 'Withdrawn',
-            value: 'Withdrawn',
         },
         {
             label: 'Successful',
@@ -127,6 +124,10 @@ const EditApplicationForm = () => {
             label: 'Scholarship Assigned',
             value: 'Scholarship Assigned',
         },
+        {
+            label: 'Withdrawn',
+            value: 'Withdrawn',
+        },        
     ];
 
     let found = '';
