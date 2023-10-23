@@ -1,4 +1,3 @@
-import './Count.css';
 import React, { useEffect, useState } from 'react';
 
 const Count = (props) => {
@@ -9,12 +8,9 @@ const Count = (props) => {
     
     useEffect(() => {
         let start = 0;
-        // first three numbers from props
-        // const end = parseInt(number.substring(0,3))
         const end = parseInt(number);
         // if zero, return
         if (start === end) return;
-    
         // find duration per increment
         let totalMilSecDur = parseInt(duration);
         let incrementTime = (totalMilSecDur / end) * 1000;

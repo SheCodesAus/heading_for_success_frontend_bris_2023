@@ -52,6 +52,8 @@
     display: flex;
     align-items: center;
     font-weight: bold;
+    background-color: rgb(133, 74, 177,0.8);
+    color: white;
 }
 
 .program-card-link {
@@ -84,19 +86,22 @@
     align-items: center;
     justify-content: center;
     height: 20px;
-    background-color: white;
+    /* background-color: white; */
+    color: white;
+    font-weight: bold;
     box-shadow: none;
     vertical-align: center;
 }
 
 .program-card-sort-btn {
     border-style: none;
-    background-color: white;
+    /* background-color: white; */
     white-space: nowrap;
 }
 
 .program-card-sort-btn:hover {
     cursor: pointer;
+    background-color: rgb(133, 74, 177,0.8);
 }
 
 .program-card a {
@@ -165,7 +170,7 @@
         justify-content: center;
         align-items: center;
         font-family: 'Montserrat', Arial, sans-serif; 
-        background-color: white;
+        /* background-color: white; */
         color: black;
         border-radius: 0px;
         font-size: 0.8rem;

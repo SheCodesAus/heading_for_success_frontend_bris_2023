@@ -11,10 +11,10 @@ const ScholarshipCard = (props) => {
                 <div className='scholarship-grid-left'>
                     <p>{scholarshipData.organization}</p>
                 </div>
-                <div className='scholarship-grid'>
+                <div className='scholarship-grid-display-none'>
                     { scholarshipData.number_available }
                 </div>
-                <div id='assigned' className='scholarship-grid'>
+                <div id='assigned' className='scholarship-grid-display-none'>
                 {scholarshipData.assigned_count}
                 </div>
                 <div id='remaining' className='scholarship-grid'>
