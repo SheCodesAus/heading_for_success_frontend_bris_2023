@@ -3,6 +3,8 @@ import { postUser } from '../../api/post-user';
 import { useAuth } from '../../hooks/use-auth';
 import MessageCard from '../MessageCard/MessageCard';
 import LoginForm from '../AdminLogin/LoginForm';
+import './AddUser.css'; // Import the CSS file
+
 
 function AddUser() {
 
@@ -50,7 +52,7 @@ function AddUser() {
     if ( auth.token ) {
         return (
 
-            <form class="AppForm" onSubmit={handleSubmit}>
+            <form class="AppForm" className="form-container" onSubmit={handleSubmit}>
                 <div>
                     <h3>CREATE NEW ADMIN USER</h3>
                     <input 
