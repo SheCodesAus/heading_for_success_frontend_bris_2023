@@ -4,15 +4,24 @@
      */
     height: 20px;
     color: #A59788;
+    vertical-align: middle;
     /* box-shadow: none; */
 }
 
 .program-icons-open {
     height: 20px;
     color: #894AB1;
+    vertical-align: middle;
 }
 
 .program-icons-future {
     height: 20px;
     color: #DC9849;
+    vertical-align: middle;
+}
+
+.program-icons {
+    vertical-align: middle;
+    align-items: center;
+
 }

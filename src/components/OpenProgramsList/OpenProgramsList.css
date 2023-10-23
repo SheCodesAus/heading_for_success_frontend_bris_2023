@@ -1,3 +1,4 @@
+
 /* .programs {
     display: grid;
     place-items: center; /* This centers both horizontally and vertically */
@@ -10,3 +11,12 @@
 .programs img {
     border-radius: 25px;
 } */ 
+
+#open-programs-list{
+    display:grid;
+    grid-template-columns: 30% 30% 30%;
+    column-gap: 24px;
+    row-gap: 24px;
+    padding: 80px;
+}
+

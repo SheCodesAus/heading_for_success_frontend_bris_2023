@@ -1,17 +1,24 @@
 .program-card {
-    width: 90%;
+    width: 100%;
     margin: auto;
     list-style-type: none;
     display: grid;
     /* flex-direction: row; */
     grid-template-columns: 30% 30% 30%;  
     justify-content: center;   
+    align-items: center;
     font-family: 'Montserrat', Arial, sans-serif; 
     background-color: white;
     color: black;
     border-radius: 0px;
-    margin-bottom: 8px;
     font-size: 0.8rem;    
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(133, 74, 177,0.4);
+}
+
+.program-card:hover {
+    background-color: rgb(220, 152, 73, 0.1);
 }
 
 .program-list-header {
@@ -59,6 +66,7 @@
     border-bottom-style: solid;
     border-width: 1px;
     font-weight: bold;
+    background-color: rgb(133, 74, 177,0.8);
 }
 
 /* .program-icons {
@@ -106,6 +114,14 @@
     
 }
 
+.program-card-item {
+    width: 100%;
+    margin: auto;
+    /* border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(133, 74, 177,0.4); */
+}
+
 .program-card img {
     width: 95%;
     height: 200px;
@@ -147,11 +163,11 @@
         display: grid;
         grid-template-columns: 20% 12% 18% 18% 15% 10%;     
         justify-content: center;
+        align-items: center;
         font-family: 'Montserrat', Arial, sans-serif; 
         background-color: white;
         color: black;
         border-radius: 0px;
-        margin-bottom: 8px;
         font-size: 0.8rem;
     }
 
