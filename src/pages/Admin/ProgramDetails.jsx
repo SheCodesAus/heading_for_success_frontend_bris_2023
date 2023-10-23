@@ -1,3 +1,4 @@
+import './ProgramDetails.css'
 import ScholarshipForm from "../../components/NewScholarship/ScholarshipForm";
 import { useProgramDetails } from "../../hooks/use-program-details";
 import { useState, Fragment } from 'react';
@@ -6,6 +7,7 @@ import { useParams, Link } from 'react-router-dom';
 import LoginForm from "../../components/AdminLogin/LoginForm";
 import MessageCard from "../../components/MessageCard/MessageCard";
 import Spinner from "../../components/Spinner/Spinner";
+import ScholarshipCard from "../../components/ScholarshipCard/ScholarshipCard";
 
 function ProgramDetails() {
 
@@ -30,25 +32,27 @@ function ProgramDetails() {
     }
     
     return (
-        <div>
+        <div className='application-page'>
         { ( auth.token )? (
         <>
         
 
-            <h1>Program Detail page for {programDetail.program_name}.</h1>
-            <p>Here we will see the program details, the related scholarships, the related applicants</p>
-            <h3>Location: {programDetail.location}</h3>
-            <h3>Intake: {programDetail.intake}</h3>
-            <h3>Description: {programDetail.description}</h3>
-            <img src={programDetail.image} />
-            <h3>Status: {programDetail.status}</h3>
-            <h3>Date Start: {programDetail.date_start}</h3>
-            <h3>Date End:{programDetail.date_end}</h3>
-            <h3>Application Date Start: {programDetail.application_date_start}</h3>
-            <h3>Application Date End: {programDetail.application_date_end}</h3>
-
-            <h2>This is the related scholarships Section.</h2>
-            { programDetail.scholarship &&
+            <h1> {programDetail.program_name}</h1>
+            <h3 className='scholarship-header'>Program Details</h3>
+            
+            <div className='scholarship-applicant-profile'>
+            <h3>Location</h3><h3> {programDetail.location}</h3>
+            <h3>Intake</h3><h3> {programDetail.intake}</h3>
+            <h3>Description</h3><h3> {programDetail.description}</h3>
+            {/* <img src={programDetail.image} /> */}
+            <h3>Status</h3><h3> {programDetail.status}</h3>
+            <h3>Date Start</h3><h3> {programDetail.date_start}</h3>
+            <h3>Date End</h3><h3>{programDetail.date_end}</h3>
+            <h3>Application Date Start</h3><h3> {programDetail.application_date_start}</h3>
+            <h3>Application Date End</h3><h3> {programDetail.application_date_end}</h3>
+            </div>
+            <h3 className='scholarship-header'>Scholarships</h3>
+            {/* { programDetail.scholarship &&
                 programDetail.scholarship.map((scholarshipData, key) => {
                     return (
                     <Fragment key={key}>    
@@ -58,24 +62,70 @@ function ProgramDetails() {
                     </Fragment>
                     )
                 })
+            } */}
+            <ul className='scholarship-group'>
+                            <li className='scholarship-items-header'>
+                                <div className='scholarship-items-header-label-left'>
+                                    <h4>Scholarship</h4>
+                                </div>
+                                <div className='scholarship-items-header-label-display-none'>
+                                    <h4>Places</h4>
+                                </div>
+                                <div className='scholarship-items-header-label-display-none'>
+                                    <h4>Assigned</h4>
+                                </div>
+                                <div className='scholarship-items-header-label'>
+                                    <h4>Remaining</h4>
+                                </div>
+                                <div className='scholarship-items-header-label'>
+                                    <h4>Assigned</h4>
+                                </div>                         
+                            </li>
+                            </ul>
+            { programDetail.scholarship &&
+                programDetail.scholarship.map((scholarshipData, key) => {
+                    return (
+                    <Fragment key={key}>    
+                            <li className='scholarship-items'>
+                            <ScholarshipCard 
+                                id={key}
+                                scholarshipData={scholarshipData} 
+                                applicantDetail = {programDetail.applicant}
+                                />
+                            </li> 
+                    </Fragment>
+                    )
+                })
             }
 
-            <h2>This is the Related Applicants Section.</h2>
+            <h3 className='scholarship-header'>Applicants</h3>
+            
+                <ul>
             {   programDetail.applicant &&
                 programDetail.applicant.map((applicantData, key) => {
                 return (
-                <Fragment key={key}>    
+                <Fragment key={key}>   
+                <div className='applicant-detail'>
                     <li key={key}>
                         <Link to={`/application/${applicantData.id}/${id}`}>
                             {`${applicantData.first_name} ${applicantData.last_name}`}
                         </Link>
                     </li>
+                    <li>
+                        {applicantData.status}
+                    </li>
+                    <li>
+                        {applicantData.scholarship}
+                    </li>    
+                </div>                
                 </Fragment>
                 )
             })}
+            </ul>
+            
 
-            <p>and we will be able to add a new scholarship to the program via the below component.</p>
-            <h2>This is the scholarship component below</h2>
+             
+            <h3 className='scholarship-header'>Create New Scholarship</h3>
             <ScholarshipForm />
         </>
         ) : (
