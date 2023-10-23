@@ -32,11 +32,6 @@
     color: #fff;
   }
   
-  /* LOGO */
-  .logo {
-    font-size: 48px;
-  }
-  
   /* NAVBAR MENU */
   .menu {
     display: flex;
@@ -59,9 +54,10 @@
   }
   
   .dropdown {
-    background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
+    background-image: linear-gradient(to right, #854AB1, #DC9849);
     padding: 1em 0;
     position: absolute; /*WITH RESPECT TO PARENT*/
+    width: 80%;
     display: none;
     border-radius: 8px;
     top: 35px;
@@ -78,7 +74,7 @@
   }
   
   .dropdown-link {
-    font-size: 24px;
+    font-size: 32px;
   }
   
   .dropdown li:hover {
@@ -100,7 +96,7 @@
   /* HAMBURGER MENU */
   .hamburger {
     /* display: none; */
-    font-size: 24px;
+    font-size: 32px;
     user-select: none;
   }
 /*   
@@ -109,7 +105,7 @@
     .menu {
       display: none;
       position: absolute;
-      background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
+      background-image: linear-gradient(to right, #854AB1, #DC9849);
       right: 0;
       left: 0;
       text-align: center;

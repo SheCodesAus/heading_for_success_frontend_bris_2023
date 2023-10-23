@@ -1,3 +1,17 @@
+
+/* .programs {
+    display: grid;
+    place-items: center; /* This centers both horizontally and vertically */
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    border-radius: 25px;
+    padding: 0 4px;
+}
+    
+.programs img {
+    border-radius: 25px;
+} */ 
+
 #open-programs-list{
     display:grid;
     grid-template-columns: 30% 30% 30%;
@@ -5,3 +19,4 @@
     row-gap: 24px;
     padding: 80px;
 }
+

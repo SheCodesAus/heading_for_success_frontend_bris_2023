@@ -17,9 +17,6 @@ function NavBarResponsive() {
   return (
     <div>
       <nav className='navbar'>
-        {/* <div className='logo'></div> */}
-
-        {/* NAVIGATION MENU  */}
         <ul className='nav-links'>
           {/* USING CHECKBOX TO TRIGGER HAMBURGER MENU STATE  */}
           <input type='checkbox' id='checkbox_toggle' />
@@ -28,43 +25,43 @@ function NavBarResponsive() {
             &#9776;
           </label>
 
-          {/* NAVIGATION MENUS */}
           <div className='menu'>
             <li>
-              <Link to='/'></Link>
+              <Link to='/login'>Login</Link>
             </li>
 
              <li> 
                 {auth.token ? (
-                        <Link to='/adminHome'>Admin Home</Link>
+                      <Link to='/adminHome'>Admin Home</Link>
                 ) : (null)}
             </li>
 
             <li className='services'>
             {auth.token ? (
                 <Link to='/user'>Create User</Link> 
-            // <li>
-            //   <Link to='/newProgram'>Create new program</Link> 
                 ) : (null)}
-            
             </li>
+
             <li>
-              <Link to='/newProgram'>Create new program</Link> 
-            </li> <li>
+            {auth.token ? (
+                <Link to='/newProgram'>Create new program</Link> 
+                ) : (null)}
+            </li>
+            
+            <li>
             {auth.token ? (
                         <Link to='/programs'>Programs</Link>
                 ) : (null)}
-                </li>
+            </li>
+            
                 <li className='dropdown-link'>
                 {auth.token ? (
                          <Link to="/" onClick={handleLogout}>Log Out</Link>
                      ) : (
                      <Link to="/login"></Link>
                      )}
-                </li>
-
-
-
+            </li>
+            
           </div>
         </ul>
       </nav>
