@@ -2,7 +2,7 @@
 
 /* Section styling */
 section {
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -10,16 +10,16 @@ section {
 
 h2 {
     font-size: 1.5rem;
-    padding: 40px;
+    padding: 20px;
     font-weight: 400;
     text-align: center;
-    text-transform:uppercase
+    
 }
 
 /* Form styling */
 form {
-    background-color: #fff;
-    border: 1px solid #ccc;
+    /* background-color: #fff; */
+    /* border: 1px solid #ccc; */
     border-radius: 5px;
     padding: 20px;
     display: flex;
@@ -41,7 +41,7 @@ input {
 }
 
 button {
-    background-color: #007bff;
+    background-color: var(purple);
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -51,5 +51,5 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: var(purple);
 }
