@@ -47,7 +47,7 @@ const ProgramCard = (props) => {
     return (
 
         
-            <li>
+            <li className='program-card-item'>
             <div className='program-card'> 
             <div className='program-card-grid'>
                 <Link to={programLink}>
