@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+
+
+.application-page {
+    width: 95%;
+    margin: auto;
+    list-style-type: none;
+    background-color: white;
+}
+
+.scholarship-header {
+    color: var(--orange);
+    font-weight: bold;
+    text-align: center;
+}
+
+.scholarship-items-header {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    /* background-color: var(--orange); */
+    background-color: rgb(133, 74, 177,0.8);
+    /* rgb(220, 152, 73, 0.7); */
+    /* border-style: solid; */
+    font-size: 0.9rem;
+    width: 100%;
+    display: grid;
+    border-radius: 4px;
+    grid-template-columns: 40% 15% 15% 15% 15%; 
+    /* margin: auto; */
+    height: 30px;
+    align-items: center;
+    /* vertical-align: middle; */
+    box-shadow: unset;
+}
+
+.scholarship-items {
+    /* padding-top:15px; */
+    list-style-type: none;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(133, 74, 177,0.4);
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40% 15% 15% 15% 15%; 
+    background-color: white;
+    /* margin: auto; */
+    height: 30px;
+    /* vertical-align: middle; */
+    text-align: center;
+    box-shadow: unset;
+    /* padding: unset; */
+    font-size: 0.9rem;
+}
+
+.scholarship-items:hover {
+    /* background-color: rgb(133, 74, 177,0.2); */
+    background-color: rgb(220, 152, 73, 0.1);
+    /* transition: all ease-in-out 0.8s; */
+}
+
+.scholarship-grid-left {
+    text-align: left;
+    vertical-align: middle;
+    /* border-style: solid; */
+    padding: 0px;
+    /* background-color: white; */
+    /* background-color: unset; */
+    box-shadow: unset;
+}
+
+.scholarship-grid {
+    text-align: center;
+    vertical-align: middle;
+    /* border-style: solid; */
+    padding: 0px;
+    /* background-color: white; */
+    box-shadow: unset;
+}
+
+/* .scholarship-edit {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    vertical-align: middle;
+    border-style: solid;
+    padding: 0px;
+    background-color: white;
+    box-shadow: unset;
+} */
+
+.scholarship-header {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.scholarship-statistics-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border-style: solid; */
+    margin: auto;
+    width: 80%;
+}
+
+.scholarship-statistics-group-item {
+    border-style: solid;
+    border-color: rgb(133, 74, 177, 0.3);
+    background-color: rgb(133, 74, 177, 0.8);
+    border-radius: 4px;
+    padding: 8px;
+    margin: 8px;
+    text-align: center;
+    min-width: 160px;
+}
+
+.scholarship-statistics-group-label {
+    color: white;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+
+}
+.scholarship-statistics-group-number {
+    color: gold;
+    font-family: "Satisfy", Sans-serif;
+    font-size: 1.7rem;
+    font-weight: 400;
+    text-shadow: 0 0 3px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 11px #DC9849, 0 0 31px #DC9849, 0 0 36px #DC9849, 0 0 40px #DC9849, 0 0 55px #DC9849;
+}
+
+.label input, input[type="text"], textarea {
+    border-style: none;
+    background-color: white;
+
+}
+
+.form-input  {
+    border-style: none;
+}
+
+.label label {
+    font-size: 1rem;
+}
+
+.scholarship-btn {
+    background-color: var(--orange);
+    padding: 0px;
+}
+
+.scholarship-btn:hover {
+    background-color: unset;
+    background-color: var(--gold);
+}
+
+
+@media (min-width: 768px) {
+    .application-page {
+        width: 70%;
+        margin: auto;
+        list-style-type: none;
+        background-color: white;
+    }
+
+    .scholarship-statistics-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        /* border-style: solid; */
+        margin: auto;
+        width: 100%;
+        overflow: visible;
+    }
+
+    .scholarship-applicant-profile {
+        display: grid;
+        grid-template-columns: 25% 30% 20% 25%;
+        font-size: 1rem;
+        align-items: center;    
+    }
+} 

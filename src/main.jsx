@@ -8,7 +8,6 @@ import HomePage from './pages/HomePage/HomePage';
 import AdminHome from './pages/Admin/AdminHome';
 import AdminLogin from './pages/Admin/AdminLogin';
 import ApplicationDetails from './pages/Admin/ApplicationDetails';
-import Applications from './pages/Admin/Applications';
 import CreateUser from './pages/Admin/CreateUser';
 import NewProgram from './pages/Admin/NewProgram';
 import ProgramDetails from './pages/Admin/ProgramDetails';
@@ -18,19 +17,20 @@ import ThanksForApplying from './pages/Aplicant/ThanksForApplying';
 import { AuthProvider } from './components/AuthProvider/AuthProvider';
 import ProgramOpenPage from './pages/Aplicant/ProgramOpenPage';
 
-//COMPONENTS IMPORTS 
-import NavBar from './components/NavBar/NavBar';
+//COMPONENTS IMPORTS
+import NavBarResponsive from './components/NavBar/NavBarResponsive.jsx';
+// import NavBar from './components/NavBar/NavBar.jsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <NavBar/>,
+    // element: <NavBar />,
+    element: <NavBarResponsive />,
     children: [
 
       { path: "/adminHome", element: <AdminHome /> },
       { path: "/login", element: <AdminLogin /> },
-      { path: "/application/:id", element: <ApplicationDetails /> },
-      { path: "/program/:id/application", element: <Applications /> },
+      { path: "/application/:id/:programId", element: <ApplicationDetails /> },
       { path: "/user", element: <CreateUser /> },
       { path: "/newProgram", element: <NewProgram /> },
       { path: "/program/:id", element: <ProgramDetails /> }, ///Changing to hardcoded 1 to test scholarship component. will need to change to /program/:id

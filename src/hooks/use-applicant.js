@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getApplicant} from '../api/applicant';
+import { getApplicants } from '../api/get-applicants';
 
 export function useApplicant() {
     const [applicant, setApplicant] = useState([]);

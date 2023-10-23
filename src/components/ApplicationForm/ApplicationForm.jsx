@@ -45,7 +45,7 @@ function ApplicationForm() {
     };
 
     return (
-        <div>
+        <div className="AppForm">
             <form onSubmit={handleSubmit}>
                 <label>
                     First Name:
@@ -146,6 +146,7 @@ function ApplicationForm() {
 
                 <label>
                     Gender Eligible:
+                    <p>Our definition of women includes transgender and cisgender, all those who experience or have experienced oppression as women, including non-binary and gender non-conforming people and all those who identify as women.</p>
                     <div>
                         <label>
                             <input

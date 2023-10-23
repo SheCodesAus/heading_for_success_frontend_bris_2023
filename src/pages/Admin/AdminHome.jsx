@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import ScholarshipsIcon from '../../Images/Scholarships-Icon.svg'
 import ApplicantsIcon from '../../Images/Applicants-Icon.svg'
 import ProgramsIcon from '../../Images/Programs-Icon.svg'
@@ -37,5 +38,3 @@ function AdminHome() {
     );
 }
 export default AdminHome;
-
-

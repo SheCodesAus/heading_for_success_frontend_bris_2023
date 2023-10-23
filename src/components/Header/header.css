@@ -1,0 +1,34 @@
+.heroheader {
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    justify-content: space-around;
+    padding: 24px;
+}
+
+.HomeIcon {
+    display: flex;
+    justify-content: space-around;
+    top: 0;
+    left: 0;
+    height: 130px;
+    position: fixed;
+    padding: 22px;
+}
+
+.adminhero {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 24px;
+}
+
+.headerlogo {
+    display: center;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0;
+}
