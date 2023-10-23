@@ -118,6 +118,7 @@ function ApplicationForm() {
                     <div>
                         <label>
                             <input
+                                className="RoundButton"
                                 type="radio"
                                 name="currently_employed"
                                 value="yes"
@@ -128,6 +129,7 @@ function ApplicationForm() {
                         </label>
                         <label>
                             <input
+                                className="RoundButton"
                                 type="radio"
                                 name="currently_employed"
                                 value="no"
@@ -146,9 +148,11 @@ function ApplicationForm() {
 
                 <label>
                     Gender Eligible:
+                    <p>Our definition of women includes transgender and cisgender, all those who experience or have experienced oppression as women, including non-binary and gender non-conforming people and all those who identify as women.</p>
                     <div>
                         <label>
                             <input
+                                className="RoundButton"
                                 type="radio"
                                 name="gender_eligible"
                                 value="yes"
@@ -159,6 +163,7 @@ function ApplicationForm() {
                         </label>
                         <label>
                             <input
+                                className="RoundButton"
                                 type="radio"
                                 name="gender_eligible"
                                 value="no"
