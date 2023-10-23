@@ -42,16 +42,17 @@ function ProgramDetails() {
                             <h3><span className="field-name">Location:</span> <span className="field-value">{programDetail.location}</span></h3>
                             <h3><span className="field-name">Intake:</span> <span className="field-value">{programDetail.intake}</span></h3>
                             <h3><span className="field-name">Description:</span> <span className="field-value">{programDetail.description}</span></h3>
-                            <img src={programDetail.image} alt={programDetail.program_name} />
                             <h3><span className="field-name">Status:</span> <span className="field-value">{programDetail.status}</span></h3>
                             <h3><span className="field-name">Date Start:</span> <span className="field-value">{programDetail.date_start}</span></h3>
                             <h3><span className="field-name">Date End:</span> <span className="field-value">{programDetail.date_end}</span></h3>
                             <h3><span className="field-name">Application Date Start:</span> <span className="field-value">{programDetail.application_date_start}</span></h3>
                             <h3><span className="field-name">Application Date End:</span> <span className="field-value">{programDetail.application_date_end}</span></h3>
+                            <img src={programDetail.image} alt={programDetail.program_name} />
+
                         </div>
                         <div className="column">
                             <div className="related-scholarships-container">
-                                <h2>Scholarships</h2>
+                                <h2>SCHOLARSHIPS</h2>
                                 <div className="scholarships-columns">
         <div className="scholarship-column">
             {programDetail.scholarship &&
@@ -78,7 +79,7 @@ function ProgramDetails() {
     </div>
                             </div>
                             <div className="related-applicants-container">
-                                <h2>Applicants</h2>
+                                <h2>APPLICANTS</h2>
                                 {programDetail.applicant &&
                                     programDetail.applicant.map((applicantData, key) => (
                                         <Fragment key={key}>
