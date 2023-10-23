@@ -1,22 +1,15 @@
-import { useOpenProgram } from "../../hooks/use-program";
-import OpenPrograms from "../../components/OpenPrograms/OpenProgams"
+import React from 'react'
+import OpenPrograms from "../../components/OpenProgramsList/OpenProgamsList";
 
 function ProgramOpenPage() {
-    const { programs, isLoading, error } = useOpenProgram();
-
-    if (isLoading) {
-        return (<p> Loading...</p>)
-    }
-
-    if (error) {
-        return (<p>{error.message}</p>)
-    }
-
     return (
-        <div className='program-list'>
-            {programs.map((programOpen, key) => {
-                return <OpenPrograms key={key} programOpen={programOpen} />;
-            })}
+        <div className="open-program-page">
+            <div className="open-program_header">
+                <h1>Our Current Programs Open for Applications</h1>
+            </div>
+            <div className="open-program-container">
+                < OpenPrograms />
+            </div>
         </div>
     );
 }

@@ -1,27 +1,21 @@
-.homeCartoon {
+.UpdatedCartoon {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 90%;
 }
 
-.applyBox {
-    background-color: #997650;
-    width: 200px;
-    height: 100px;
-    border-radius: 20px;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-}
 
-.applyBox p {
+
+
+/* .applyBox p {
     font-size: 30px;
-    color: white;
-}
+    /* color: white; 
+} 
+*/
 
-.mainThings {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
+/* .homepage-container {
+    background-color: #854AB1;
+} */
+
