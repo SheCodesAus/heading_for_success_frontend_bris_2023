@@ -1,3 +1,6 @@
+import React from 'react';
+import './ScholarshipForm.css'; // Import the CSS file
+
 function ScholarshipForm() {   
     return (
         <>
