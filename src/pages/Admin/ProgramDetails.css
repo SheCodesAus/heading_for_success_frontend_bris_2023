@@ -1,0 +1,74 @@
+.program-details-container {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.program-header {
+    grid-column: 1 / span 2; /* Stretch across two columns */
+}
+
+/* ProgramDetails.css */
+
+.program-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.column {
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.column h3 {
+    font-size: 18px; /* Adjust the font size as needed */
+    font-weight: bold; /* Adjust the font weight as needed */
+}
+
+.column p {
+    font-size: 16px; /* Adjust the font size as needed */
+}
+
+.column img {
+    max-width: 100%; /* Ensure the image doesn't exceed its container */
+}
+
+
+.related-scholarships-container,
+.related-applicants-container,
+.scholarship-form-container {
+    padding: 20px;
+    background-color: white; /* Adjust background color as needed */
+    border: 1px solid #ccc; /* Add a border to separate containers */
+    border-radius: 5px;
+}
+
+/* Add a "." before scholarships-columns */
+.scholarships-columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.scholarship-column {
+    flex: 1;
+    padding: 10px; /* Adjust the padding as needed */
+}
+.field-name {
+    text-transform:uppercase/* Style for field names */;
+    font-size:16px;
+    margin-right: 16px;
+}
+
+.field-value {
+    font-weight: lighter;
+    font-size: 16px;
+    /* Style for field values (e.g., normal font weight) */
+}
+
+
+
+
