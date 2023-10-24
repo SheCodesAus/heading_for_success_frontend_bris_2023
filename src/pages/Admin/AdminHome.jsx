@@ -305,9 +305,13 @@ function Programs() {
                         <Link to="/newProgram" className="program-button">
                             Create New Program
                         </Link>
-                        {/* <Link to="/login" className="program-button" onClick={handleLogout}>
-                            Log Out
-                        </Link> */}
+                        <Link to="/applicants" className="program-button">
+                            See All Applicants
+                        </Link>
+                        <Link to="/scholarships" className="program-button">
+                            See All Scholarships
+                        </Link>
+
                     </div>
                 </>
                 

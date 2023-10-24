@@ -86,14 +86,14 @@
 
 .program-button {
     display: inline-block;
-    padding: 20px 40px;
+    padding: 20px 20px;
     background-color: var(--purple);
     color: white;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    margin: 20px;
-    font-size: 28px;
+    margin: 8px;
+    font-size: 16px;
 }
 
 .program-button:hover {
