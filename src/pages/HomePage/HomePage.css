@@ -1,11 +1,12 @@
-.homecartoon {
+.homeCartoon {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 200%;
+    width: 300%;
 }
 
 .hompage-container {
     display: flex;
     justify-content: center;
 }
+

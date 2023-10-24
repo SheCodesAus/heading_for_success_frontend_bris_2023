@@ -13,6 +13,7 @@ function HomePage() {
     return (
         <div className="homepage-container">
             <Header />
+            <h2> <span>OPEN</span> programs available now in Australia</h2>
             <OpenProgramsList />
             <img src={UpdatedCartoon} class="homeCartoon"></img>
             <Footer/>
