@@ -41,8 +41,9 @@
 
 
 
-body{
-    background-color: var(--gold); 
+/* body{
+    background-color:rgba(173, 216, 230, 0.5); Change the color values and alpha (0.5 for 50% transparency) as needed */
+
     /* Change the color code to the desired color */
 }
 .program-list-header {
@@ -81,12 +82,13 @@ body{
     display: flex;
     justify-content: center;
     margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .program-button {
     display: inline-block;
     padding: 20px 20px;
-    background-color: var(--purple);
+    background-color: var(--orange);
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -96,6 +98,6 @@ body{
 }
 
 .program-button:hover {
-    background-color: var(--dark-purple);
+    background-color: var(--gold);
 }
 
