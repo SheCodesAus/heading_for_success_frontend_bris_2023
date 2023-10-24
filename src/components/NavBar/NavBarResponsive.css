@@ -53,7 +53,7 @@
   }
   
   .nav-links {
-    font-size: 32px;
+    font-size: 16px;
     justify-content: right;
   }
 
@@ -66,17 +66,17 @@
   /* NAVBAR MENU */
   .menu {
     display: flex;
-    gap: 1em;
+    gap: 2em;
   }
   
   .menu li:hover {
-    background-color: #607afb;
+    background-color: var(--gold);
     border-radius: 5px;
     transition: 0.3s ease;
   }
   
   .menu li {
-    padding: 5px 14px;
+    padding: 5px 5px;
   }
   
   /* DROPDOWN MENU */
@@ -85,13 +85,13 @@
   }
   
   .dropdown {
-    background-color: #404040;
+    background-color: var(--orange);
     padding: 1em 0;
     position: absolute; /*WITH RESPECT TO PARENT*/
-    width: 80%;
+    width: 10%;
     display: none;
     border-radius: 8px;
-    top: 35px;
+    top: 4px;
   }
   
   .dropdown li + li {
@@ -105,11 +105,11 @@
   }
   
   .dropdown-link {
-    font-size: 32px;
+    font-size: 16px;
   }
   
   .dropdown li:hover {
-    background-color: #607afb;
+    background-color:var(--gold);
   }
   
   .services:hover .dropdown {
@@ -127,18 +127,18 @@
   /* HAMBURGER MENU */
   .hamburger {
     /* display: none; */
-    font-size: 3em;
+    font-size: 1em;
     user-select: none;
   }
 /*   
   /* ------APPLYING MEDIA QUERIES -----*/
 /*  @media (max-width: 768px) { */
     .menu {
-      background-color: #404040;
+      background-color: var(--orange);
       display: none;
       position: absolute;
       right: 0;
-      left: 0;
+      left: 5;
       text-align: center;
       padding: 16px 0;
     }
@@ -168,6 +168,6 @@
     }
   
     .dropdown li:hover {
-      background-color: #607afb;
+      background-color: var(--gold);
     }
    /* }   */

@@ -302,16 +302,16 @@ function Programs() {
                 {/* Add your three buttons here */}
                 <div className="program-buttons">
                         <Link to="/user" className="program-button">
-                            Create New User/Admin
+                            New User/Admin
                         </Link>
                         <Link to="/newProgram" className="program-button">
-                            Create New Program
+                            New Program
                         </Link>
                         <Link to="/applicants" className="program-button">
-                            See All Applicants
+                            Applicants
                         </Link>
                         <Link to="/scholarships" className="program-button">
-                            See All Scholarships
+                            Scholarships
                         </Link>
                         
                     </div>

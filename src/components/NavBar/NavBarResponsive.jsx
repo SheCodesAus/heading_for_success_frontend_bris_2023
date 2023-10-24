@@ -42,36 +42,36 @@ function NavBarResponsive() {
           </label>
           <div className='menu'>
             <li>
-              <Link to='/login'>Login</Link>
+              <Link to='/login'>LOGIN</Link>
             </li>
 
              <li> 
                 {auth.token ? (
-                      <Link to='/adminHome'>Admin Home</Link>
+                      <Link to='/adminHome'>DASHBOARD</Link>
                 ) : (null)}
             </li>
 
             <li className='services'>
             {auth.token ? (
-                <Link to='/user'>Create User</Link> 
+                <Link to='/user'>CREATE USER</Link> 
                 ) : (null)}
             </li>
 
             <li>
             {auth.token ? (
-                <Link to='/newProgram'>Create new program</Link> 
+                <Link to='/newProgram'>NEW PROGRAM</Link> 
                 ) : (null)}
             </li>
             
             <li>
             {auth.token ? (
-                        <Link to='/programs'>Programs</Link>
+                        <Link to='/programs'>PROGRAMS</Link>
                 ) : (null)}
             </li>
             
                 <li className='dropdown-link'>
                 {auth.token ? (
-                         <Link to="/" onClick={handleLogout}>Log Out</Link>
+                         <Link to="/" onClick={handleLogout}>LOG OUT</Link>
                      ) : (
                      <Link to="/login"></Link>
                      )}
