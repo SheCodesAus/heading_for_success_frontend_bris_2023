@@ -1,10 +1,8 @@
 .heroheader {
     display: flex;
-    top: 0;
-    left: 0;
-    width: 100%;
     justify-content: space-around;
     padding: 24px;
+    align-items: center;
 }
 
 .HomeIcon {
@@ -31,4 +29,13 @@
     margin-left: auto;
     margin-right: auto;
     top: 0;
+}
+
+.heroheader h1 {
+    color: var(--purple);
+    font-size: 2.75em;
+}
+
+.heroheader span {
+    color: var(--orange)
 }
