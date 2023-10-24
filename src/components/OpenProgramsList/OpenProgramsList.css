@@ -12,11 +12,11 @@
     border-radius: 25px;
 } */ 
 
-#open-programs-list{
-    display:grid;
+#open-programs{
+    background-color:#854AB1;
+    display: grid;
     grid-template-columns: 30% 30% 30%;
-    column-gap: 24px;
-    row-gap: 24px;
-    padding: 80px;
+    column-gap: 10px;
+    row-gap: 10px;
 }
 
