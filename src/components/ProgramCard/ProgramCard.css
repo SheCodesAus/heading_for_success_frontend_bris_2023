@@ -143,7 +143,7 @@
 
 .program-card-sort-btn:hover {
     cursor: pointer;
-    background-color: rgb(133, 74, 177,0.7);
+    background-color: rgb(133, 74, 177,0.5);
     height: 100%;
 }
 

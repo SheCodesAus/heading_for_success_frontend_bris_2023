@@ -1,3 +1,12 @@
-#footerImage {
-    width: 120px;
+#footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to right, #854AB1, #DC9849);
+    color: white;
+    font-size: .5em;
+}
+
+#footer img {
+    width: 15%
 }
