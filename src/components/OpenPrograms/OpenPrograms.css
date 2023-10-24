@@ -3,7 +3,7 @@
     border-radius: 16px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: top;
     text-align: center;
     color: white;
     box-shadow: 4px 4px rgba(0,0,0,0.3);
@@ -12,7 +12,25 @@
 .openprogramcard img{
     border-radius: 16px;
 }
+
+.openprogramcard :hover {
+    transform: scale(105%);
+}
 .openprogramcard a{
     color: white;
     text-transform: uppercase;
+}
+
+.openprogramcard a :hover {
+    color: var(--orange)
+}
+
+.openprogramcard h2 {
+    font-size: 1.25em;
+    font-weight: 600;
+}
+
+.openprogramcard p {
+    font-size: .75em;
+
 }
