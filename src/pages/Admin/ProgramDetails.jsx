@@ -63,6 +63,7 @@ function ProgramDetails() {
                     )
                 })
             } */}
+            { programDetail.scholarship.length > 0   && (
             <ul className='scholarship-group'>
                             <li className='scholarship-items-header'>
                                 <div className='scholarship-items-header-label-left'>
@@ -82,7 +83,9 @@ function ProgramDetails() {
                                 </div>                         
                             </li>
                             </ul>
-            { programDetail.scholarship &&
+                )}
+            
+            { programDetail.scholarship.length > 0 ? (
                 programDetail.scholarship.map((scholarshipData, key) => {
                     return (
                     <Fragment key={key}>    
@@ -96,10 +99,13 @@ function ProgramDetails() {
                     </Fragment>
                     )
                 })
-            }
+            
+
+            ):<p className='no-data'>No scholarships</p>}
 
             <h3 className='scholarship-header'>Applicants</h3>
             
+            {programDetail.applicant.length > 0 ? (
                 <ul>
             {   programDetail.applicant &&
                 programDetail.applicant.map((applicantData, key) => {
@@ -115,13 +121,15 @@ function ProgramDetails() {
                         {applicantData.status}
                     </li>
                     <li>
-                        {applicantData.scholarship}
+                        {/* {applicantData.scholarship} */}
+                        {applicantData.scholarship > 0 && programDetail.scholarship.find((scholarship) => scholarship.id === parseInt(applicantData.scholarship)).organization}
                     </li>    
                 </div>                
                 </Fragment>
                 )
             })}
             </ul>
+            ) : (<p className='no-data'>No applicants</p>)}
             
 
              
