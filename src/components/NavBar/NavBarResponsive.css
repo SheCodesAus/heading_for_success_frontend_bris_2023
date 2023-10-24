@@ -35,6 +35,7 @@
 } */
 
 .navimage {
+  align-items: top;
   max-width: 100%;
 }
   /* -----------NAVBAR STYLING STARTS-------------- */
@@ -50,7 +51,7 @@
   
   .nav-links {
     flex-grow: 1;
-    font-size: 32px;
+    font-size: 22px;
   }
 
   .nav-links a {
@@ -101,7 +102,8 @@
   }
   
   .dropdown-link {
-    font-size: 32px;
+    font-size: 22px;
+    ;
   }
   
   .dropdown li:hover {
