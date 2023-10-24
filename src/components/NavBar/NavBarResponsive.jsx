@@ -1,7 +1,7 @@
 import './NavBarResponsive.css';
 import { Link, Outlet } from 'react-router-dom';
 import { useAuth } from "../../hooks/use-auth";
-
+import Shefunds from "../../Images/Shefunds.svg"
 
 function NavBarResponsive() {
 
@@ -19,6 +19,13 @@ function NavBarResponsive() {
   return (
     <div>
       <nav className='navbar'>
+        <div className='leftContainer'></div>
+        <div className='middleContainer'>
+          <div className='imageContainer'>
+            <img id src={Shefunds} className='navimage' />
+            </div>
+        </div>
+
         <ul className='nav-links'>
           {/* USING CHECKBOX TO TRIGGER HAMBURGER MENU STATE  */}
           <input type='checkbox' id='checkbox_toggle' />
