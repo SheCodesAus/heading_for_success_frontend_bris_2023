@@ -166,10 +166,10 @@ function Scholarships() {
                             value='program' 
                             // onClick={handleClick}
                         > 
-                            {/* <button onClick={handleClick} id='program' value='program' className='program-card-sort-btn'>
+                            <button onClick={handleClick} id='program' value='program' className='program-card-sort-btn'>
                                 <div className='program-card-sort-left'>
-                                    <h3>Program 
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
+                                    <h3>Scholarship 
+                                        {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
                                         className={sortToggleAsc ? 
                                         'program-icons-sort' : 'display-none'} id='program'>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
@@ -177,25 +177,25 @@ function Scholarships() {
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={sortToggleDesc ? 
                                         'program-icons-sort' : 'display-none' } id='program'>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
-                                        </svg>
+                                        </svg> */}
                                     </h3>
                                 </div>
 
-                            </button> */}
+                            </button>
                         </div>
                         <div className='program-card-grid'
                             id='location'         
                             value='location' 
                         >
-                        {/* <button 
+                        <button 
                             onClick={handleClick} 
                             id='location' 
                             value='location' 
                             className='program-card-sort-btn'
                         >
                             <div className='program-card-sort-left'>
-                            <h3>Location
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
+                            <h3>Places
+                                {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
                                     className={sortToggleAscLoc ? 
                                     'program-icons-sort' : 'display-none'} id='location'>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
@@ -203,17 +203,17 @@ function Scholarships() {
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={sortToggleDescLoc ? 
                                     'program-icons-sort' : 'display-none' } id='location'>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
-                                    </svg>
+                                    </svg> */}
 
                             </h3>
                             </div>
-                        </button> */}
+                        </button>
                         </div>
                         <div className='program-card-sort-none'>
-                            <h3>Intake</h3>
+                            <h3>Program Name</h3>
                         </div>
                         <div className='program-card-grid-none'>
-                        {/* <button 
+                        <button 
                             onClick={handleClick} 
                             id='program-status' 
                             value='program-status' 
@@ -221,7 +221,7 @@ function Scholarships() {
                         >
                             <div className='program-card-sort'>
                             <h3>Program Status
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
+                            {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
                                         className={sortToggleAscProgStat ? 
                                         'program-icons-sort' : 'display-none'} id='program-status'>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
@@ -229,21 +229,21 @@ function Scholarships() {
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={sortToggleDescProgStat ? 
                                         'program-icons-sort' : 'display-none' } id='program-status'>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
-                                        </svg>                                
+                                        </svg>                                 */}
                             </h3>
                             </div>
-                            </button> */}
+                            </button>
                         </div>
                         <div className='program-card-grid-none'>
-                        {/* <button 
+                        <button 
                             onClick={handleClick} 
                             id='application-status' 
                             value='application-status' 
                             className='program-card-sort-btn'
                         >
                             <div className='program-card-sort'>
-                            <h3>Application Status
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
+                            <h3>Assigned
+                            {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
                                         className={sortToggleAscAppStatus ? 
                                         'program-icons-sort' : 'display-none'} id='application-status'>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
@@ -251,13 +251,13 @@ function Scholarships() {
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={sortToggleDescAppStatus ? 
                                         'program-icons-sort' : 'display-none' } id='application-status'>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
-                                        </svg>                                
+                                        </svg>                                 */}
                             </h3>
                             </div>
-                            </button> */}
+                            </button>
                         </div>
-                        <div className='program-card-grid-none'>
-                            
+                        <div className='program-card-sort-none'>
+                            <h3>Remaining</h3>
                         </div>
                         </div>
                     </li>

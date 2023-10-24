@@ -25,9 +25,12 @@
 .middleContainer {
   display: flex;
   justify-content: center;
-  flex-grow: 2;
+  align-items: top;
 }
 
+.middleContainer :hover {
+  transform: scale(105%);
+}
 
 /* .Shefunds {
   max-width: 100%;
@@ -35,13 +38,14 @@
 } */
 
 .navimage {
-  max-width: 100%;
+  max-width: 60%;
+  align-items: top;
 }
   /* -----------NAVBAR STYLING STARTS-------------- */
   .navbar {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    align-items: top;
+    justify-content: center;
 
     /* width: 80%; */
     padding: 20px;

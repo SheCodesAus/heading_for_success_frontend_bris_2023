@@ -1,25 +1,24 @@
 import './ApplicantCard.css'
 
 const ApplicantCard = (props) => {
-    const { scholarshipData, applicantData } = props;
+    const { applicantData, programName, scholarshipName } = props;
 
     return (
             <>
                 <div className='scholarship-grid-left'>
                     <p>{applicantData.first_name}</p>
                 </div>
-                <div className='scholarship-grid-display-none'>
+                <div className='scholarship-grid'>
                     { applicantData.last_name }
                 </div>
-                <div id='assigned' className='scholarship-grid-display-none'>
-                {applicantData.scholarship}
-                </div>
-                <div id='remaining' className='scholarship-grid'>
-                {applicantData.program}
-                </div>                             
-                
+                <div className='scholarship-grid-display-none'>
+                {programName}
+                </div>     
                 <div className='scholarship-grid'>
-                {applicantData.program}
+                {applicantData.status}
+                </div>     
+                <div className='scholarship-grid-display-none'>
+                {scholarshipName}
                 </div>
             </>       
                                

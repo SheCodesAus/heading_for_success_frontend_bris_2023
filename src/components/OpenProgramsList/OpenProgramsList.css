@@ -20,4 +20,7 @@
     row-gap: 10px;
     padding: 40px;
 }
-
+#open-programs-list{
+    align-items: center;
+    justify-content: center;
+}

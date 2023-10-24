@@ -10,14 +10,14 @@ function Applicants() {
     const {auth, setAuth} = useAuth();
     
     const { applicant, isLoading, error, setApplicant } = useApplicant();
-    // const [sortToggleAsc, setSortToggleAsc] = useState(true);
-    // const [sortToggleDesc, setSortToggleDesc] = useState(false);
-    // const [sortToggleAscLoc, setSortToggleAscLoc] = useState(true);
-    // const [sortToggleDescLoc, setSortToggleDescLoc] = useState(false);
-    // const [sortToggleAscProgStat, setSortToggleAscProgStat] = useState(true);
-    // const [sortToggleDescProgStat, setSortToggleDescProgStat] = useState(false);
-    // const [sortToggleAscAppStatus, setSortToggleAscAppStatus] = useState(true);
-    // const [sortToggleDescAppStatus, setSortToggleDescAppStatus] = useState(false);
+    const [sortToggleAsc, setSortToggleAsc] = useState(true);
+    const [sortToggleDesc, setSortToggleDesc] = useState(false);
+    const [sortToggleAscLoc, setSortToggleAscLoc] = useState(true);
+    const [sortToggleDescLoc, setSortToggleDescLoc] = useState(false);
+    const [sortToggleAscProgStat, setSortToggleAscProgStat] = useState(true);
+    const [sortToggleDescProgStat, setSortToggleDescProgStat] = useState(false);
+    const [sortToggleAscAppStatus, setSortToggleAscAppStatus] = useState(true);
+    const [sortToggleDescAppStatus, setSortToggleDescAppStatus] = useState(false);
 
     if (isLoading) {
         return (<Spinner />)
@@ -130,7 +130,7 @@ function Applicants() {
     return (
 
         
-        <>
+        <div className='application-page'>
         
             <h1 className="program-list-header">Applicants</h1>
 {/*             
@@ -166,9 +166,9 @@ function Applicants() {
                             value='program' 
                             // onClick={handleClick}
                         > 
-                            {/* <button onClick={handleClick} id='program' value='program' className='program-card-sort-btn'>
+                            <button onClick={handleClick} id='first_name' value='first_name' className='program-card-sort-btn'>
                                 <div className='program-card-sort-left'>
-                                    <h3>Program 
+                                    <h3>First Name 
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
                                         className={sortToggleAsc ? 
                                         'program-icons-sort' : 'display-none'} id='program'>
@@ -181,20 +181,20 @@ function Applicants() {
                                     </h3>
                                 </div>
 
-                            </button> */}
+                            </button>
                         </div>
                         <div className='program-card-grid'
-                            id='location'         
-                            value='location' 
+                            // id='last_name'         
+                            // value='last_name' 
                         >
-                        {/* <button 
+                        <button 
                             onClick={handleClick} 
-                            id='location' 
-                            value='location' 
+                            id='last_name' 
+                            value='last_name' 
                             className='program-card-sort-btn'
                         >
                             <div className='program-card-sort-left'>
-                            <h3>Location
+                            <h3>Last Name
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
                                     className={sortToggleAscLoc ? 
                                     'program-icons-sort' : 'display-none'} id='location'>
@@ -207,20 +207,20 @@ function Applicants() {
 
                             </h3>
                             </div>
-                        </button> */}
+                        </button>
                         </div>
                         <div className='program-card-sort-none'>
-                            <h3>Intake</h3>
+                            <h3>Program</h3>
                         </div>
                         <div className='program-card-grid-none'>
-                        {/* <button 
+                        <button 
                             onClick={handleClick} 
-                            id='program-status' 
-                            value='program-status' 
+                            id='program' 
+                            value='program' 
                             className='program-card-sort-btn'
                         >
                             <div className='program-card-sort'>
-                            <h3>Program Status
+                            <h3>Application Status
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
                                         className={sortToggleAscProgStat ? 
                                         'program-icons-sort' : 'display-none'} id='program-status'>
@@ -232,17 +232,17 @@ function Applicants() {
                                         </svg>                                
                             </h3>
                             </div>
-                            </button> */}
+                            </button>
                         </div>
                         <div className='program-card-grid-none'>
-                        {/* <button 
+                        <button 
                             onClick={handleClick} 
-                            id='application-status' 
-                            value='application-status' 
+                            id='scholarship' 
+                            value='scholarship' 
                             className='program-card-sort-btn'
                         >
                             <div className='program-card-sort'>
-                            <h3>Application Status
+                            <h3>Scholarship
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
                                         className={sortToggleAscAppStatus ? 
                                         'program-icons-sort' : 'display-none'} id='application-status'>
@@ -254,25 +254,28 @@ function Applicants() {
                                         </svg>                                
                             </h3>
                             </div>
-                            </button> */}
-                        </div>
-                        <div className='program-card-grid-none'>
-                            
+                            </button>
                         </div>
                         </div>
                     </li>
+                    <li className='scholarship-items'>
                     { applicant.map((applicantData, key) => {
+                        const programName = '';
+                        const scholarshipName = '';
                         // return (<p>{programData.program_name}</p>)
                         return (
                                 <ApplicantCard
                                     key={key}
                                     applicantData={applicantData}
+                                    programName = {programName}
+                                    scholarshipName = {scholarshipName}
                                     // onClick={deleteSingleProgram}
                                 />
                             
                         )
                                     
                     })}
+                    </li>
                     </ul>
                 </>
                  }
@@ -282,7 +285,7 @@ function Applicants() {
             ) : (
                 <LoginForm />
             ) } 
-        </>
+        </div>
         
     );
 }

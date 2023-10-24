@@ -14,11 +14,13 @@ function OpenProgramsList() {
         return <div>Error: {error.message}</div>;
     }
     return (
-
-        <div id="open-programs">
+        <div id="openprograms-title">
+        <h2> <span>OPEN</span> programs available now in Australia</h2>
+        <div id="open-programs"> 
             {program.map((programOpen) => (
                 <OpenPrograms key={programOpen.id} programOpen={programOpen} />
             ))}
+        </div>
         </div>
     );
     
