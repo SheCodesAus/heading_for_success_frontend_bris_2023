@@ -1,9 +1,13 @@
 import './ScholarshipCard.css'
 
 const ScholarshipCard = (props) => {
+    // console.log('::', props);
     const { scholarshipData, applicantDetail } = props;
-    if (applicantDetail.scholarship === scholarshipData.id) {
-        scholarshipData.is_assigned = true;
+    // console.log('::', scholarshipData, applicantDetail)
+    if (!!applicantDetail) {
+        if (applicantDetail.scholarship === scholarshipData.id) {
+            scholarshipData.is_assigned = true;
+        }
     }
 
     return (

@@ -11,7 +11,7 @@ function NewProgramForm() {
     const [messageBlock, setMessageBlock] = useState(false);
     const [programData, setprogramData] = useState({
         program_name: '',
-        location: '',
+        location: 'Brisbane',
         intake: '',
         description: '',
         image: '',
@@ -100,6 +100,7 @@ function NewProgramForm() {
                     <select
                         name='location'
                         id='location'
+                        // defaultValue='Brisbane'
                         onChange={handleChange}>
                         {location_options.map((location_options,key) => (
                             <option 

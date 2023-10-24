@@ -6,9 +6,9 @@ import UpdatedHero from '../../Images/UpdatedHero.svg'
 function ThanksForApplying() {
     return (
         <div>
-            <h1>Thank you for applying</h1>
+            <h1>Thank you for applying!</h1>
             <h2>
-                Keep browsing our Programs. <Link to="/programs">Click here</Link>
+                <Link to="/">Return home</Link>
             </h2>
             <img src={UpdatedHero} class="UpdatedHero"></img>
         </div>
