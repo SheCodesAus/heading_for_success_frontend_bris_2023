@@ -2,7 +2,9 @@ import { Link } from 'react-router-dom'
 import "../OpenPrograms/OpenPrograms.css"
 
 function OpenPrograms({ programOpen }) {
+
     const programPath = `programOpen/${programOpen.id}`;
+
 
     return (
         <div className='openprogramcard'>

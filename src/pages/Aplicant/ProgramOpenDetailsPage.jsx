@@ -4,6 +4,7 @@ import OpenProgramDetails from '../../components/OpenProgramDetails/OpenProgramD
 function ProgramOpenDetails() {
     return (
         <div className="open-program-page">
+
             < OpenProgramDetails />
             <div className="open-program-container">
             </div>

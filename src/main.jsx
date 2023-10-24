@@ -43,7 +43,9 @@ const router = createBrowserRouter([
       //For applicants
       { path: "/", element: <HomePage /> },
       { path: "/programOpen", element: <ProgramOpenPage /> },
+
       { path: "/programOpen/:id", element: <ProgramOpenDetails /> },
+
       { path: "/apply", element: <Apply /> },
       { path: "/thanks", element: <ThanksForApplying /> },
     ],
