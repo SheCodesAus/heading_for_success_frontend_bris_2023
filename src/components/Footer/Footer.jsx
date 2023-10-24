@@ -5,8 +5,10 @@ import Shefunds from "../../Images/Shefunds.svg"
 
 function Footer() {
     return (
-        <h1>Powered by <img id="footerImage" src={Shefunds} /> </h1>
-    );
+        <div id="footer">
+        <p>Powered by</p><img src={Shefunds} /><p>© Heading for Success 2023</p>
+        </div>
+        );
 }
 
 export default Footer;

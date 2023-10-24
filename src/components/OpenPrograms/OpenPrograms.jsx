@@ -9,7 +9,7 @@ function OpenPrograms({ programOpen }) {
             <Link to={programPath} >
                 <img src={programOpen.image} alt={programOpen.program_name} />
                 <h2>{programOpen.program_name}</h2>
-                <h3>{programOpen.location}</h3>
+                <p>{programOpen.location}</p>
             </Link>
         </div>
     );

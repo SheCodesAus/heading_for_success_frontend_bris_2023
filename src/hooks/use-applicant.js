@@ -7,7 +7,7 @@ export function useApplicant() {
     const [error, setError] = useState();
     
     useEffect(() => {
-        getApplicant()
+        getApplicants()
             .then((applicant) => {
                 setApplicant(applicant);
                 setIsLoading(false);
