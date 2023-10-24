@@ -1,4 +1,4 @@
-export async function postSch   olarship(formData) {
+export async function postScholarship(formData) {
     const url = `${import.meta.env.VITE_API_URL}/scholarship`;
     const response = await fetch(url, { method: 'POST',
         headers: {
