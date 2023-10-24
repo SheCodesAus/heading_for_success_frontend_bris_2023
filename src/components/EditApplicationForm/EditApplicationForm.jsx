@@ -5,7 +5,7 @@ import { useApplicantDetails } from '../../hooks/use-applicant-details';
 import { useProgramDetails } from '../../hooks/use-program-details';
 import { useAuth } from '../../hooks/use-auth';
 import LoginForm from '../AdminLogin/LoginForm';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import MessageCard from '../MessageCard/MessageCard';
 import Spinner from '../Spinner/Spinner';
 import ScholarshipCard from '../ScholarshipCard/ScholarshipCard';
@@ -18,6 +18,8 @@ const EditApplicationForm = () => {
     const { applicantDetail, isLoading: isLoadingApplicantDetail, error: errorApplicantDetail, setApplicantDetail } = useApplicantDetails(id);
     const { programDetail, isLoading: isLoadingProgramDetail, error: errorProgramDetail, setProgramDetail, scholarshipAssigned, setScholarshipAssigned } = useProgramDetails(programId);
     const [messageBlock, setMessageBlock] = useState(false);
+    const [assigned, setAssigned] = useState(false);
+    const [progressBlock, setProgressBlock] = useState(true);
 
     if (isLoadingApplicantDetail || isLoadingProgramDetail) {
         return (<Spinner />)
@@ -100,7 +102,7 @@ const EditApplicationForm = () => {
 
     const status_options = [
         {
-            label: 'New',
+            label: 'Applied',
             value: 'New',
         },
         {
@@ -112,12 +114,8 @@ const EditApplicationForm = () => {
             value: 'Interview',
         },
         {
-            label: 'Rejected',
+            label: 'Unsuccessful',
             value: 'Rejected',
-        },
-        {
-            label: 'Withdrawn',
-            value: 'Withdrawn',
         },
         {
             label: 'Successful',
@@ -127,6 +125,10 @@ const EditApplicationForm = () => {
             label: 'Scholarship Assigned',
             value: 'Scholarship Assigned',
         },
+        {
+            label: 'Withdrawn',
+            value: 'Withdrawn',
+        },        
     ];
 
     let found = '';
@@ -197,18 +199,9 @@ const EditApplicationForm = () => {
                     </div>                                                    
                 </div>
                 <form className='scholarship-applicant-detail-form' onSubmit={handleSubmit}>
-                    {/* <li>
-                        <h3 className='scholarship-header'>
-                            Applicant: {`${applicantDetail.first_name} ${applicantDetail.last_name}`}
-                        </h3>
-                    </li>
-                    <li>
-                        <h4 className='scholarship-details'>
-                            Email: {applicantDetail.email}
-                        </h4>
-                    </li> */}
+                    <h3 className='scholarship-header'>Applicant Profile</h3>
                     <div className='scholarship-applicant-profile'>
-                    <li className='label'>
+                        <li className='label'>
                         <label htmlFor='first_name'>Applicant Name</label>
                         </li>
                         <li className='label'>
@@ -218,9 +211,28 @@ const EditApplicationForm = () => {
                         <li className='label'>
                         <label htmlFor='status'>Program Status</label>
                         </li>
-                        <li className='label'>
+                        {/* <li className='label'>
                             {applicantDetail.status}     
-                        </li>                       
+                        </li> 
+                                               */}
+                        <li className='label'>
+                            <select                                 
+                                name='status'
+                                id='status' 
+                                onChange={handleChange}
+                                value={applicantDetail.status}
+                            >
+                                {status_options.map((status_options,key) => (
+                                    <option 
+                                        key={key}
+                                        value={status_options.value} 
+                                        // selected={status_options.value == applicantDetail.status && 'selected'}
+                                    >
+                                        {status_options.label}
+                                    </option>
+                                ))}
+                            </select>
+                        </li>                                                 
                         <li className='label'>
                         <label htmlFor='location'>Program Name</label>
                         </li>
@@ -249,7 +261,7 @@ const EditApplicationForm = () => {
                             <label htmlFor='email'>Email</label>
                         </li>
                         <li className='label'>
-                            {applicantDetail.email}    
+                        <a href={`mailto:${applicantDetail.email}`} target='_blank'>{applicantDetail.email}</a>
                         </li> 
                         <li className='label'>
                             <label htmlFor='age'>Age</label>
@@ -282,7 +294,18 @@ const EditApplicationForm = () => {
                             {applicantDetail.pronouns}
                         </li>   
                         </div>
+                        
+                        <details className='applicant-detail-section'>
+                        <summary>Application Details</summary>
                         <div className='scholarship-applicant-detail'>
+                        <li className='label'>
+                        <label htmlFor='resume'>LinkedIn</label>
+                        </li>                            
+                        <li className='label'>
+                            <a href={applicantDetail.resume} target='_blank'>
+                                {applicantDetail.resume}
+                            </a>
+                        </li>
                         <li className='label'>
                         <label htmlFor='qualities'>Qualities</label>
                         </li>
@@ -325,64 +348,38 @@ const EditApplicationForm = () => {
                         <li className='label'>
                             {applicantDetail.biography}
                         </li>
-            
-                        {/* <li className='label'>
-                            <input 
-                                className='form-input'
-                                id='gender_eligible'
-                                name='gender_eligible'
-                                type='radio' 
-                                defaultChecked={applicantDetail.gender_eligible === false && true}
-                                onChange={handleChange}
-                                value='false'
-                            />
-                            <label>No</label>
-                        </li>                                    */}
-
-                        <li className='label'>
-                        <label htmlFor='status'>Program Status</label>
-                        </li>
-                        <li className='label'>
-                            <select 
-                                
-                                name='status'
-                                id='status' 
-                                onChange={handleChange}
-                                defaultValue={applicantDetail.status}
-                            >
-                                {status_options.map((status_options,key) => (
-                                    <option 
-                                        key={key}
-                                        value={status_options.value} 
-                                        // selected={status_options.value == applicantDetail.status && 'selected'}
-                                    >
-                                        {status_options.label}
-                                    </option>
-                                ))}
-                            </select>
-                        </li>  
                         </div>
+                        </details>
                         <div className='scholarship-assign'>
-                        <h3 
-                            className='scholarship-header'
-                        >
-                                Assign Scholarship
+                        <h3 className='scholarship-header'>
+                            Assign Scholarship
                         </h3>                      
                         <ul className='scholarship-group'>
                             <li className='scholarship-items-header'>
-                                <div className='scholarship-items-header'><h4>Scholarship</h4></div>
-                                <div className='scholarship-items-header'><h4>Places</h4></div>
-                                <div className='scholarship-items-header'><h4>Assigned</h4></div>
-                                <div className='scholarship-items-header'><h4>Remaining</h4></div>
-                                <div className='scholarship-items-header'><h4>Assigned</h4>
+                                <div className='scholarship-items-header-label-left'>
+                                    <h4>Scholarship</h4>
+                                </div>
+                                <div className='scholarship-items-header-label-display-none'>
+                                    <h4>Places</h4>
+                                </div>
+                                <div className='scholarship-items-header-label-display-none'>
+                                    <h4>Assigned</h4>
+                                </div>
+                                <div className='scholarship-items-header-label'>
+                                    <h4>Remaining</h4>
+                                </div>
+                                <div className='scholarship-items-header-label'>
+                                    <h4>Assigned</h4>
                                 </div>                         
                             </li>
                     {scholarshipAssigned.map((scholarshipData, key) => {
                         return (
                             <Fragment key={key}>
-                            <li 
-                                className='scholarship-items'
-                            >
+                                
+                            <li className={(scholarshipData.id === applicantDetail.scholarship) ? ('scholarship-items-assigned') : 
+                            ('scholarship-items')
+                            }>
+                            {/* <li className='scholarship-items'> */}
                             <ScholarshipCard 
                                 id={key}
                                 scholarshipData={scholarshipData} 
@@ -396,11 +393,14 @@ const EditApplicationForm = () => {
 
                 </ul>
                 </div>                                                          
-                    <button type='submit' className='scholarship-btn'>SAVE</button>
+                    <div className='scholarship-form-bottom'>
+                        <button type='submit' className='scholarship-btn'>SAVE</button>
                     { messageBlock ? (
-                    <li key='test' className='message'><MessageCard message='Details updated successfully' />
+                    <li className='message'><MessageCard message='Details updated successfully' />
                     </li>
-                ) :( null ) }     
+                    
+                ) :( null ) }   
+                    </div>  
                 </form>
                 </>
             </div>

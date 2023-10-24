@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { postLogin } from '../../api/post-login';
 import { useAuth } from '../../hooks/use-auth';
 import MessageCard from '../MessageCard/MessageCard';
+import "./LoginForm.css"
 
 function LoginForm() {
     const navigate = useNavigate();
@@ -52,7 +53,7 @@ function LoginForm() {
     };
 
     return (
-        <div>
+        <div class="loginform">
             <form class="AppForm" onSubmit={handleSubmit}>
                 <div>
                     <h3>LOGIN</h3>
@@ -70,7 +71,7 @@ function LoginForm() {
                     <input 
                         type='password' 
                         id='password' 
-                        placeholder='Password' 
+                        placeholder='Enter Password' 
                         onChange = {handleChange}
                         required
                     />

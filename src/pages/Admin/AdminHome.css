@@ -1,13 +1,101 @@
-.homeCartoon {
+/* 
+#admin-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 400px;
+}
+
+.programs {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.scholarships {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.applicants {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.createAdmin {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.UpdatedCartoon {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 90%;
-}
+} 
 
 .adminhome {
     background-color: #DC9849;
-    
+  } */
+
+
+  :root {
+    --purple: #854AB1;
+    --dark-purple: #673F6C;
+    --orange: #DC9849;
+    --gold: #997C50;
+    --grey: #A59788;
+}
+.program-list-header {
+    font-size: 40px; /* Set your desired font size */
+    color: var(--dark-purple); /* Set your desired text color */
+    /* Additional styles like margin, padding, etc. */
+    margin: 40px;
+}
+.admin-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 400px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
+/* Styles for icons */
+.programs,
+.scholarships,
+.applicants,
+.createAdmin {
+    max-width: 100px;
+    max-height: 100px;
+}
 
+.homeCartoon {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+}
+
+/* Styles for program buttons */
+.program-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.program-button {
+    display: inline-block;
+    padding: 20px 40px;
+    background-color: var(--purple);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 20px;
+    font-size: 28px;
+}
+
+.program-button:hover {
+    background-color: var(--dark-purple);
+}

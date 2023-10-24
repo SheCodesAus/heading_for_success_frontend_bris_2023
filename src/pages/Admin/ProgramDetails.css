@@ -1,0 +1,19 @@
+.applicant-detail {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;  
+    margin: auto;
+    width: 90%;
+}
+
+.program-detail-section {
+    display: grid;
+    grid-template-columns: 30% 70%;  
+    margin: auto;
+    width: 90%;
+}
+
+.no-data {
+    text-align: center;
+    width: 100%;
+    
+}

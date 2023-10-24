@@ -158,7 +158,7 @@ function Programs() {
                 <>
                     <ul className="program-card-list">
                     <li>
-                        <div className='program-card program-card-header'> 
+                        <div className='program-card-header'> 
                         <div 
                             className='program-card-grid' 
                             id='program'         
@@ -166,7 +166,7 @@ function Programs() {
                             // onClick={handleClick}
                         > 
                             <button onClick={handleClick} id='program' value='program' className='program-card-sort-btn'>
-                                <div className='program-card-sort'>
+                                <div className='program-card-sort-left'>
                                     <h3>Program 
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
                                         className={sortToggleAsc ? 
@@ -192,7 +192,7 @@ function Programs() {
                             value='location' 
                             className='program-card-sort-btn'
                         >
-                            <div className='program-card-sort'>
+                            <div className='program-card-sort-left'>
                             <h3>Location
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
                                     className={sortToggleAscLoc ? 
@@ -208,7 +208,7 @@ function Programs() {
                             </div>
                         </button>
                         </div>
-                        <div className='program-card-grid  program-card-sort'>
+                        <div className='program-card-sort-none'>
                             <h3>Intake</h3>
                         </div>
                         <div className='program-card-grid-none'>
@@ -218,7 +218,7 @@ function Programs() {
                             value='program-status' 
                             className='program-card-sort-btn'
                         >
-                            <div className='program-card-sort  program-card-sort'>
+                            <div className='program-card-sort'>
                             <h3>Program Status
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
                                         className={sortToggleAscProgStat ? 
