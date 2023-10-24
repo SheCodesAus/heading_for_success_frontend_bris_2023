@@ -9,7 +9,7 @@ export async function postApplicant(formData) {
             'last_name': formData.last_name,
             'email': formData.email,
             'age': formData.age,
-            'mobile': formData.mobile,
+            'contact_mobile': formData.mobile,
             'home_city': formData.home_city,
             'pronouns': formData.pronouns,
             'qualities': formData.qualities,
@@ -18,9 +18,12 @@ export async function postApplicant(formData) {
             'previous_education': formData.previous_education,
             'work_experience': formData.work_experience,
             'currently_employed': formData.currently_employed,
+            'current_employer': formData.current_employer,
             'biography': formData.biography,
             'gender_eligible': formData.gender_eligible,
             'resume': formData.resume,
+            'program' : formData.id,
+            'status': 'New',
         }),
     });
     if (!response.ok) {
