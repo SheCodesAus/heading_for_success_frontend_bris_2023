@@ -24,6 +24,8 @@ import LoginForm from "../../components/AdminLogin/LoginForm";
 import ProgramCard from "../../components/ProgramCard/ProgramCard";
 import Spinner from "../../components/Spinner/Spinner";
 import { Link } from 'react-router-dom';
+import Footer from '../../components/Footer/Footer.jsx';
+
 
 import './AdminHome.css'
 
@@ -151,7 +153,7 @@ function Programs() {
     return (
 
         
-        <>
+        <div className="admin-dashboard" >
         
             <h1 className="program-list-header">Admin Dashboard</h1>
             
@@ -305,16 +307,26 @@ function Programs() {
                         <Link to="/newProgram" className="program-button">
                             Create New Program
                         </Link>
-                        {/* <Link to="/login" className="program-button" onClick={handleLogout}>
-                            Log Out
-                        </Link> */}
+                        <Link to="/applicants" className="program-button">
+                            See All Applicants
+                        </Link>
+                        <Link to="/scholarships" className="program-button">
+                            See All Scholarships
+                        </Link>
+                        
                     </div>
+                    <div>
+                    <Footer/>
+                         
+                         </div>
+
                 </>
                 
             ) : (
                 <LoginForm />
+                
             ) } 
-        </>
+        </div>
         
     );
 }

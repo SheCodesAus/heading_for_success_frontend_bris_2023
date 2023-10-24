@@ -39,16 +39,16 @@
   } */
 
 
-  :root {
-    --purple: #854AB1;
-    --dark-purple: #673F6C;
-    --orange: #DC9849;
-    --gold: #997C50;
-    --grey: #A59788;
-}
+
+
+/* body{
+    background-color:rgba(173, 216, 230, 0.5); Change the color values and alpha (0.5 for 50% transparency) as needed */
+
+    /* Change the color code to the desired color */
+/* } */
 .program-list-header {
     font-size: 40px; /* Set your desired font size */
-    color: var(--dark-purple); /* Set your desired text color */
+    color: var(--orange); /* Set your desired text color */
     /* Additional styles like margin, padding, etc. */
     margin: 40px;
 }
@@ -82,20 +82,22 @@
     display: flex;
     justify-content: center;
     margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .program-button {
     display: inline-block;
-    padding: 20px 40px;
-    background-color: var(--purple);
+    padding: 20px 20px;
+    background-color: var(--orange);
     color: white;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    margin: 20px;
-    font-size: 28px;
+    margin: 8px;
+    font-size: 16px;
 }
 
 .program-button:hover {
-    background-color: var(--dark-purple);
+    background-color: var(--gold);
 }
+

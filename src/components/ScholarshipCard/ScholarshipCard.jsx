@@ -4,7 +4,7 @@ const ScholarshipCard = (props) => {
     // console.log('::', props);
     const { scholarshipData, applicantDetail } = props;
     // console.log('::', scholarshipData, applicantDetail)
-    if (!!applicantDetail) {
+    if (applicantDetail !== undefined) {
         if (applicantDetail.scholarship === scholarshipData.id) {
             scholarshipData.is_assigned = true;
         }
