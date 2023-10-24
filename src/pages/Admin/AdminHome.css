@@ -45,10 +45,10 @@
     background-color:rgba(173, 216, 230, 0.5); Change the color values and alpha (0.5 for 50% transparency) as needed */
 
     /* Change the color code to the desired color */
-}
+/* } */
 .program-list-header {
     font-size: 40px; /* Set your desired font size */
-    color: white; /* Set your desired text color */
+    color: var(--orange); /* Set your desired text color */
     /* Additional styles like margin, padding, etc. */
     margin: 40px;
 }
