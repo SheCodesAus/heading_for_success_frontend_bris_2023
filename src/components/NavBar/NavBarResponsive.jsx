@@ -2,7 +2,9 @@ import './NavBarResponsive.css';
 import { Link, Outlet } from 'react-router-dom';
 import { useAuth } from "../../hooks/use-auth";
 
+
 function NavBarResponsive() {
+
 
     const {auth, setAuth} = useAuth();
 
@@ -24,7 +26,6 @@ function NavBarResponsive() {
           <label htmlFor='checkbox_toggle' className='hamburger'>
             &#9776;
           </label>
-
           <div className='menu'>
             <li>
               <Link to='/login'>Login</Link>
