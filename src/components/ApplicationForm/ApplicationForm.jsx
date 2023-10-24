@@ -1,11 +1,13 @@
 // help check the format/ input types for each data point, weren't confirmed in MVP doc
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate instead of useHistory
+import { useNavigate, useLocation } from 'react-router-dom'; // Import useNavigate instead of useHistory
 import './ApplicationForm.css';
 
 function ApplicationForm() {
     const navigate = useNavigate(); // Initialize useNavigate
+    const location = useLocation();
+    const id = location.state.id
 
     const [formData, setFormData] = useState({
         first_name: "",
@@ -24,7 +26,10 @@ function ApplicationForm() {
         biography: "",
         gender_eligible: "yes",
         resume: "",
+        id,
     });
+
+    console.log('this is my id', location.state.id)
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -36,7 +41,7 @@ function ApplicationForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent the default form submission behavior (page reload)
-        
+        console.log(formData)
         // Handle the form submission here (you can replace this with your actual logic)
         // ...
 
@@ -85,7 +90,7 @@ function ApplicationForm() {
                 </label>
 
                 <label>
-                    Qualities:
+                    What will you bring to the table?
                     <input type="text" name="qualities" placeholder="Enter your qualities, ie Bring unique perspective to the community" value={formData.qualities} onChange={handleChange} />
                 </label>
 
@@ -99,7 +104,7 @@ function ApplicationForm() {
                 </label>
 
                 <label>
-                    Reason:
+                    Why are you applying to this program?
                     <input type="text" name="reason" placeholder="Enter your reason for wanting to do this program now" value={formData.reason} onChange={handleChange} />
                 </label>
 
@@ -114,7 +119,7 @@ function ApplicationForm() {
                 </label>
 
                 <label>
-                    Currently Employed:
+                    Are you currently employed:
                     <div>
                         <label>
                             <input
@@ -147,7 +152,7 @@ function ApplicationForm() {
                 </label>
 
                 <label>
-                    Gender Eligible:
+                    Do you identify as a Woman?
                     <p>Our definition of women includes transgender and cisgender, all those who experience or have experienced oppression as women, including non-binary and gender non-conforming people and all those who identify as women.</p>
                     <div>
                         <label>
@@ -176,8 +181,8 @@ function ApplicationForm() {
                 </label>
 
                 <label>
-                    Resume:
-                    <input type="file" name="resume" onChange={handleChange} />
+                    Linkedin:
+                    <input type="url" name="resume" onChange={handleChange} />
                 </label>
 
                 <button type="submit">Submit</button>

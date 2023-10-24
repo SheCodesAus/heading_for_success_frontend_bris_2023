@@ -13,24 +13,51 @@
     list-style: none;
   }
   
+.imageContainer {
+ max-width: 60%;
+ max-height: 60%;
+}
+
+.leftContainer {
+  flex-grow: 1;
+}
+
+.middleContainer {
+  display: flex;
+  justify-content: center;
+  flex-grow: 2;
+}
+
+
+/* .Shefunds {
+  max-width: 100%;
+  border: 2px solid blue;
+} */
+
+.navimage {
+  max-width: 100%;
+}
   /* -----------NAVBAR STYLING STARTS-------------- */
   .navbar {
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: flex-end;
+
     /* width: 80%; */
     padding: 20px;
-    color: #fff;
     /* background-image: linear-gradient(to right, #854AB1, #DC9849); */
   }
   
   .nav-links {
+    flex-grow: 1;
     font-size: 32px;
   }
-  
+
   .nav-links a {
     color: #fff;
   }
+  
+ 
   
   /* NAVBAR MENU */
   .menu {
@@ -54,7 +81,7 @@
   }
   
   .dropdown {
-    background-image: linear-gradient(to right, #854AB1, #DC9849);
+    background-color: #404040;
     padding: 1em 0;
     position: absolute; /*WITH RESPECT TO PARENT*/
     width: 80%;
@@ -103,9 +130,9 @@
   /* ------APPLYING MEDIA QUERIES -----*/
 /*  @media (max-width: 768px) { */
     .menu {
+      background-color: #404040;
       display: none;
       position: absolute;
-      background-image: linear-gradient(to right, #854AB1, #DC9849);
       right: 0;
       left: 0;
       text-align: center;
