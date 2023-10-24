@@ -16,8 +16,6 @@ function Header() {
                 <h1>Putting the <span>FUN</span>ds in female education and empowerment in the tech industry.</h1>
                 <img id src={HeroImg}/>
             </div>     
-            <div>   
-            </div>
         </>
     );
 }

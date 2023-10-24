@@ -24,3 +24,14 @@
     align-items: center;
     justify-content: center;
 }
+
+#openprograms-title {
+    font-size: 2em;
+    justify-content: center;
+    padding: 36px 80px;
+    text-align: center;
+}
+
+#openprograms-title span {
+    color: var(--orange);
+}

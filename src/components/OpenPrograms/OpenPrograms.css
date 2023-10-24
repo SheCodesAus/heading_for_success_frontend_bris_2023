@@ -2,12 +2,13 @@
     background-color:var(--purple);
     border-radius: 16px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: top;
+    flex-direction: column;
     text-align: center;
     color: white;
     box-shadow: 4px 4px rgba(0,0,0,0.3);
-    padding: 32px;
+    padding: 24px;
 }
 .openprogramcard img{
     border-radius: 16px;

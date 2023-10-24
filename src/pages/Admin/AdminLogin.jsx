@@ -4,12 +4,11 @@ import Header from '../../components/Header/header.jsx';
     
 function AdminLogin() {
     return(
-        <>
-            <Header />
+        <div id="login">
             <h1>Welcome Administrator.</h1>
             <br></br>
             <LoginForm />
-        </>
+        </div>
     );
 }
 

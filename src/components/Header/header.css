@@ -3,6 +3,7 @@
     justify-content: space-around;
     padding: 24px;
     align-items: center;
+    flex-grow: 3;
 }
 
 .HomeIcon {
@@ -34,8 +35,14 @@
 .heroheader h1 {
     color: var(--purple);
     font-size: 2.75em;
+    padding: 40px;
+    width: 50%;
 }
 
 .heroheader span {
     color: var(--orange)
+}
+
+.heroheader img {
+    width: 30%;
 }

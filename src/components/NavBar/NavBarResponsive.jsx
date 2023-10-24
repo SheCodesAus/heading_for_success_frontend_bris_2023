@@ -2,6 +2,7 @@ import './NavBarResponsive.css';
 import { Link, Outlet } from 'react-router-dom';
 import { useAuth } from "../../hooks/use-auth";
 import Shefunds from "../../Images/Shefunds.svg"
+import HomeIcon from "../../Images/HomeIcon.svg"
 
 function NavBarResponsive() {
 
@@ -19,10 +20,16 @@ function NavBarResponsive() {
   return (
     <div>
       <nav className='navbar'>
-        <div className='leftContainer'></div>
+        <div className='leftContainer'>
+          <Link to="/">
+          <img src={HomeIcon}/>
+          </Link>
+        </div>
         <div className='middleContainer'>
           <div className='imageContainer'>
-            <img id src={Shefunds} className='navimage' />
+          <Link to="/">
+            <img id src={Shefunds} />
+            </Link>
             </div>
         </div>
 
