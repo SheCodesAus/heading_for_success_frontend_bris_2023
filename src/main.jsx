@@ -16,6 +16,7 @@ import Apply from './pages/Aplicant/ApplicationPage';
 import ThanksForApplying from './pages/Aplicant/ThanksForApplying';
 import { AuthProvider } from './components/AuthProvider/AuthProvider';
 import ProgramOpenPage from './pages/Aplicant/ProgramOpenPage';
+import ProgramOpenDetails from './pages/Aplicant/ProgramOpenDetailsPage';
 
 //COMPONENTS IMPORTS
 import NavBarResponsive from './components/NavBar/NavBarResponsive.jsx';
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
       //For applicants
       { path: "/", element: <HomePage /> },
       { path: "/programOpen", element: <ProgramOpenPage /> },
+      { path: "/programOpen/program/:id", element: <ProgramOpenDetails /> },
       { path: "/apply", element: <Apply /> },
       { path: "/thanks", element: <ThanksForApplying /> },
     ],
