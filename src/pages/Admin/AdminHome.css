@@ -39,16 +39,15 @@
   } */
 
 
-  :root {
-    --purple: #854AB1;
-    --dark-purple: #673F6C;
-    --orange: #DC9849;
-    --gold: #997C50;
-    --grey: #A59788;
+
+
+body{
+    background-color: var(--gold); 
+    /* Change the color code to the desired color */
 }
 .program-list-header {
     font-size: 40px; /* Set your desired font size */
-    color: var(--dark-purple); /* Set your desired text color */
+    color: white; /* Set your desired text color */
     /* Additional styles like margin, padding, etc. */
     margin: 40px;
 }
@@ -99,3 +98,4 @@
 .program-button:hover {
     background-color: var(--dark-purple);
 }
+
