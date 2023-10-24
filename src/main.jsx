@@ -12,6 +12,8 @@ import CreateUser from './pages/Admin/CreateUser';
 import NewProgram from './pages/Admin/NewProgram';
 import ProgramDetails from './pages/Admin/ProgramDetails';
 import Programs from './pages/Admin/Programs';
+import Applicants from './pages/Admin/Applicants';
+import Scholarships from './pages/Admin/Scholarships';
 import Apply from './pages/Aplicant/ApplicationPage';
 import ThanksForApplying from './pages/Aplicant/ThanksForApplying';
 import { AuthProvider } from './components/AuthProvider/AuthProvider';
@@ -36,6 +38,8 @@ const router = createBrowserRouter([
       { path: "/newProgram", element: <NewProgram /> },
       { path: "/program/:id", element: <ProgramDetails /> }, ///Changing to hardcoded 1 to test scholarship component. will need to change to /program/:id
       { path: "/programs", element: <Programs /> },
+      { path: "/applicants", element: <Applicants /> },
+      { path: "/scholarships", element: <Scholarships /> },
       //For applicants
       { path: "/", element: <HomePage /> },
       { path: "/programOpen", element: <ProgramOpenPage /> },

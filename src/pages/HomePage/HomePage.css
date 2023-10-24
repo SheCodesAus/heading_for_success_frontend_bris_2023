@@ -1,6 +1,11 @@
-.UpdatedCartoon {
+.homecartoon {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
+    width: 200%;
+}
+
+.hompage-container {
+    display: flex;
+    justify-content: center;
 }

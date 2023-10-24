@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
-import { getApplicants } from '../api/get-applicants';
+import { getScholarship } from '../api/get-scholarship';
 
-export function useApplicant() {
-    const [applicant, setApplicant] = useState([]);
+export function useScholarship() {
+    const [scholarship, setScholarship] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState();
     
     useEffect(() => {
-        getApplicants()
-            .then((applicant) => {
-                setApplicant(applicant);
+        getScholarship()
+            .then((scholarship) => {
+                setScholarship(scholarship);
                 setIsLoading(false);
             })
             .catch((error) => {
@@ -17,7 +17,7 @@ export function useApplicant() {
                 setIsLoading(false);
             });
     }, []);
-    return { applicant, isLoading, error, setApplicant };
+    return { scholarship, isLoading, error, setScholarship };
 }
 
 
