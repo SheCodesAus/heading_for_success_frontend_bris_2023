@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 
 function CreateUser() {
     return(
-        <div><AddUser />
-         <div className="program-buttons">
+        <div>
+                <h1 className="program-list-header">New admin</h1>
+                <AddUser />
+                <div className="program-buttons">
                     <Link to="/user" className="program-button">
                         New User/Admin
                     </Link>
