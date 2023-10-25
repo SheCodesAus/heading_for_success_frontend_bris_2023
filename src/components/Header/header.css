@@ -1,7 +1,8 @@
 .heroheader {
     display: flex;
     justify-content: space-around;
-    padding: 24px;
+    padding-left: 40px;
+    padding-right: 40px;
     align-items: center;
     flex-grow: 3;
 }
@@ -34,15 +35,22 @@
 
 .heroheader h1 {
     color: var(--purple);
-    font-size: 2.75em;
+    text-transform: uppercase;
+    font-size: 1.5em;
     padding: 40px;
     width: 50%;
 }
 
 .heroheader span {
-    color: var(--orange)
+    color: var(--orange);
+    font-size: 2em;
+
 }
 
 .heroheader img {
-    width: 30%;
+    width: 60%;
+    margin-top: -350px;
+    margin-right: -200px;
+    transform: scaleX(-1);
+
 }

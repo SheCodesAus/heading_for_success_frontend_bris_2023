@@ -12,8 +12,8 @@ import OpenProgramsList from "../../components/OpenProgramsList/OpenProgamsList"
 function HomePage() {
     return (
         <div className="homepage-container">
-            <Header />
             <OpenProgramsList />
+            <Header />
             <img src={UpdatedCartoon} class="homeCartoon"></img>
             <Footer/>
         </div>
