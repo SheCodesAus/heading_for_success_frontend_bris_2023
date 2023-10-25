@@ -14,7 +14,7 @@ function Header() {
         <>
             <div class="heroheader">
                 <h1>Putting the <span>FUN</span>ds in female education and empowerment in the tech industry.</h1>
-                <img id src={HeroImg}/>
+                <img id src="src/assets/Humaaans - Standing (3).svg"/>
             </div>     
         </>
     );
