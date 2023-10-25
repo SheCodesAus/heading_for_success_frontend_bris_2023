@@ -41,9 +41,9 @@ function NavBarResponsive() {
             &#9776;
           </label>
           <div className='menu'>
-            <li>
+            {/* <li>
               <Link to='/login'>LOGIN</Link>
-            </li>
+            </li> */}
 
              <li> 
                 {auth.token ? (

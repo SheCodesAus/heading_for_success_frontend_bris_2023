@@ -145,7 +145,7 @@
   
     .menu li:hover {
       display: inline-block;
-      background-color: #607afb;
+      background-color: var(--gold);
       transition: 0.3s ease;
     }
   
