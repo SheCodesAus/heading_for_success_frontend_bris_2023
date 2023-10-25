@@ -1,5 +1,40 @@
 .loginform {
     /* display: flex; */
     padding: 20px;
-    box-shadow: 0px 0px 10px #DC9849(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 10px #DC9849 (0, 0, 0, 0.3);
 }
+
+
+.AppForm {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--orange);
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+p {
+    margin-top: 20px;
+}
+  /* Add more styles as needed */
