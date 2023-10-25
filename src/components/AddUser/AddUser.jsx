@@ -52,7 +52,7 @@ function AddUser() {
 
             <form class="AppForm" onSubmit={handleSubmit}>
                 <div>
-                    <h3>CREATE NEW ADMIN USER</h3>
+                    <h3>Create a new admin user here. This registered user will then be able to create and access all programs.</h3>
                     <input 
                         type='text' 
                         id='username' 

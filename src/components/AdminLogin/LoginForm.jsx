@@ -56,7 +56,6 @@ function LoginForm() {
         <div class="loginform">
             <form class="AppForm" onSubmit={handleSubmit}>
                 <div>
-                    <h3>LOGIN</h3>
                     
                     <input 
                         type='text' 
@@ -85,6 +84,8 @@ function LoginForm() {
                             <MessageCard message={errorLogin}  />
                         </div>
                     ) }  
+                                        <p>* Please note, if you do not currently have login details please see Admin to create new.</p>
+
             </form>
 
         </div>        

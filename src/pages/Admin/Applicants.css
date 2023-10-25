@@ -1,0 +1,104 @@
+/* Style for the entire application page */
+.application-page {
+    background-color: #f4f4f4;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Header style */
+.program-list-header {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Program card list style */
+.program-card-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Program card header style */
+.program-card-header {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Program card grid style */
+.program-card-grid {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* Sort button style */
+.program-card-sort-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Program card sort left style */
+.program-card-sort-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Icon style for ascending and descending sorting */
+.program-icons-sort {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+}
+
+/* Program card sort none style */
+.program-card-sort-none {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Applicant card list style */
+.scholarship-items {
+    list-style: none;
+    padding: 0;
+}
+
+/* Program buttons style */
+.program-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Program button style */
+.program-button {
+    text-decoration: none;
+    background-color: var(--gold);
+    color: #fff;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+}
+
+/* Program button hover effect */
+.program-button:hover {
+    background-color: var(--orange);
+}
+/* Program card list style with margin-bottom */
+.program-card-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px; /* Add margin to create space between the list and program-buttons */
+}

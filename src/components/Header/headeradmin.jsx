@@ -7,17 +7,18 @@ import "../../main.jsx"
 import { Link } from 'react-router-dom';
 import HeroImg from "../../Images/TxsApplyHeroimg.svg"
 import OPIcon from "../../Images/OPIcon.svg"
+// import Humaans1 from "../../Images/Humaans1"
 
 
-function Header() {
+function Headeradmin() {
     return (
         <>
-            <div class="heroheader">
-                <h1>Putting the <span>FUN</span>ds in female education and empowerment in the tech industry.</h1>
-                <img id src="src/assets/Humaaans - Standing (3).svg"/>
-            </div>     
+            <div className="heroheaderadmin">
+                {/* <h1>Managing the <span>FUN</span>ds in female education and empowerment in the tech industry.</h1> */}
+                {/* <img src={Humaans1} alt="Your image alt text" /> */}
+            </div>
         </>
     );
 }
 
-export default Header;
+export default Headeradmin;

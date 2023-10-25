@@ -15,12 +15,14 @@ function OpenProgramsList() {
     }
     return (
         <div id="openprograms-title">
-        <h2> <span>OPEN</span> programs available now in Australia</h2>
+        {/* <h2> <span>OPEN</span> programs, click to learn more and <span>APPLY!</span> </h2> */}
         <div id="open-programs"> 
             {program.map((programOpen) => (
                 <OpenPrograms key={programOpen.id} programOpen={programOpen} />
             ))}
         </div>
+        {/* <h2> <span>OPEN</span> programs, click to learn more and <span>APPLY!</span> </h2> */}
+
         </div>
     );
     
