@@ -1,5 +1,5 @@
 .adminhome {
-    background-color: #DC9849;
+    /* background-color: #DC9849; */
     position: relative; /* Container needs a position context for absolute positioning of its children */
     text-align: center; /* Center the image horizontally */
     padding: 20px; /* Add padding for spacing */

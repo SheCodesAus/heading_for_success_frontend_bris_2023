@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 function AdminLogin() {
     return (
         <div id="login">
-            <h1>Welcome Administrator.</h1>
+            <h1>Welcome Admin. Please log in.</h1>
             <br></br>
             <LoginForm />
             <div>
-                <h1>Welcome Admin</h1>
+                {/* <h1>Welcome Admin</h1> */}
                 {/* <div className="program-buttons">
                     <Link to="/user" className="program-button">
                         New User/Admin
