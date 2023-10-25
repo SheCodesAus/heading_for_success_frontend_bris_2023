@@ -14,7 +14,7 @@ function Headeradmin() {
     return (
         <>
             <div className="heroheaderadmin">
-                <h1>Managing the <span>FUN</span>ds in female education and empowerment in the tech industry.</h1>
+                {/* <h1>Managing the <span>FUN</span>ds in female education and empowerment in the tech industry.</h1> */}
                 {/* <img src={Humaans1} alt="Your image alt text" /> */}
             </div>
         </>

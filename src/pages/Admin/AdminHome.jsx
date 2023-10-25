@@ -28,7 +28,7 @@ function AdminHome() {
             </div>
             <Headeradmin />
             <div className="adminhome">
-                <img src={UpdatedCartoon} alt="Your image alt text" />
+            <img src="src/Images/Humaans1.svg" alt="Your image alt text" />
             </div>
             <Footer />
         </div>

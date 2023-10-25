@@ -1,3 +1,18 @@
+.adminhome {
+    background-color: #DC9849;
+    position: relative; /* Container needs a position context for absolute positioning of its children */
+    text-align: center; /* Center the image horizontally */
+    padding: 20px; /* Add padding for spacing */
+}
+
+.adminhome img {
+    position: absolute;
+    top: 50%; /* Position the top edge at the vertical center of the container */
+    left: 50%; /* Position the left edge at the horizontal center of the container */
+    transform: translate(-120%, -50%); /* Move the image up and left by 50% of its own width and height */
+    width: 700px; /* Set the width to your desired size, e.g., 150px */
+    height: 700px; /* Set the height to your desired size, e.g., 150px */
+}
 /* 
 #admin-home {
     display: flex;
@@ -81,13 +96,16 @@ body{
 .program-buttons {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin:40px;
+    padding-left: 200px;
+    padding-right: 200px;
+
+
 }
 
 .program-button {
     display: inline-block;
-    padding: 20px 20px;
+    padding: 16px 16px;
     background-color: var(--orange);
     color: white;
     text-decoration: none;
