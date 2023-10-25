@@ -100,3 +100,8 @@ body{
 .program-button:hover {
     background-color: var(--gold);
 }
+
+.admin-dashboard {
+    margin: 20px; /* Adds a 20px margin around the element */
+    padding: 10px; /* Adds a 10px padding inside the element */
+}
