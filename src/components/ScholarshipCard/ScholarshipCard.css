@@ -27,7 +27,7 @@
     width: 100%;
     display: grid;
     border-radius: 4px;
-    grid-template-columns: 40% 25% 25%; 
+    grid-template-columns: 35% 25% 25%; 
     /* margin: auto; */
     height: 30px;
     align-items: center;
@@ -47,7 +47,7 @@
     border-bottom-color: rgb(133, 74, 177,0.4);
     width: 100%;
     display: grid;
-    grid-template-columns: 40% 25% 25%; 
+    grid-template-columns: 35% 25% 25%; 
     background-color: white;
     height: 30px;
     align-items: center;
@@ -63,7 +63,7 @@
     border-bottom-color: rgb(133, 74, 177,0.4);
     width: 100%;
     display: grid;
-    grid-template-columns: 40% 25% 25%; 
+    grid-template-columns: 35% 25% 25%; 
     background-color: rgb(220, 152, 73, 0.1);
     height: 30px;
     align-items: center;
@@ -268,16 +268,16 @@
     }
 
     .scholarship-items {
-        grid-template-columns: 40% 15% 15% 15% 15%; 
+        grid-template-columns: 30% 15% 25% 15% 15%; 
     }
 
     .scholarship-items-assigned {
-        grid-template-columns: 40% 15% 15% 15% 15%; 
+        grid-template-columns: 30% 15% 25% 15% 15%; 
         background-color: rgb(220, 152, 73, 0.1);
     }
 
     .scholarship-items-header {
-        grid-template-columns: 40% 15% 15% 15% 15%; 
+        grid-template-columns: 30% 15% 25% 15% 15%; 
     }
 
     .scholarship-items-header-label-display-none, .scholarship-grid-display-none {

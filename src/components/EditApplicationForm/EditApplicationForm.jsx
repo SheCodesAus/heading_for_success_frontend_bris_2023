@@ -384,6 +384,7 @@ const EditApplicationForm = () => {
                                 id={key}
                                 scholarshipData={scholarshipData} 
                                 applicantDetail = {applicantDetail}
+                                programDetail = {undefined}
                                 onClick={handleClick} />
                             </li> 
                             </Fragment>

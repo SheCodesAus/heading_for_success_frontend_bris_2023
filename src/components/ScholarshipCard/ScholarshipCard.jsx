@@ -1,23 +1,59 @@
 import './ScholarshipCard.css'
+import { Link } from 'react-router-dom';
+import IconStatus from "../../components/IconStatus/IconStatus";
 
 const ScholarshipCard = (props) => {
-    // console.log('::', props);
-    const { scholarshipData, applicantDetail } = props;
-    // console.log('::', scholarshipData, applicantDetail)
+    const { scholarshipData, applicantDetail, programDetail } = props;
+    let programLink = "";
+    let status = '';
+
+        // console.log("::", props);
     if (applicantDetail !== undefined) {
-        if (applicantDetail.scholarship === scholarshipData.id) {
+        if (scholarshipData.id === applicantDetail.scholarship) {
             scholarshipData.is_assigned = true;
+        } 
+    }
+
+    if (programDetail !== undefined) {
+         programLink = `/program/${programDetail.id}`;
+
+        const today = new Date();
+        const appStartDate = new Date (programDetail.application_date_start);
+        const appEndDate = new Date (programDetail.application_date_end);
+
+
+
+        if ((today >= appStartDate) && (today <= appEndDate)) {
+            status ='Open'
+        } else if (today < appStartDate) {
+            status = 'Future';
+        } else if (today > appEndDate ) {
+            status = 'Closed';
         }
     }
 
     return (
             <>
                 <div className='scholarship-grid-left'>
-                    <p>{scholarshipData.organization}</p>
+                    <h4>{scholarshipData.organization}</h4>
                 </div>
                 <div className='scholarship-grid-display-none'>
                     { scholarshipData.number_available }
                 </div>
+                { programDetail !== undefined ? (
+                    <>
+                    <div id='assigned' className='scholarship-grid-left'>
+                    <Link to={programLink}>{programDetail.program_name}
+                    </Link>
+                    </div>
+                    <div className='program-card-grid'>
+                        <h3><IconStatus status={status} />
+                        </h3>
+                    </div>    
+                </>                 
+
+                    ) : (
+                        <>
                 <div id='assigned' className='scholarship-grid-display-none'>
                 {scholarshipData.assigned_count}
                 </div>
@@ -36,7 +72,11 @@ const ScholarshipCard = (props) => {
                     checked={scholarshipData.is_assigned}
                     onChange={props.onClick}
                     />   
-                </div>
+                </div>  
+                </>                      
+                    )
+                }
+                
             </>       
                                
     )
