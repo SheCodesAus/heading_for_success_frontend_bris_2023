@@ -164,17 +164,16 @@
 }
 
 .scholarship-btn {
-    all: initial;
+    /* all: initial;
     background-color: var(--purple);
-    padding: 0px;
+    padding: 0px; */
     margin: 0px;
-    width: 50px;
-    height: 12px;
+    width: 100px;
     vertical-align: middle;
     border-style: solid;
     text-align: center;
     font-size: 0.8rem;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-family: 'Roboto', sans-serif;
 }
 
