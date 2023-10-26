@@ -1,6 +1,5 @@
 import { useOpenProgram } from "../../hooks/use-program";
 import { useState, Fragment } from 'react';
-import "./OpenProgramDetails.css";
 
 import { useParams, Link, useNavigate } from 'react-router-dom';
 

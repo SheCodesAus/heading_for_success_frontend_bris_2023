@@ -1,7 +1,7 @@
 import './ProgramDetails.css'
 import ScholarshipForm from "../../components/NewScholarship/ScholarshipForm";
 import { useProgramDetails } from "../../hooks/use-program-details";
-import { useState, Fragment } from 'react';
+import { useState, Fragment, useRef } from 'react';
 import { useAuth } from "../../hooks/use-auth";
 import { useParams, Link } from 'react-router-dom';
 import LoginForm from "../../components/AdminLogin/LoginForm";
@@ -10,6 +10,14 @@ import Spinner from "../../components/Spinner/Spinner";
 import ScholarshipCard from "../../components/ScholarshipCard/ScholarshipCard";
 
 function ProgramDetails() {
+    const [showForm, setShowForm] = useState(false);
+    const formRef = useRef(null);
+    const toggleForm = () => {
+        setShowForm(!showForm);
+        if (showForm && formRef.current) {
+            formRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    };
 
     const {auth, setAuth} = useAuth();
     const { id } = useParams();
@@ -132,9 +140,13 @@ function ProgramDetails() {
             ) : (<p className='no-data'>No applicants</p>)}
             
 
-             
-            <h3 className='scholarship-header'>Create New Scholarship</h3>
-            <ScholarshipForm />
+            
+            <button onClick={toggleForm}>Add a new scholarship to this program</button>
+            {showForm && (
+                <div ref={formRef}>
+                <ScholarshipForm />
+                </div>
+            )}
         </>
         ) : (
             <LoginForm />

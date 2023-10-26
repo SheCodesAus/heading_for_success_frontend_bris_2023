@@ -37,10 +37,6 @@ function ScholarshipForm() {
 
     return (
         <>
-                <section>
-                    <h2>Add a new scholarship</h2>
-                    <p>Associate a new scholarship to this program with the below form</p>
-                </section>
                 <form>
                     <label htmlFor="organization">Organization Name</label>
                     <input 
