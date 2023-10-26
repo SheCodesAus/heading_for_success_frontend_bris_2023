@@ -8,6 +8,7 @@ import LoginForm from "../../components/AdminLogin/LoginForm";
 import MessageCard from "../../components/MessageCard/MessageCard";
 import Spinner from "../../components/Spinner/Spinner";
 import ScholarshipCard from "../../components/ScholarshipCard/ScholarshipCard";
+import ApplicantCard from '../../components/ApplicantCard/ApplicantCard';
 import Footer from '../../components/Footer/Footer.jsx';
 
 function ProgramDetails() {
@@ -120,26 +121,76 @@ function ProgramDetails() {
             <h3 className='scholarship-header'>Applicants</h3>
             
             {programDetail.applicant.length > 0 ? (
-                <ul>
+                <ul className='applicant-group'>
+                    <li className="applicant-items-header">
+
+                    <div className='applicant-items-header-label-left'>
+                            <h3>First Name
+                            </h3>
+                    </div>
+
+                    <div className='applicant-items-header-label-left'>
+                        <h3>Last Name
+                        </h3>
+                    </div>
+
+                    <div className='applicant-items-header-label-display-none'>
+                        <h3>Program
+                        </h3>
+                    </div>
+
+                    <div className='applicant-items-header-label'>
+                        <h3>Application Status
+                        </h3>
+                    </div>
+
+                    <div className='applicant-items-header-label-display-none'>
+                        <h3>Scholarship
+                        </h3>
+                    </div>
+
+</li>                    
             {   programDetail.applicant &&
                 programDetail.applicant.map((applicantData, key) => {
+                    let programName = '';
+                    let scholarshipName = '';
+
+                    if (applicantData.scholarship !== '') {
+                        const foundScholarship = programDetail.scholarship.find((scholarshipData) => scholarshipData.id === applicantData.scholarship);
+
+                        if (foundScholarship !== undefined ) {
+                            scholarshipName = foundScholarship.organization;
+                        }
+                    }
+
+             
                 return (
-                <Fragment key={key}>   
-                <div className='applicant-detail'>
-                    <li key={key}>
-                        <Link to={`/application/${applicantData.id}/${id}`}>
-                            {`${applicantData.first_name} ${applicantData.last_name}`}
-                        </Link>
-                    </li>
-                    <li>
-                        {applicantData.status}
-                    </li>
-                    <li>
-                        {/* {applicantData.scholarship} */}
-                        {applicantData.scholarship > 0 && programDetail.scholarship.find((scholarship) => scholarship.id === parseInt(applicantData.scholarship)).organization}
-                    </li>    
-                </div>                
-                </Fragment>
+
+                    <li className='applicant-items'>
+                        <ApplicantCard
+                            key={key}
+                            applicantData={applicantData}
+                            programName = {programDetail.program_name}
+                            scholarshipName = {scholarshipName}
+                            
+                        />
+                    </li>                    
+                // <Fragment key={key}>   
+                // <div className='applicant-detail'>
+                //     <li key={key}>
+                //         <Link to={`/application/${applicantData.id}/${id}`}>
+                //             {`${applicantData.first_name} ${applicantData.last_name}`}
+                //         </Link>
+                //     </li>
+                //     <li>
+                //         {applicantData.status}
+                //     </li>
+                //     <li>
+                //         {/* {applicantData.scholarship} */}
+                //         {applicantData.scholarship > 0 && programDetail.scholarship.find((scholarship) => scholarship.id === parseInt(applicantData.scholarship)).organization}
+                //     </li>    
+                // </div>                
+                // </Fragment>
                 )
             })}
             </ul>

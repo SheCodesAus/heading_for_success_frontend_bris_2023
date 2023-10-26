@@ -158,37 +158,32 @@ function Applicants() {
                     <ul className="applicant-group">
                     <li className="applicant-items-header">
 
-                                <div className='applicant-items-header-label-left'>
-                                    <h3>First Name 
-
-                                    </h3>
-                                </div>
-
-
-                            <div className='applicant-items-header-label-left'>
-                            <h3>Last Name
-
-
+                        <div className='applicant-items-header-label-left'>
+                            <h3>First Name 
                             </h3>
-                            </div>
-
-                        <div className='applicant-items-header-label-display-none'>
-                            <h3>Program</h3>
                         </div>
 
-                            <div className='applicant-items-header-label'>
-                            <h3>Application Status
-                              
-                            </h3>
-                            </div>
 
-                            <div className='applicant-items-header-label-display-none'>
+                        <div className='applicant-items-header-label-left'>
+                            <h3>Last Name
+                            </h3>
+                        </div>
+
+                        <div className='applicant-items-header-label-display-none'>
+                            <h3>Program
+                            </h3>
+                        </div>
+
+                        <div className='applicant-items-header-label'>
+                            <h3>Application Status
+                            </h3>
+                        </div>
+
+                        <div className='applicant-items-header-label-display-none'>
                             <h3>Scholarship
                             </h3>
-                            </div>
-                            {/* </button>
-                        </div> */}
-                        {/* </div> */}
+                        </div>
+
                     </li>
 
                     { applicant.map((applicantData, key) => {
