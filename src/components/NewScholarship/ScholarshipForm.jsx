@@ -29,7 +29,7 @@ function ScholarshipForm() {
         e.preventDefault(); // Prevent the default form submission behavior (page reload)
         console.log(formData)
         postScholarship(formData).then((response) => {
-            navigate(`/program/${id}`);
+            window.location.reload();
         }).catch((error) => {
             console.log(error)       
         });
