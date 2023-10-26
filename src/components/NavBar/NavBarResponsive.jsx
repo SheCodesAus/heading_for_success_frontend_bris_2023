@@ -73,7 +73,7 @@ function NavBarResponsive() {
                 {auth.token ? (
                          <Link to="/" onClick={handleLogout}>LOG OUT</Link>
                      ) : (
-                     <Link to="/login"></Link>
+                     <Link to="/login">Login</Link>
                      )}
             </li>
             
