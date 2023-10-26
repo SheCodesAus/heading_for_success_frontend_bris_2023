@@ -1,21 +1,32 @@
 import './NavBarResponsive.css';
 import { Link, Outlet } from 'react-router-dom';
 import { useAuth } from "../../hooks/use-auth";
-import Shefunds from "../../Images/Shefunds.svg"
-import HomeIcon from "../../Images/HomeIcon.svg"
+import Shefunds from "../../Images/Shefunds.svg";
+import HomeIcon from "../../Images/HomeIcon.svg";
+import { useState } from 'react';
 
 function NavBarResponsive() {
 
 
     const {auth, setAuth} = useAuth();
+    const [checkboxToggle, setCheckboxToggle] = useState(false);
 
         const handleLogout = () => {
            window.localStorage.removeItem("token");
            window.localStorage.removeItem("username");
                   
            setAuth({ token: null });
+           handleClick();
         };
 
+
+    const handleClick = (event) => {
+      if (checkboxToggle) {
+        setCheckboxToggle(false);
+      } else {
+        setCheckboxToggle(true);
+      }
+    }
 
   return (
     <div>
@@ -35,7 +46,7 @@ function NavBarResponsive() {
 
         <ul className='nav-links'>
           {/* USING CHECKBOX TO TRIGGER HAMBURGER MENU STATE  */}
-          <input type='checkbox' id='checkbox_toggle' />
+          <input type='checkbox' id='checkbox_toggle' checked={checkboxToggle} onClick={handleClick} />
           {/*  &#9776 is html code for a hamburger icon */}
           <label htmlFor='checkbox_toggle' className='hamburger'>
             &#9776;
@@ -47,25 +58,25 @@ function NavBarResponsive() {
 
              <li> 
                 {auth.token ? (
-                      <Link to='/adminHome'>DASHBOARD</Link>
+                      <Link to='/adminHome' onClick={handleClick} >DASHBOARD</Link>
                 ) : (null)}
             </li>
 
             <li className='services'>
             {auth.token ? (
-                <Link to='/user'>CREATE USER</Link> 
+                <Link to='/user'  onClick={handleClick}>CREATE USER</Link> 
                 ) : (null)}
             </li>
 
             <li>
             {auth.token ? (
-                <Link to='/newProgram'>NEW PROGRAM</Link> 
+                <Link to='/newProgram' onClick={handleClick}>NEW PROGRAM</Link> 
                 ) : (null)}
             </li>
             
             <li>
             {auth.token ? (
-                        <Link to='/programs'>PROGRAMS</Link>
+                        <Link to='/programs' onClick={handleClick}>PROGRAMS</Link>
                 ) : (null)}
             </li>
             
@@ -73,7 +84,7 @@ function NavBarResponsive() {
                 {auth.token ? (
                          <Link to="/" onClick={handleLogout}>LOG OUT</Link>
                      ) : (
-                     <Link to="/login">Login</Link>
+                     <Link to="/login" onClick={handleClick}>LOG IN</Link>
                      )}
             </li>
             
