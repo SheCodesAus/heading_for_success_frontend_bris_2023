@@ -23,14 +23,14 @@
     background-color: rgb(133, 74, 177,0.8);
     /* rgb(220, 152, 73, 0.7); */
     /* border-style: solid; */
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     width: 100%;
     display: grid;
     border-radius: 4px;
     grid-template-columns: 30% 30% 35%; 
     /* margin: auto; */
     height: 30px;
-    /* align-items: center; */
+    align-items: center;
     /* vertical-align: middle; */
     box-shadow: unset;
 }

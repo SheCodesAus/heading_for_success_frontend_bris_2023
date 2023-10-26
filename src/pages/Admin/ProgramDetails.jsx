@@ -13,11 +13,17 @@ import Footer from '../../components/Footer/Footer.jsx';
 
 function ProgramDetails() {
     const [showForm, setShowForm] = useState(false);
+    const [scholarshipButtonText, setScholarshipButtonText] = useState('Create Scholarship');
     const formRef = useRef(null);
     const toggleForm = () => {
         setShowForm(!showForm);
         if (showForm && formRef.current) {
             formRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+        if (scholarshipButtonText == 'Close') {
+            setScholarshipButtonText('Create Scholarship');
+        } else {
+            setScholarshipButtonText('Close');
         }
     };
     useEffect(() => {
@@ -93,9 +99,7 @@ function ProgramDetails() {
                                 <div className='scholarship-items-header-label'>
                                     <h4>Remaining</h4>
                                 </div>
-                                <div className='scholarship-items-header-label'>
-                                    <h4>Assigned</h4>
-                                </div>                         
+
                             </li>
                             </ul>
                 )}
@@ -109,6 +113,8 @@ function ProgramDetails() {
                                 id={key}
                                 scholarshipData={scholarshipData} 
                                 applicantDetail = {programDetail.applicant}
+                                programDetail = {programDetail}
+                                page={'program'}
                                 />
                             </li> 
                     </Fragment>
@@ -198,21 +204,24 @@ function ProgramDetails() {
             
 
             
-            <button onClick={toggleForm}>Add a new scholarship to this program</button>
+            <div className='scholarship-create-section'>
+                <button className='scholarship-add-btn' onClick={toggleForm}>{scholarshipButtonText}</button>
             {showForm && (
                 <div ref={formRef}>
                 <ScholarshipForm />
-                <Footer />
                 </div>
             )}
+            </div>
         </>
         ) : (
             <>
             <LoginForm />
-            <Footer />
+
             </>
         ) }
+            <Footer />
         </div>
+        
     );
     
 }

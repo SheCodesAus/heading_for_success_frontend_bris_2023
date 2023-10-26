@@ -226,15 +226,15 @@ function Applicants() {
                 <Link to="/user" className="program-button">
                     New User/Admin
                 </Link>
-                {/* <Link to="/Programs" className="program-button">
+                <Link to="/Programs" className="program-button">
                     Programs
-                </Link> */}
+                </Link>
                 <Link to="/newProgram" className="program-button">
                     New Program
                 </Link>
-                <Link to="/applicants" className="program-button">
+                {/* <Link to="/applicants" className="program-button">
                     Applicants
-                </Link>
+                </Link> */}
                 <Link to="/scholarships" className="program-button">
                     Scholarships
                 </Link>

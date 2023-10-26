@@ -17,3 +17,18 @@
     width: 100%;
     
 }
+
+.scholarship-create-section {
+    
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.scholarship-add-btn {
+    margin: auto;
+    width:30%;
+    /* align-items: center; */
+    justify-content: center;
+}

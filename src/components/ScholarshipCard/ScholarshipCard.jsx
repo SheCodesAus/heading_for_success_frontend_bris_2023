@@ -3,15 +3,23 @@ import { Link } from 'react-router-dom';
 import IconStatus from "../../components/IconStatus/IconStatus";
 
 const ScholarshipCard = (props) => {
-    const { scholarshipData, applicantDetail, programDetail } = props;
+    const { scholarshipData, applicantDetail, programDetail, page } = props;
     let programLink = "";
     let status = '';
 
-        // console.log("::", props);
     if (applicantDetail !== undefined) {
         if (scholarshipData.id === applicantDetail.scholarship) {
             scholarshipData.is_assigned = true;
         } 
+    }
+
+    
+    let assigned_number = 0;
+    let remaining_number = 0;
+    if (page == 'program') {
+        let filteredAssigned = applicantDetail.filter((applicant) => applicant.scholarship === scholarshipData.id);
+        assigned_number = filteredAssigned.length;    
+        remaining_number = scholarshipData.number_available - assigned_number;
     }
 
     if (programDetail !== undefined) {
@@ -40,7 +48,7 @@ const ScholarshipCard = (props) => {
                 <div className='scholarship-grid-display-none'>
                     { scholarshipData.number_available }
                 </div>
-                { programDetail !== undefined ? (
+                { (programDetail !== undefined && applicantDetail == undefined) ?   (
                     <>
                     <div id='assigned' className='scholarship-grid-left'>
                     <Link to={programLink}>{programDetail.program_name}
@@ -50,10 +58,15 @@ const ScholarshipCard = (props) => {
                         <h3><IconStatus status={status} />
                         </h3>
                     </div>    
+
+                    
                 </>                 
 
                     ) : (
-                        <>
+                        
+
+                 (page == undefined) ? ( 
+                    <>
                 <div id='assigned' className='scholarship-grid-display-none'>
                 {scholarshipData.assigned_count}
                 </div>
@@ -73,7 +86,18 @@ const ScholarshipCard = (props) => {
                     onChange={props.onClick}
                     />   
                 </div>  
-                </>                      
+                </> 
+                 ):(
+                    <>
+                    <div id='assigned' className='scholarship-grid-display-none'>
+                    {assigned_number}
+                    </div>
+                    <div id='remaining' className='scholarship-grid'>
+                    {remaining_number}
+                    </div>                      
+                    </>
+                 )
+                                     
                     )
                 }
                 
