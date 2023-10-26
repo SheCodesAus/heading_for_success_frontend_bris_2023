@@ -3,6 +3,7 @@
     position: relative; /* Container needs a position context for absolute positioning of its children */
     text-align: center; /* Center the image horizontally */
     padding: 20px; /* Add padding for spacing */
+    z-index: 0;
 }
 
 .adminhome img {
@@ -12,6 +13,11 @@
     transform: translate(-120%, -50%); /* Move the image up and left by 50% of its own width and height */
     width: 700px; /* Set the width to your desired size, e.g., 150px */
     height: 700px; /* Set the height to your desired size, e.g., 150px */
+    z-index: 0;
+}
+
+#backgroundimage {
+    z-index: 0;
 }
 /* 
 #admin-home {
@@ -65,6 +71,7 @@ body{
     font-size: 40px;
     color: var(--orange);
     margin: 40px;
+    z-index: 1;
 }
 
 .admin-home {
@@ -99,7 +106,7 @@ body{
     margin:40px;
     padding-left: 200px;
     padding-right: 200px;
-
+    z-index: 1;
 
 }
 
@@ -113,13 +120,16 @@ body{
     transition: background-color 0.3s ease;
     margin: 8px;
     font-size: 16px;
+    z-index: 1;
 }
 
 .program-button:hover {
     background-color: var(--gold);
+    z-index: 1;
 }
 
 .admin-dashboard {
     margin: 20px; /* Adds a 20px margin around the element */
     padding: 10px; /* Adds a 10px padding inside the element */
+    z-index: 1;
 }
