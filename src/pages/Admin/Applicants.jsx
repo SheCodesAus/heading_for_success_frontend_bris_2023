@@ -1,4 +1,7 @@
+import './Applicants.css'
 import { useApplicant } from "../../hooks/use-applicant";
+import { useScholarship } from "../../hooks/use-scholarship";
+import { usePrograms } from "../../hooks/use-programs";
 import { useAuth } from "../../hooks/use-auth";
 import { useState } from "react";
 import LoginForm from "../../components/AdminLogin/LoginForm";
@@ -12,34 +15,26 @@ function Applicants() {
     const {auth, setAuth} = useAuth();
     
     const { applicant, isLoading, error, setApplicant } = useApplicant();
-    const [sortToggleAsc, setSortToggleAsc] = useState(true);
-    const [sortToggleDesc, setSortToggleDesc] = useState(false);
-    const [sortToggleAscLoc, setSortToggleAscLoc] = useState(true);
-    const [sortToggleDescLoc, setSortToggleDescLoc] = useState(false);
-    const [sortToggleAscProgStat, setSortToggleAscProgStat] = useState(true);
-    const [sortToggleDescProgStat, setSortToggleDescProgStat] = useState(false);
-    const [sortToggleAscAppStatus, setSortToggleAscAppStatus] = useState(true);
-    const [sortToggleDescAppStatus, setSortToggleDescAppStatus] = useState(false);
+    const { scholarship, isLoadingScholarship, errorScholarship, setScholarship } = useScholarship();
+    const { allPrograms, isLoadingallPrograms, errorAllPrograms, setAllPrograms } = usePrograms();
 
-    if (isLoading) {
+    // const [sortToggleAsc, setSortToggleAsc] = useState(true);
+    // const [sortToggleDesc, setSortToggleDesc] = useState(false);
+    // const [sortToggleAscLast, setSortToggleAscLast] = useState(true);
+    // const [sortToggleDescLast, setSortToggleDescLast] = useState(false);
+    // const [sortToggleAscProg, setSortToggleAscProg] = useState(true);
+    // const [sortToggleDescProg, setSortToggleDescProg] = useState(false);
+    // const [sortToggleAscAppStatus, setSortToggleAscAppStatus] = useState(true);
+    // const [sortToggleDescAppStatus, setSortToggleDescAppStatus] = useState(false);
+
+    if (isLoading || isLoadingScholarship || isLoadingallPrograms ) {
         return (<Spinner />)
     }
 
-    if (error) {
+    if (error || errorScholarship || errorAllPrograms ) {
         return (<p>{error.message}</p>);
     }    
 
-
-    // const deleteSingleProgram = (id) => {
-    //     if (id) {
-    //         deleteProgram(
-    //             id
-    //         ).then((response) => {
-    //             const myPrograms = allPrograms.filter((programData) => programData.id !== id);
-    //             setAllPrograms(myPrograms);
-    //         }); 
-    //     }
-    // }; 
 
     const handleClick = (event) => {
         // const text = event.target.innerText;
@@ -159,125 +154,75 @@ function Applicants() {
                 <>  
                 { ( applicant.length > 0 ) && 
                 <>
-                    <ul className="program-card-list">
-                    <li>
-                        <div className='program-card-header'> 
-                        <div 
-                            className='program-card-grid' 
-                            id='program'         
-                            value='program' 
-                            // onClick={handleClick}
-                        > 
-                            <button onClick={handleClick} id='first_name' value='first_name' className='program-card-sort-btn'>
-                                <div className='program-card-sort-left'>
+                    <ul className="applicant-group">
+                    <li className="applicant-items-header">
+
+                                <div className='applicant-items-header-label-left'>
                                     <h3>First Name 
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
-                                        className={sortToggleAsc ? 
-                                        'program-icons-sort' : 'display-none'} id='program'>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={sortToggleDesc ? 
-                                        'program-icons-sort' : 'display-none' } id='program'>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
-                                        </svg>
+
                                     </h3>
                                 </div>
 
-                            </button>
-                        </div>
-                        <div className='program-card-grid'
-                            // id='last_name'         
-                            // value='last_name' 
-                        >
-                        <button 
-                            onClick={handleClick} 
-                            id='last_name' 
-                            value='last_name' 
-                            className='program-card-sort-btn'
-                        >
-                            <div className='program-card-sort-left'>
+
+                            <div className='applicant-items-header-label-left'>
                             <h3>Last Name
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
-                                    className={sortToggleAscLoc ? 
-                                    'program-icons-sort' : 'display-none'} id='location'>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={sortToggleDescLoc ? 
-                                    'program-icons-sort' : 'display-none' } id='location'>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
-                                    </svg>
+
 
                             </h3>
                             </div>
-                        </button>
-                        </div>
-                        <div className='program-card-sort-none'>
+
+                        <div className='applicant-items-header-label-display-none'>
                             <h3>Program</h3>
                         </div>
-                        <div className='program-card-grid-none'>
-                        <button 
-                            onClick={handleClick} 
-                            id='program' 
-                            value='program' 
-                            className='program-card-sort-btn'
-                        >
-                            <div className='program-card-sort'>
+
+                            <div className='applicant-items-header-label'>
                             <h3>Application Status
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
-                                        className={sortToggleAscProgStat ? 
-                                        'program-icons-sort' : 'display-none'} id='program-status'>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={sortToggleDescProgStat ? 
-                                        'program-icons-sort' : 'display-none' } id='program-status'>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
-                                        </svg>                                
+                              
                             </h3>
                             </div>
-                            </button>
-                        </div>
-                        <div className='program-card-grid-none'>
-                        <button 
-                            onClick={handleClick} 
-                            id='scholarship' 
-                            value='scholarship' 
-                            className='program-card-sort-btn'
-                        >
-                            <div className='program-card-sort'>
+
+                            <div className='applicant-items-header-label-display-none'>
                             <h3>Scholarship
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
-                                        className={sortToggleAscAppStatus ? 
-                                        'program-icons-sort' : 'display-none'} id='application-status'>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={sortToggleDescAppStatus ? 
-                                        'program-icons-sort' : 'display-none' } id='application-status'>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
-                                        </svg>                                
                             </h3>
                             </div>
-                            </button>
-                        </div>
-                        </div>
+                            {/* </button>
+                        </div> */}
+                        {/* </div> */}
                     </li>
-                    <li className='scholarship-items'>
+
                     { applicant.map((applicantData, key) => {
-                        const programName = '';
-                        const scholarshipName = '';
-                        // return (<p>{programData.program_name}</p>)
+                        let programName = '';
+                        let scholarshipName = '';
+
+                        if (applicantData.scholarship !== '') {
+                            const foundScholarship = scholarship.find((scholarshipData) => scholarshipData.id === applicantData.scholarship);
+
+                            if (foundScholarship !== undefined ) {
+                                scholarshipName = foundScholarship.organization;
+                            }
+                        }
+
+                        const foundProgram = allPrograms.find((program) => program.id === applicantData.program);
+
+                        if (foundProgram !== undefined ) {
+                            programName = foundProgram.program_name;
+                        }
+                        
                         return (
+                            <li className='applicant-items'>
                                 <ApplicantCard
                                     key={key}
                                     applicantData={applicantData}
                                     programName = {programName}
                                     scholarshipName = {scholarshipName}
-                                    // onClick={deleteSingleProgram}
+                                    
                                 />
+                            </li>
                             
                         )
                                     
                     })}
-                    </li>
+
                     </ul>
                 </>
                  }
