@@ -267,16 +267,16 @@
     }
 
     .scholarship-items {
-        grid-template-columns: 30% 15% 25% 15% 15%; 
+        grid-template-columns: 25% 15% 30% 15% 15%; 
     }
 
     .scholarship-items-assigned {
-        grid-template-columns: 30% 15% 25% 15% 15%; 
+        grid-template-columns: 25% 15% 30% 15% 15%; 
         background-color: rgb(220, 152, 73, 0.1);
     }
 
     .scholarship-items-header {
-        grid-template-columns: 30% 15% 25% 15% 15%; 
+        grid-template-columns: 25% 15% 30% 15% 15%; 
     }
 
     .scholarship-items-header-label-display-none, .scholarship-grid-display-none {

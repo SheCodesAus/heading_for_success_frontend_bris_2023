@@ -77,11 +77,11 @@
     
 
     .scholarship-items-footer {
-        grid-template-columns: 30% 15% 25% 15% 15%; 
+        grid-template-columns: 25% 15% 30% 15% 15%; 
     }
 
     .applicant-items-footer {
-        grid-template-columns: 15% 15% 30% 20% 20%; 
+        grid-template-columns: 25% 15% 30% 20% 20%; 
     }
 
 } 

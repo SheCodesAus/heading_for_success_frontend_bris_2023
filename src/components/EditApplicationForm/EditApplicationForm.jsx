@@ -237,7 +237,8 @@ const EditApplicationForm = () => {
                         <label htmlFor='location'>Program Name</label>
                         </li>
                         <li className='label'>
-                            {programDetail.program_name}
+                            <Link to={`/program/${programDetail.id}`}>{programDetail.program_name}
+                            </Link>
                         </li>
                         <li className='label'>
                         <label htmlFor='location'>Scholarship</label>

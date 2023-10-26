@@ -59,13 +59,25 @@ function ProgramDetails() {
     const remaining_number = num_places - assigned_number;
 
     
+    const formatDate = (date) => {
+        const newDate = new Date(date);
+        const options = {
+            day: 'numeric',
+            month: 'numeric',
+            year: 'numeric',
+          };
+
+        return newDate.toLocaleDateString('en-GB', options);
+
+    }
+     
     
     return (
-        <div className='application-page'>
+        <>
         { ( auth.token )? (
         <>
         
-
+        <div className='application-page'>
             <h1> {programDetail.program_name}</h1>
             <div className='scholarship-statistics-group'>
                         <div className='scholarship-statistics-group-item'>
@@ -132,13 +144,13 @@ function ProgramDetails() {
             {/* <img src={programDetail.image} /> */}
             {/* <li className='label'>Status</li><li className='label'> {programDetail.status}</li> */}
             <li className='label'><label>Program Start</label></li>
-            <li className='label'> {programDetail.date_start}</li>
+            <li className='label'> {formatDate(programDetail.date_start)}</li>
             <li className='label'><label>Program End</label></li>
-            <li className='label'>{programDetail.date_end}</li>
+            <li className='label'>{formatDate(programDetail.date_end)}</li>
             <li className='label'><label>Application Start</label></li>
-            <li className='label'> {programDetail.application_date_start}</li>
+            <li className='label'> {formatDate(programDetail.application_date_start)}</li>
             <li className='label'><label>Application End</label></li>
-            <li className='label'> {programDetail.application_date_end}</li>
+            <li className='label'> {formatDate(programDetail.application_date_end)}</li>
             <li className='label'><label>Description</label></li>
             <li className='label'> {programDetail.description}</li>
             </div>
@@ -327,6 +339,7 @@ function ProgramDetails() {
                 </div>
             )}
             </div>
+            </div>
         </>
         ) : (
             <>
@@ -335,8 +348,8 @@ function ProgramDetails() {
             </>
         ) }
             <Footer />
-        </div>
         
+        </>
     );
     
 }
