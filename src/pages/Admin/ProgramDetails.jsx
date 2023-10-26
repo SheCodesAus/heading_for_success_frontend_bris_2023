@@ -9,6 +9,7 @@ import MessageCard from "../../components/MessageCard/MessageCard";
 import Spinner from "../../components/Spinner/Spinner";
 import ScholarshipCard from "../../components/ScholarshipCard/ScholarshipCard";
 import ApplicantCard from '../../components/ApplicantCard/ApplicantCard';
+import Count from '../../components/Count/Count';
 import Footer from '../../components/Footer/Footer.jsx';
 
 function ProgramDetails() {
@@ -51,6 +52,13 @@ function ProgramDetails() {
             </div>
             );
     }
+
+    const num_places = programDetail.scholarship.reduce((total,scholarship) => total + scholarship.number_available, 0) ;
+    const assigned_number = programDetail.applicant.filter((applicant) => applicant.scholarship !== null).length;
+
+    const remaining_number = num_places - assigned_number;
+
+    
     
     return (
         <div className='application-page'>
@@ -59,18 +67,80 @@ function ProgramDetails() {
         
 
             <h1> {programDetail.program_name}</h1>
+            <div className='scholarship-statistics-group'>
+                        <div className='scholarship-statistics-group-item'>
+                            {/* <div className='scholarship-statistics-group-number'> */}
+                            <Count 
+                                number={programDetail.scholarship.length} 
+                                duration='1'
+                                increment='2'
+                                />
+                                
+                            {/* </div>   */}
+                            <div className='scholarship-statistics-group-label'>
+                                Scholarships
+                            </div>  
+                        </div>    
+                        <div className='scholarship-statistics-group-item'>
+                            {/* <div className='scholarship-statistics-group-number'> */}
+                            <Count 
+                                number={programDetail.applicant.length} 
+                                duration='1'
+                                increment='1'
+                                />                                
+                                
+                            {/* </div>   */}
+                        <div className='scholarship-statistics-group-label'>
+                            Applicants
+                        </div>  
+                    </div>    
+                    <div className='scholarship-statistics-group-item'>
+                        {/* <div className='scholarship-statistics-group-number'> */}
+                        <Count 
+                            number={assigned_number} 
+                            duration='1'
+                            increment='1'
+                            />
+                        {/* </div>   */}
+                        <div className='scholarship-statistics-group-label'>
+                            Assigned
+                        </div>  
+                    </div>    
+                    <div className='scholarship-statistics-group-item'>
+                        {/* <div className='scholarship-statistics-group-number'> */}
+                            <Count 
+                            number={remaining_number} 
+                            duration='1'
+                            increment='2'
+                            />
+                        {/* </div>   */}
+                        <div className='scholarship-statistics-group-label'>
+                            Available
+                        </div>  
+                    </div>                                                    
+                </div>            
             <h3 className='scholarship-header'>Program Details</h3>
             
             <div className='scholarship-applicant-profile'>
-            <h3>Location</h3><h3> {programDetail.location}</h3>
-            <h3>Intake</h3><h3> {programDetail.intake}</h3>
-            <h3>Description</h3><h3> {programDetail.description}</h3>
+            <li className='label'>
+                <label>Location</label>
+            </li>
+            <li className='label'> {programDetail.location}</li>
+            <li className='label'><label>Intake</label></li>
+            <li className='label'> {programDetail.intake}</li>
+
             {/* <img src={programDetail.image} /> */}
-            <h3>Status</h3><h3> {programDetail.status}</h3>
-            <h3>Date Start</h3><h3> {programDetail.date_start}</h3>
-            <h3>Date End</h3><h3>{programDetail.date_end}</h3>
-            <h3>Application Date Start</h3><h3> {programDetail.application_date_start}</h3>
-            <h3>Application Date End</h3><h3> {programDetail.application_date_end}</h3>
+            {/* <li className='label'>Status</li><li className='label'> {programDetail.status}</li> */}
+            <li className='label'><label>Program Start</label></li>
+            <li className='label'> {programDetail.date_start}</li>
+            <li className='label'><label>Program End</label></li>
+            <li className='label'>{programDetail.date_end}</li>
+            <li className='label'><label>Application Start</label></li>
+            <li className='label'> {programDetail.application_date_start}</li>
+            <li className='label'><label>Application End</label></li>
+            <li className='label'> {programDetail.application_date_end}</li>
+            <li className='label'><label>Description</label></li>
+            <li className='label'> {programDetail.description}</li>
             </div>
             <h3 className='scholarship-header'>Scholarships</h3>
             {/* { programDetail.scholarship &&
@@ -120,9 +190,27 @@ function ProgramDetails() {
                     </Fragment>
                     )
                 })
-            
-
+ 
             ):<p className='no-data'>No scholarships</p>}
+
+            { programDetail.scholarship.length > 0   && (
+                <ul className='scholarship-group'>
+                    <li className='scholarship-items-footer'>
+                        <div className='scholarship-items-header-label-left'>
+                            <h4>Total: {programDetail.scholarship.length}</h4>
+                        </div>
+                        <div className='scholarship-items-header-label-display-none'>
+                            <h4>{num_places}</h4>
+                        </div>
+                        <div className='scholarship-items-header-label-display-none'>
+                            <h4>{assigned_number}</h4>
+                        </div>
+                        <div className='scholarship-items-header-label'>
+                            <h4>{remaining_number}</h4>
+                        </div>
+                    </li>
+                </ul>
+            )}
 
             <h3 className='scholarship-header'>Applicants</h3>
             
@@ -155,7 +243,7 @@ function ProgramDetails() {
                         </h3>
                     </div>
 
-</li>                    
+                </li>                    
             {   programDetail.applicant &&
                 programDetail.applicant.map((applicantData, key) => {
                     let programName = '';
@@ -202,7 +290,34 @@ function ProgramDetails() {
             </ul>
             ) : (<p className='no-data'>No applicants</p>)}
             
+            <li className="applicant-items-footer">
 
+                <div className='applicant-items-header-label-left'>
+                        <h3>Total: {programDetail.applicant.length}
+                        </h3>
+                </div>
+
+                <div className='applicant-items-header-label-left'>
+                    <h3>
+                    </h3>
+                </div>
+
+                <div className='applicant-items-header-label-display-none'>
+                    <h3>
+                    </h3>
+                </div>
+
+                <div className='applicant-items-header-label'>
+                    <h3>
+                    </h3>
+                </div>
+
+                <div className='applicant-items-header-label-display-none'>
+                    <h3>
+                    </h3>
+                </div>
+
+                </li>    
             
             <div className='scholarship-create-section'>
                 <button className='scholarship-add-btn' onClick={toggleForm}>{scholarshipButtonText}</button>

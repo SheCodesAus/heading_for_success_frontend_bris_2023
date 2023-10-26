@@ -204,7 +204,7 @@
     display: grid;
     grid-template-columns: 35% 65%;
     font-size: 0.8rem;
-    padding: 0px;
+    padding: 10px;
     width: 90%;
     margin: auto;
     align-items: center;    
@@ -255,7 +255,7 @@
         display: grid;
         grid-template-columns: 20% 30% 20% 30%;
         font-size: 0.8rem;
-        padding: 0px;
+        padding: 10px;
         width: 100%;
         /* margin: auto; */
         align-items: center;    
