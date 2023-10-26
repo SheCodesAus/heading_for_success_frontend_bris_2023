@@ -5,6 +5,7 @@ import  Footer  from '../../components/Footer/Footer.jsx';
 
 function Apply() {
     return (
+        <>
         <div className="application-page">
             <Header/>
             <div className="application-header">
@@ -15,8 +16,9 @@ function Apply() {
             <div className="application-form-container">
                 <ApplicationForm />
             </div>
-            <Footer/>
         </div>
+        <Footer />
+        </>
     );
 }
 

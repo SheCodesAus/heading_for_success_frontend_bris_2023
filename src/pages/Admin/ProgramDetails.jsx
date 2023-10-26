@@ -8,6 +8,7 @@ import LoginForm from "../../components/AdminLogin/LoginForm";
 import MessageCard from "../../components/MessageCard/MessageCard";
 import Spinner from "../../components/Spinner/Spinner";
 import ScholarshipCard from "../../components/ScholarshipCard/ScholarshipCard";
+import Footer from '../../components/Footer/Footer.jsx';
 
 function ProgramDetails() {
     const [showForm, setShowForm] = useState(false);
@@ -150,11 +151,15 @@ function ProgramDetails() {
             {showForm && (
                 <div ref={formRef}>
                 <ScholarshipForm />
+                <Footer />
                 </div>
             )}
         </>
         ) : (
+            <>
             <LoginForm />
+            <Footer />
+            </>
         ) }
         </div>
     );

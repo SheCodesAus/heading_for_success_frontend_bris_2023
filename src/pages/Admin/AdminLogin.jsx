@@ -1,5 +1,6 @@
 import LoginForm from "../../components/AdminLogin/LoginForm";
 import { Link } from 'react-router-dom';
+import Footer from '../../components/Footer/Footer.jsx';
 
 function AdminLogin() {
     return (
@@ -8,6 +9,7 @@ function AdminLogin() {
             <br></br>
             <LoginForm />
             <div>
+                <Footer />
                 {/* <h1>Welcome Admin</h1> */}
                 {/* <div className="program-buttons">
                     <Link to="/user" className="program-button">
