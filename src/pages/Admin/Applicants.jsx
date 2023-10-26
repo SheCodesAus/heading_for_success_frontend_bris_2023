@@ -5,6 +5,7 @@ import LoginForm from "../../components/AdminLogin/LoginForm";
 import ApplicantCard from "../../components/ApplicantCard/ApplicantCard";
 import Spinner from "../../components/Spinner/Spinner";
 import { Link } from 'react-router-dom';
+import Footer from '../../components/Footer/Footer.jsx';
 
 
 function Applicants() {
@@ -298,10 +299,14 @@ function Applicants() {
                     Scholarships
                 </Link>
             </div>
+            <Footer />
                 </>
                 
             ) : (
+                <>
                 <LoginForm />
+                <Footer />
+                </>
             ) } 
         </div>
         

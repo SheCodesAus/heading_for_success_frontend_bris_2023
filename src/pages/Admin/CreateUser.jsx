@@ -1,5 +1,6 @@
 import AddUser from '../../components/AddUser/AddUser'
 import { Link } from 'react-router-dom';
+import Footer from '../../components/Footer/Footer.jsx';
 
 
 function CreateUser() {
@@ -24,6 +25,7 @@ function CreateUser() {
                         Scholarships
                     </Link>
                 </div>
+                <Footer />
                 </div>
     )
 }

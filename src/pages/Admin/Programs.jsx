@@ -300,7 +300,10 @@ function Programs() {
                 </>
                 
             ) : (
+                <>
                 <LoginForm />
+                <Footer />
+                </>
             ) } 
         </>
         

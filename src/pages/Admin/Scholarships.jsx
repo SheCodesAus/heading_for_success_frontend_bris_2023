@@ -7,6 +7,7 @@ import { usePrograms } from "../../hooks/use-programs";
 // import { useProgramDetails } from "../../hooks/use-program-details";
 import Spinner from "../../components/Spinner/Spinner";
 import { Link } from 'react-router-dom';
+import Footer from '../../components/Footer/Footer.jsx';
 
 
 function Scholarships() {
@@ -249,9 +250,13 @@ function Scholarships() {
                 </Link> */}
             </div>
                 </>
+                <Footer />
                 </div>
             ) : (
+                <>
                 <LoginForm />
+                <Footer />
+                </>
             ) } 
         </>
         

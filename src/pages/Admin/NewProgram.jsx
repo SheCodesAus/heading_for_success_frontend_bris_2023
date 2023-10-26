@@ -1,5 +1,6 @@
 import NewProgramForm from "../../components/NewProgramForm/NewProgramForm";
 import { Link } from "react-router-dom";
+import Footer from '../../components/Footer/Footer.jsx';
 
 function NewProgram() {
     return(
@@ -23,7 +24,9 @@ function NewProgram() {
                 <Link to="/scholarships" className="program-button">
                     Scholarships
                 </Link>
+                
             </div>
+            <Footer />
         </>
     );
 }
