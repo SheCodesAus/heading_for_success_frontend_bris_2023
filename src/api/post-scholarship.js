@@ -1,5 +1,7 @@
 export async function postScholarship(formData) {
+
     const url = `${import.meta.env.VITE_API_URL}/scholarship`;
+    const userToken = window.localStorage.getItem('token');
     const response = await fetch(url, { method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -12,7 +14,7 @@ export async function postScholarship(formData) {
             "contact_mobile": formData.contact_mobile,
             "scholarship_amount": formData.scholarship_amount,
             "number_available": formData.number_available,
-            "program": formData.id
+            "program": formData.program,
         }),
     });
     if (!response.ok) {

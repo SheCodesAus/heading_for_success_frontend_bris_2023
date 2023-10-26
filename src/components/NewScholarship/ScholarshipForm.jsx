@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import postScholarship from "../../api/post-scholarship";
+import { useAuth } from '../../hooks/use-auth';
 
 function ScholarshipForm() {   
+    const {auth, setAuth} = useAuth();
+    const navigate = useNavigate();
+    const { id } = useParams();
     const [formData, setFormData] = useState({
         organization: "",
         contact_person: "",
@@ -10,7 +14,7 @@ function ScholarshipForm() {
         contact_mobile: "",
         scholarship_amount: "",
         number_available: "",
-        id,
+        program : id,
     });
 
     const handleChange = (e) => {
@@ -25,8 +29,7 @@ function ScholarshipForm() {
         e.preventDefault(); // Prevent the default form submission behavior (page reload)
         console.log(formData)
         postScholarship(formData).then((response) => {
-            console.log(response);
-            navigate('/program/{id}');
+            navigate(`/program/${id}`);
         }).catch((error) => {
             console.log(error)       
         });
@@ -49,11 +52,11 @@ function ScholarshipForm() {
                     required
                     />
 
-                    <label htmlFor="contactName">Contact Name</label>
+                    <label htmlFor="contactPerson">Contact Name</label>
                     <input 
                     type="text" 
-                    id="contact-name" 
-                    name="contact-name" 
+                    id="contact-person" 
+                    name="contact_person" 
                     value={formData.contact_person} 
                     onChange={handleChange} 
                     required
@@ -63,7 +66,7 @@ function ScholarshipForm() {
                     <input 
                     type="email" 
                     id="contact-email" 
-                    name="contact-email" 
+                    name="contact_email" 
                     value={formData.contact_email} 
                     onChange={handleChange} 
                     required
@@ -73,7 +76,7 @@ function ScholarshipForm() {
                     <input 
                     type="number" 
                     id="contact-mobile" 
-                    name="contact-mobile" 
+                    name="contact_mobile" 
                     value={formData.contact_mobile} 
                     onChange={handleChange} 
                     required
@@ -83,7 +86,7 @@ function ScholarshipForm() {
                     <input 
                     type="number" 
                     id="scholarship-amount" 
-                    name="scholarship-amount" 
+                    name="scholarship_amount" 
                     value={formData.scholarship_amount} 
                     onChange={handleChange} 
                     required
@@ -93,14 +96,14 @@ function ScholarshipForm() {
                     <input 
                     type="number" 
                     id="number-available" 
-                    name="number-available" 
+                    name="number_available" 
                     value={formData.number_available} 
                     onChange={handleChange} 
                     required
                     />
 
                     <div>
-                    <button type="submit" >Submit</button>
+                    <button type="submit" onClick={handleSubmit}>Submit</button>
                     </div>
 
                 </form>
