@@ -1,7 +1,7 @@
 import './ProgramDetails.css'
 import ScholarshipForm from "../../components/NewScholarship/ScholarshipForm";
 import { useProgramDetails } from "../../hooks/use-program-details";
-import { useState, Fragment, useRef } from 'react';
+import { useState, Fragment, useRef, useEffect } from 'react';
 import { useAuth } from "../../hooks/use-auth";
 import { useParams, Link } from 'react-router-dom';
 import LoginForm from "../../components/AdminLogin/LoginForm";
@@ -18,6 +18,11 @@ function ProgramDetails() {
             formRef.current.scrollIntoView({ behavior: "smooth" });
         }
     };
+    useEffect(() => {
+        if (showForm && formRef.current) {
+        formRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [showForm]);
 
     const {auth, setAuth} = useAuth();
     const { id } = useParams();
