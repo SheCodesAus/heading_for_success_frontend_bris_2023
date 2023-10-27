@@ -100,7 +100,13 @@ const ScholarshipCard = (props) => {
                     </div>
                     <div id='remaining' className='scholarship-grid'>
                     {remaining_number}
-                    </div>                      
+                    </div>        
+                    <div>
+                        <DeleteButton 
+                        id={scholarshipData.id}
+                        onClick={() => props.onClick(scholarshipData.id)}
+                     />
+                    </div>                                  
                     </>
                  )
                                      

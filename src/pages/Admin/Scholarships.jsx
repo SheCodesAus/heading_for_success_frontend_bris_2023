@@ -19,6 +19,7 @@ function Scholarships() {
     const { scholarship, isLoadingScholarship, errorScholarship, setScholarship } = useScholarship();
     const { allPrograms, isLoadingallPrograms, errorAllPrograms, setAllPrograms } = usePrograms();
     const [messageBlock, setMessageBlock] = useState(false);
+    const [message, setMessage] = useState('Deleted successfully')
     // const [sortToggleAsc, setSortToggleAsc] = useState(true);
     // const [sortToggleDesc, setSortToggleDesc] = useState(false);
     // const [sortToggleAscLoc, setSortToggleAscLoc] = useState(true);
@@ -39,7 +40,6 @@ function Scholarships() {
     const programLink = `/program/${scholarship.program}`;
 
     const handleDelete = (id) => {
-        console.log(":: delete", id )
         if (id) {
             deleteScholarship(
                 id
@@ -47,9 +47,10 @@ function Scholarships() {
                 const filteredScholarship = scholarship.filter((scholarshipData) => scholarshipData.id !== id);
                 setScholarship(filteredScholarship);
                 setMessageBlock(true);
+                setMessage('Deleted successfully');
             }).catch((error) => {
                 setMessageBlock(true);
-                setErrorLogin(error.message);
+                setMessage(error.message);
                 
             });
         }
@@ -140,7 +141,7 @@ function Scholarships() {
                     
                     <div className='message'>
                         
-                        <MessageCard message="Deleted successfully"  />
+                        <MessageCard message={message}  />
                     </div>
                 ) :( null ) }  
                 </>
