@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import postScholarship from "../../api/post-scholarship";
 import { useAuth } from '../../hooks/use-auth';
+import './ScholarshipForm.css'
 
 function ScholarshipForm() {   
     const {auth, setAuth} = useAuth();
@@ -37,7 +38,7 @@ function ScholarshipForm() {
 
     return (
         <>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label htmlFor="organization">Organization Name</label>
                     <input 
                     type="text" 
@@ -76,6 +77,7 @@ function ScholarshipForm() {
                     value={formData.contact_mobile} 
                     onChange={handleChange} 
                     required
+                    className='scholarship-input'
                     />
 
                     <label htmlFor="scholarshipAmount">Scholarship amount</label>
@@ -86,6 +88,7 @@ function ScholarshipForm() {
                     value={formData.scholarship_amount} 
                     onChange={handleChange} 
                     required
+                    className='scholarship-input'
                     />
 
                     <label htmlFor="numberAvailable">Number of spots available</label>
@@ -96,10 +99,11 @@ function ScholarshipForm() {
                     value={formData.number_available} 
                     onChange={handleChange} 
                     required
+                    className='scholarship-input'
                     />
 
                     <div>
-                    <button type="submit" onClick={handleSubmit}>Submit</button>
+                    <button type="submit">SUBMIT</button>
                     </div>
 
                 </form>

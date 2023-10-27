@@ -85,13 +85,14 @@ function NewProgramForm() {
     if ( auth.token ) {
 
         return (
-            <form className='AppForm'>
+            <form className='AppForm' onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor='program_name'>Program Name</label>
                     <input
                         type='text'
                         id='program_name'
                         placeholder='Enter name of program'
+                        required
                         onChange={handleChange}
                     />
                 </div>
@@ -118,6 +119,7 @@ function NewProgramForm() {
                         type='text'
                         id='intake'
                         placeholder='Month/ Year'
+                        required
                         onChange={handleChange}
                     />
                 </div>
@@ -127,6 +129,7 @@ function NewProgramForm() {
                         type='text-area'
                         id='description'
                         placeholder='Description of Program'
+                        required
                         onChange={handleChange}
                         rows='5'
                         cols='30'                     
@@ -135,8 +138,9 @@ function NewProgramForm() {
                 <div>
                     <label htmlFor='image'>Image link</label>
                     <input
-                        type='text'
+                        type='url'
                         id='image'
+                        required
                         onChange={handleChange}
                     />
                 </div>
@@ -146,6 +150,7 @@ function NewProgramForm() {
                         type='date'
                         id='date_start'
                         placeholder='Start date?'
+                        required
                         onChange={handleChange}
                     />
                 </div>
@@ -155,6 +160,7 @@ function NewProgramForm() {
                         type='date'
                         id='date_end'
                         placeholder='End date?'
+                        required
                         onChange={handleChange}
                     />
                 </div>
@@ -164,6 +170,7 @@ function NewProgramForm() {
                         type='date'
                         id='application_date_start'
                         placeholder='When Applications Start'
+                        required
                         onChange={handleChange}
                     />
                 </div>
@@ -173,10 +180,11 @@ function NewProgramForm() {
                         type='date'
                         id='application_date_end'
                         placeholder='When Applications End'
+                        required
                         onChange={handleChange}
                     />
                 </div>
-                <button type='submit' onClick={handleSubmit}>Create </button>
+                <button type='submit'>Create </button>
                 {messageBlock && 
                     <MessageCard 
                         message='Program created successfully' 
