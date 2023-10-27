@@ -3,6 +3,7 @@ import ScholarshipForm from "../../components/NewScholarship/ScholarshipForm";
 import { useProgramDetails } from "../../hooks/use-program-details";
 import { useState, Fragment, useRef, useEffect } from 'react';
 import { useAuth } from "../../hooks/use-auth";
+import { putProgram } from '../../api/put-program';
 import { useParams, Link } from 'react-router-dom';
 import LoginForm from "../../components/AdminLogin/LoginForm";
 import MessageCard from "../../components/MessageCard/MessageCard";
@@ -37,6 +38,8 @@ function ProgramDetails() {
     const { id } = useParams();
     const { programDetail, isLoading, error, setProgramDetail } = useProgramDetails(id);
     const [messageBlock, setMessageBlock] = useState(false);
+    const [programMessageBlock, setProgramMessageBlock] = useState(false);
+    const [message, setMessage] = useState('Program saved successfully')
 
     if (isLoading) {
         return (<Spinner />)
@@ -71,6 +74,37 @@ function ProgramDetails() {
 
     }
      
+
+    const handleChange = (event) => {
+        const { id, value } = event.target;
+        setProgramDetail((prevProgramDetail) => ({
+            ...prevProgramDetail,
+            [id]: value,
+        }));
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+                putProgram(
+                    programDetail.id,
+                    programDetail.program_name,
+                    programDetail.location,
+                    programDetail.intake,
+                    programDetail.description,
+                    programDetail.image,
+                    programDetail.date_start,
+                    programDetail.date_end,
+                    programDetail.application_date_start,
+                    programDetail.application_date_end,
+                ).then((response) => {
+                    setProgramMessageBlock(true);
+                    setMessage('Program saved successfully');
+                }).catch((error) => {
+                    setProgramMessageBlock(true);
+                    setMessage(error.message);
+                });
+    };
+    
     
     return (
         <>
@@ -133,17 +167,17 @@ function ProgramDetails() {
                 </div>            
             <h3 className='scholarship-header'>Program Details</h3>
             
-            <div className='scholarship-applicant-profile'>
+            {/* <div className='scholarship-applicant-profile'>
             <li className='label'>
                 <label>Location</label>
             </li>
             <li className='label'> {programDetail.location}</li>
             <li className='label'><label>Intake</label></li>
-            <li className='label'> {programDetail.intake}</li>
+            <li className='label'> {programDetail.intake}</li> */}
 
             {/* <img src={programDetail.image} /> */}
             {/* <li className='label'>Status</li><li className='label'> {programDetail.status}</li> */}
-            <li className='label'><label>Program Start</label></li>
+            {/* <li className='label'><label>Program Start</label></li>
             <li className='label'> {formatDate(programDetail.date_start)}</li>
             <li className='label'><label>Program End</label></li>
             <li className='label'>{formatDate(programDetail.date_end)}</li>
@@ -153,7 +187,145 @@ function ProgramDetails() {
             <li className='label'> {formatDate(programDetail.application_date_end)}</li>
             <li className='label'><label>Description</label></li>
             <li className='label'> {programDetail.description}</li>
+            </div> */}
+
+            <form className='program-form' onSubmit={handleSubmit}>
+            <div className='program-applicant-profile'>
+            <li className='label'>
+                <label htmlFor='program_name'>Program</label>
+                </li><li className='label'>
+                <input className='form-input'
+                    type='text' 
+                    required
+                    id='program_name' 
+                    defaultValue={programDetail.program_name}
+                    onChange = {handleChange}
+                />
+                </li>
+
+                <li className='label'>
+                <label htmlFor='location'>Location</label>
+                </li><li className='label'>
+                <input
+                    className='form-input'
+                    type='text' 
+                    id='location' 
+                    required
+                    defaultValue={programDetail.location}
+                    onChange = {handleChange}
+                />
+                </li>
+                <li className='label'>
+                    <label htmlFor='intake'>Intake</label>
+                </li>
+                <li className='label'>
+                    <input 
+                        className='form-input'
+                        type='text' 
+                        id='intake' 
+                        onChange = {handleChange}
+                        required
+                        defaultValue={programDetail.intake}                          
+                    />
+                </li>  
+                <li></li>                                 
+                <li></li>                                 
+                <li className='label'>
+                    <label htmlFor='date_start'>Start Date</label>
+                </li>
+                <li className='label'>
+                    <input 
+                        className='form-input-date'
+                        type='date' 
+                        id='date_start' 
+                        onChange = {handleChange}
+                        required
+                        defaultValue={(programDetail.date_start)}
+                    />
+                </li>                 
+                <li className='label'>
+                    <label htmlFor='application_date_start'>Application Start Date</label>
+                </li>
+                <li className='label'>
+                    <input 
+                        className='form-input-date'
+                        type='date' 
+                        id='application_date_start' 
+                        onChange = {handleChange}
+                        required
+                        defaultValue={(programDetail.application_date_start)}
+                    />
+                </li>                   
+                <li className='label'>
+                    <label htmlFor='date_end'>End Date</label>
+                </li>
+                <li className='label'>
+                    <input 
+                        className='form-input-date'
+                        type='date' 
+                        id='date_end' 
+                        onChange = {handleChange}
+                        required
+                        defaultValue={(programDetail.date_end)}
+                    />
+                </li> 
+              
+                <li className='label'>
+                    <label htmlFor='application_date_end'>Application End Date</label>
+                </li>
+                <li className='label'>
+                    <input 
+                        className='form-input-date'
+                        type='date' 
+                        id='application_date_end' 
+                        onChange = {handleChange}
+                        required
+                        defaultValue={programDetail.application_date_end}
+                    />
+                </li>     
+
             </div>
+            <li className='label'>
+                    <label htmlFor='image'>Image</label>
+                </li>
+                <li className='label'>
+                    <input 
+                        className='form-input-url'
+                        type='url' 
+                        id='image' 
+                        onChange = {handleChange}
+                        required
+                        defaultValue={programDetail.image}
+                    />
+                </li> 
+                <li className='label'>
+                            <label htmlFor='description'>Description</label>
+                </li>
+                <li className='label'>
+                <textarea
+                    className='form-textarea'
+                    type='text' 
+                    id='description' 
+                    required
+                    rows='5'
+                    // cols='100'
+                    defaultValue={programDetail.description}
+                    onChange = {handleChange}
+                />
+            </li>                            
+            <div className='scholarship-create-section'>
+            <button className='scholarship-add-btn'>SAVE</button>
+            { programMessageBlock &&
+                <li className='message'>
+                    <MessageCard 
+                        message={message} 
+                    />
+                </li>
+            }   
+            </div>
+            </form>
+ 
+
             <h3 className='scholarship-header'>Scholarships</h3>
             {/* { programDetail.scholarship &&
                 programDetail.scholarship.map((scholarshipData, key) => {
