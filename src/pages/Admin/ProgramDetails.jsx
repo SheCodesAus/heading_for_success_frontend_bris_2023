@@ -4,6 +4,7 @@ import { useProgramDetails } from "../../hooks/use-program-details";
 import { useState, Fragment, useRef, useEffect } from 'react';
 import { useAuth } from "../../hooks/use-auth";
 import { putProgram } from '../../api/put-program';
+import { deleteScholarship } from "../../api/delete-scholarship";
 import { useParams, Link } from 'react-router-dom';
 import LoginForm from "../../components/AdminLogin/LoginForm";
 import MessageCard from "../../components/MessageCard/MessageCard";
@@ -39,7 +40,9 @@ function ProgramDetails() {
     const { programDetail, isLoading, error, setProgramDetail } = useProgramDetails(id);
     const [messageBlock, setMessageBlock] = useState(false);
     const [programMessageBlock, setProgramMessageBlock] = useState(false);
-    const [message, setMessage] = useState('Program saved successfully')
+    const [message, setMessage] = useState('Program saved successfully');
+    const [scholarshipMessageBlock, setScholarshipMessageBlock] = useState(false);
+    const [messageScholarship, setMessageScholarship] = useState('Deleted successfully');
 
     if (isLoading) {
         return (<Spinner />)
@@ -82,6 +85,35 @@ function ProgramDetails() {
             [id]: value,
         }));
     };
+
+    const handleDelete = (id) => {
+        if (id) {
+            
+            deleteScholarship(
+                id
+            ).then((response) => {
+
+                const filteredScholarship = programDetail.scholarship.filter((scholarshipData) => scholarshipData.id !== id);
+
+                let newProgramDetail = programDetail;
+
+                newProgramDetail.scholarship = filteredScholarship;
+
+                setProgramDetail((prevProgramDetail) => ({
+                    ...prevProgramDetail,
+                    newProgramDetail,
+                }));
+
+
+                setScholarshipMessageBlock(true);
+                setMessageScholarship('Deleted successfully')
+            }).catch((error) => {
+                setScholarshipMessageBlock(true);
+                setMessageScholarship(error.message);
+                
+            });
+        }
+    }; 
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -327,35 +359,25 @@ function ProgramDetails() {
  
 
             <h3 className='scholarship-header'>Scholarships</h3>
-            {/* { programDetail.scholarship &&
-                programDetail.scholarship.map((scholarshipData, key) => {
-                    return (
-                    <Fragment key={key}>    
-                        <li key={key}>
-                                {scholarshipData.organization}
-                        </li>
-                    </Fragment>
-                    )
-                })
-            } */}
+
             { programDetail.scholarship.length > 0   && (
             <ul className='scholarship-group'>
-                            <li className='scholarship-items-header'>
-                                <div className='scholarship-items-header-label-left'>
-                                    <h4>Scholarship</h4>
-                                </div>
-                                <div className='scholarship-items-header-label-display-none'>
-                                    <h4>Places</h4>
-                                </div>
-                                <div className='scholarship-items-header-label-display-none'>
-                                    <h4>Assigned</h4>
-                                </div>
-                                <div className='scholarship-items-header-label'>
-                                    <h4>Remaining</h4>
-                                </div>
+                <li className='scholarship-items-header'>
+                    <div className='scholarship-items-header-label-left'>
+                        <h4>Scholarship</h4>
+                    </div>
+                    <div className='scholarship-items-header-label-display-none'>
+                        <h4>Places</h4>
+                    </div>
+                    <div className='scholarship-items-header-label-display-none'>
+                        <h4>Assigned</h4>
+                    </div>
+                    <div className='scholarship-items-header-label'>
+                        <h4>Remaining</h4>
+                    </div>
 
-                            </li>
-                            </ul>
+                </li>
+            </ul>
                 )}
             
             { programDetail.scholarship.length > 0 ? (
@@ -369,13 +391,20 @@ function ProgramDetails() {
                                 applicantDetail = {programDetail.applicant}
                                 programDetail = {programDetail}
                                 page={'program'}
+                                onClick={handleDelete}
                                 />
                             </li> 
                     </Fragment>
                     )
                 })
- 
             ):<p className='no-data'>No scholarships</p>}
+            { scholarshipMessageBlock &&
+            <li className='message'>
+                <MessageCard 
+                    message={messageScholarship} 
+                />
+            </li>
+            } 
 
             { programDetail.scholarship.length > 0   && (
                 <ul className='scholarship-group'>
