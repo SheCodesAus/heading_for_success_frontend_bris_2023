@@ -1,5 +1,6 @@
 import { useScholarship } from "../../hooks/use-scholarship";
 import { useAuth } from "../../hooks/use-auth";
+import { deleteScholarship } from "../../api/delete-scholarship";
 import { useState } from "react";
 import LoginForm from "../../components/AdminLogin/LoginForm";
 import ScholarshipCard from "../../components/ScholarshipCard/ScholarshipCard";
@@ -8,6 +9,7 @@ import { usePrograms } from "../../hooks/use-programs";
 import Spinner from "../../components/Spinner/Spinner";
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer.jsx';
+import MessageCard from "../../components/MessageCard/MessageCard";
 
 
 function Scholarships() {
@@ -16,6 +18,7 @@ function Scholarships() {
     
     const { scholarship, isLoadingScholarship, errorScholarship, setScholarship } = useScholarship();
     const { allPrograms, isLoadingallPrograms, errorAllPrograms, setAllPrograms } = usePrograms();
+    const [messageBlock, setMessageBlock] = useState(false);
     // const [sortToggleAsc, setSortToggleAsc] = useState(true);
     // const [sortToggleDesc, setSortToggleDesc] = useState(false);
     // const [sortToggleAscLoc, setSortToggleAscLoc] = useState(true);
@@ -33,15 +36,32 @@ function Scholarships() {
         return (<p>{error.message}</p>);
     }    
 
-
     const programLink = `/program/${scholarship.program}`;
+
+    const handleDelete = (id) => {
+        console.log(":: delete", id )
+        if (id) {
+            deleteScholarship(
+                id
+            ).then((response) => {
+                const filteredScholarship = scholarship.filter((scholarshipData) => scholarshipData.id !== id);
+                setScholarship(filteredScholarship);
+                setMessageBlock(true);
+            }).catch((error) => {
+                setMessageBlock(true);
+                setErrorLogin(error.message);
+                
+            });
+        }
+    }; 
+    
 
     return (
 
         
         <>
         
-            <h1 className="program-list-header">Scholarships Available</h1>
+            <h1 className="program-list-header">Scholarships</h1>
             
             { auth.token ? (
                 <>
@@ -87,6 +107,10 @@ function Scholarships() {
                             <h3>Status
                             </h3>
                             </div>
+                            <div className='scholarship-items-header-label'>
+                            <h3>
+                            </h3>
+                            </div>                            
                         {/* </div> */}
                     </li>
                     { scholarship.length > 0 && scholarship.map((scholarshipData, key) => {
@@ -105,13 +129,20 @@ function Scholarships() {
                                     scholarshipData={scholarshipData}
                                     applicantDetail={undefined}
                                     programDetail = {foundProgram}
-                                    // programName = {programName}
+                                    onClick={handleDelete}
                                 />
                             </li>
                         )
                                     
                     })}
                     </ul>
+                    { messageBlock ? ( 
+                    
+                    <div className='message'>
+                        
+                        <MessageCard message="Deleted successfully"  />
+                    </div>
+                ) :( null ) }  
                 </>
                  }
                  <div className="program-buttons">

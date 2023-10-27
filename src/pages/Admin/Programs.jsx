@@ -135,7 +135,7 @@ function Programs() {
         
         <>
         
-            <h1 className="program-list-header">All Programs List</h1>
+            <h1 className="program-list-header">Programs</h1>
             
             <div className="program-legend"> Icon Legend
                 <div className="program-legend-icon">

@@ -1,6 +1,7 @@
 import './ScholarshipCard.css'
 import { Link } from 'react-router-dom';
 import IconStatus from "../../components/IconStatus/IconStatus";
+import DeleteButton from '../DeleteButton/DeleteButton';
 
 const ScholarshipCard = (props) => {
     const { scholarshipData, applicantDetail, programDetail, page } = props;
@@ -58,7 +59,12 @@ const ScholarshipCard = (props) => {
                         <h3><IconStatus status={status} />
                         </h3>
                     </div>    
-
+                    <div>
+                        <DeleteButton 
+                        id={scholarshipData.id}
+                        onClick={() => props.onClick(scholarshipData.id)}
+                     />
+                    </div>
                     
                 </>                 
 

@@ -1,0 +1,28 @@
+.small-icons {
+    height: 20px;
+    vertical-align: middle;
+    padding-left: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    color: var(--purple);
+}
+
+.small-icons:hover {
+    color: var(--orange);
+    transition: 0.5s ease-in-out;
+}
+
+.button-icons {
+    background-color: white;
+    border-style: none;
+    border-color: var(--purple);
+    /* height: 100%; */
+    color: var(--purple);
+    width:fit-content;
+}
+
+.button-icons:hover { 
+    background-color: none;
+    color: var(--orange);
+    transition: 0.5s ease-in-out;
+ }

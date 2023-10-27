@@ -281,27 +281,11 @@ function ProgramDetails() {
                             
                         />
                     </li>                    
-                // <Fragment key={key}>   
-                // <div className='applicant-detail'>
-                //     <li key={key}>
-                //         <Link to={`/application/${applicantData.id}/${id}`}>
-                //             {`${applicantData.first_name} ${applicantData.last_name}`}
-                //         </Link>
-                //     </li>
-                //     <li>
-                //         {applicantData.status}
-                //     </li>
-                //     <li>
-                //         {/* {applicantData.scholarship} */}
-                //         {applicantData.scholarship > 0 && programDetail.scholarship.find((scholarship) => scholarship.id === parseInt(applicantData.scholarship)).organization}
-                //     </li>    
-                // </div>                
-                // </Fragment>
                 )
             })}
             </ul>
             ) : (<p className='no-data'>No applicants</p>)}
-            
+            {programDetail.applicant.length > 0 && (
             <li className="applicant-items-footer">
 
                 <div className='applicant-items-header-label-left'>
@@ -330,7 +314,7 @@ function ProgramDetails() {
                 </div>
 
                 </li>    
-            
+            )}
             <div className='scholarship-create-section'>
                 <button className='scholarship-add-btn' onClick={toggleForm}>{scholarshipButtonText}</button>
             {showForm && (
