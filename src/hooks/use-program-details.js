@@ -14,6 +14,7 @@ export function useProgramDetails(id) {
         return {
             id: scholarshipData.id,
             organization: scholarshipData.organization,
+            program_name: programDetail.program_name,
             number_available: scholarshipData.number_available,
             assigned_count: assignedCount,
             remaining_count: scholarshipData.number_available - assignedCount,

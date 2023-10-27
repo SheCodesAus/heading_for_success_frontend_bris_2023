@@ -1,24 +1,28 @@
 import './ApplicantCard.css'
+import { Link } from 'react-router-dom';
 
 const ApplicantCard = (props) => {
     const { applicantData, programName, scholarshipName } = props;
+    let programLink = `/program/${applicantData.program}`;
+    let applicantLink = `/application/${applicantData.id}/${applicantData.program}`;
 
     return (
             <>
-                <div className='scholarship-grid-left'>
-                    <p>{applicantData.first_name}</p>
+                <div className='applicant-grid-left'>
+                <Link to={applicantLink}>{applicantData.first_name}</Link>
                 </div>
-                <div className='scholarship-grid'>
-                    { applicantData.last_name }
+                <div className='applicant-grid-left'>
+                <Link to={applicantLink}>{ applicantData.last_name }</Link>
                 </div>
-                <div className='scholarship-grid-display-none'>
-                {programName}
+                <div className='applicant-grid-display-none'>
+                <Link to={programLink}>{programName} 
+                    </Link>
                 </div>     
-                <div className='scholarship-grid'>
-                {applicantData.status}
+                <div className='applicant-grid'>
+                <Link to={applicantLink}>{applicantData.status}</Link>
                 </div>     
-                <div className='scholarship-grid-display-none'>
-                {scholarshipName}
+                <div className='applicant-grid-display-none'>
+                {scholarshipName} 
                 </div>
             </>       
                                

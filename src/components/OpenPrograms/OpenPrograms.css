@@ -1,13 +1,14 @@
 .openprogramcard{
-    background-color:var(--purple);
+    background-color:var(--dark-purple);
     border-radius: 16px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: top;
+    flex-direction: column;
     text-align: center;
     color: white;
     box-shadow: 4px 4px rgba(0,0,0,0.3);
-    padding: 32px;
+    padding: 28px;
 }
 .openprogramcard img{
     border-radius: 16px;
@@ -26,7 +27,7 @@
 }
 
 .openprogramcard h2 {
-    font-size: 1.25em;
+    font-size: 1em;
     font-weight: 600;
 }
 

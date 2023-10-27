@@ -9,7 +9,7 @@
     align-items: center;
     font-family: 'Montserrat', Arial, sans-serif; 
     background-color: white;
-    color: black;
+    color: black    ;
     border-radius: 0px;
     font-size: 0.8rem;    
     border-bottom: 1px;
@@ -26,7 +26,7 @@
     border-width: 1px;
     font-weight: bold;
     font-size: 1rem;
-    background-color: rgb(133, 74, 177,0.8);
+    background-color: var(--orange);
     display: grid;
     /* flex-direction: row; */
     grid-template-columns: 30% 30% 30%;  
@@ -68,7 +68,7 @@
     display: flex;
     align-items: center;
     font-weight: bold;
-    background-color: rgb(133, 74, 177,0.8);
+    background-color: var(--orange);
     color: white;
     font-size: 0.9rem;
     justify-content: center;
@@ -81,7 +81,7 @@
     display: flex;
     align-items: center;
     font-weight: bold;
-    background-color: rgb(133, 74, 177,0.8);
+    background-color: var(--orange);
     color: white;
     font-size: 0.9rem;
     justify-content: left;

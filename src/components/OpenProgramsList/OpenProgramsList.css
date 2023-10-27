@@ -13,14 +13,28 @@
 } */ 
 
 #open-programs{
-    /* background-color:#854AB1; */
     display: grid;
-    grid-template-columns: 30% 30% 30%;
-    column-gap: 10px;
-    row-gap: 10px;
+    /* grid-template-columns: 60% 40%; Left column takes 60%, right column takes 40% */
+
+    grid-template-columns: repeat(4, 1fr); /* Divide the container into 4 equal columns */
+    grid-template-rows: repeat(3, 1fr);    /* 2 equal rows */
+    gap: 40px; /* Combine column-gap and row-gap into gap property */
     padding: 40px;
+    justify-content: space-between; /* Distribute columns evenly horizontally */
+    align-content: start; /* Align content to the top of the grid */
 }
 #open-programs-list{
     align-items: center;
     justify-content: center;
+}
+
+#openprograms-title {
+    font-size: 1em;
+    justify-content: center;
+    padding: 36px 80px;
+    text-align: center;
+}
+
+#openprograms-title span {
+    color: var(--orange);
 }

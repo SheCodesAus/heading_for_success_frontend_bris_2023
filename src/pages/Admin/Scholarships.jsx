@@ -1,15 +1,24 @@
 import { useScholarship } from "../../hooks/use-scholarship";
 import { useAuth } from "../../hooks/use-auth";
+import { deleteScholarship } from "../../api/delete-scholarship";
 import { useState } from "react";
 import LoginForm from "../../components/AdminLogin/LoginForm";
 import ScholarshipCard from "../../components/ScholarshipCard/ScholarshipCard";
+import { usePrograms } from "../../hooks/use-programs";
+// import { useProgramDetails } from "../../hooks/use-program-details";
 import Spinner from "../../components/Spinner/Spinner";
+import { Link } from 'react-router-dom';
+import Footer from '../../components/Footer/Footer.jsx';
+import MessageCard from "../../components/MessageCard/MessageCard";
+
 
 function Scholarships() {
 
     const {auth, setAuth} = useAuth();
     
-    const { scholarship, isLoading, error, setScholarship } = useScholarship();
+    const { scholarship, isLoadingScholarship, errorScholarship, setScholarship } = useScholarship();
+    const { allPrograms, isLoadingallPrograms, errorAllPrograms, setAllPrograms } = usePrograms();
+    const [messageBlock, setMessageBlock] = useState(false);
     // const [sortToggleAsc, setSortToggleAsc] = useState(true);
     // const [sortToggleDesc, setSortToggleDesc] = useState(false);
     // const [sortToggleAscLoc, setSortToggleAscLoc] = useState(true);
@@ -19,122 +28,46 @@ function Scholarships() {
     // const [sortToggleAscAppStatus, setSortToggleAscAppStatus] = useState(true);
     // const [sortToggleDescAppStatus, setSortToggleDescAppStatus] = useState(false);
 
-    if (isLoading) {
+    if (isLoadingScholarship || isLoadingallPrograms) {
         return (<Spinner />)
     }
 
-    if (error) {
+    if (errorScholarship || errorAllPrograms ) {
         return (<p>{error.message}</p>);
     }    
 
+    const programLink = `/program/${scholarship.program}`;
 
-    // const deleteSingleProgram = (id) => {
-    //     if (id) {
-    //         deleteProgram(
-    //             id
-    //         ).then((response) => {
-    //             const myPrograms = allPrograms.filter((programData) => programData.id !== id);
-    //             setAllPrograms(myPrograms);
-    //         }); 
-    //     }
-    // }; 
-
-    const handleClick = (event) => {
-        // const text = event.target.innerText;
-        // console.log("evt click",event, event.target, event.target.id, event.target.innerText);
-        // if (text === 'Program' || event.target.id === 'program') {
-        //     console.log(sortToggleAsc);
-            
-        //     const sortedProgramDetail = [...allPrograms].sort((a, b) => {
-        //         if (sortToggleAsc) {
-        //             return a.program_name.localeCompare(b.program_name);
-        //         } else {
-        //             return b.program_name.localeCompare(a.program_name);
-        //         }
-        //     }); 
-        //     if (sortToggleAsc) {
-        //         setSortToggleDesc(true);
-        //         setSortToggleAsc(false);  
-
-        //     } else {
-        //         setSortToggleDesc(false);  
-        //         setSortToggleAsc(true); 
-        //     }
-        //     setAllPrograms(sortedProgramDetail);
-        // }
-
-        // if (text === 'Location' || event.target.id === 'location') {
-        //     console.log(sortToggleAscLoc);
-            
-        //     const sortedProgramDetail = [...allPrograms].sort((a, b) => {
-        //         if (sortToggleAscLoc) {
-        //             return a.location.localeCompare(b.location);
-        //         } else {
-        //             return b.location.localeCompare(a.location);
-        //         }
-        //     }); 
-        //     if (sortToggleAscLoc) {
-        //         setSortToggleDescLoc(true);
-        //         setSortToggleAscLoc(false);  
-
-        //     } else {
-        //         setSortToggleDescLoc(false);  
-        //         setSortToggleAscLoc(true); 
-        //     }
-        //     setAllPrograms(sortedProgramDetail);
-        // }
-
-        // if (text === 'Program Status' || event.target.id === 'program-status') {
-        //     console.log(sortToggleAscProgStat);
-            
-        //     const sortedProgramDetail = [...allPrograms].sort((a, b) => {
-        //         if (sortToggleAscProgStat) {
-        //             return a.date_start.localeCompare(b.date_start);
-        //         } else {
-        //             return b.date_start.localeCompare(a.date_start);
-        //         }
-        //     }); 
-        //     if (sortToggleAscProgStat) {
-        //         setSortToggleDescProgStat(true);
-        //         setSortToggleAscProgStat(false);  
-
-        //     } else {
-        //         setSortToggleDescProgStat(false);  
-        //         setSortToggleAscProgStat(true); 
-        //     }
-        //     setAllPrograms(sortedProgramDetail);
-        // }
-
-        // if (text === 'Application Status' || event.target.id === 'application-status') {
-        //     console.log(sortToggleAscAppStatus);
-            
-        //     const sortedProgramDetail = [...allPrograms].sort((a, b) => {
-        //         if (sortToggleAscAppStatus) {
-        //             return a.application_date_start.localeCompare(b.application_date_start);
-        //         } else {
-        //             return b.application_date_start.localeCompare(a.application_date_start);
-        //         }
-        //     }); 
-        //     if (sortToggleAscAppStatus) {
-        //         setSortToggleDescAppStatus(true);
-        //         setSortToggleAscAppStatus(false);  
-
-        //     } else {
-        //         setSortToggleDescAppStatus(false);  
-        //         setSortToggleAscAppStatus(true); 
-        //     }
-        //     setAllPrograms(sortedProgramDetail);
-        // }
-    } 
+    const handleDelete = (id) => {
+        console.log(":: delete", id )
+        if (id) {
+            deleteScholarship(
+                id
+            ).then((response) => {
+                const filteredScholarship = scholarship.filter((scholarshipData) => scholarshipData.id !== id);
+                setScholarship(filteredScholarship);
+                setMessageBlock(true);
+            }).catch((error) => {
+                setMessageBlock(true);
+                setErrorLogin(error.message);
+                
+            });
+        }
+    }; 
+    
 
     return (
 
         
         <>
         
-            <h1 className="program-list-header">Scholarship</h1>
-{/*             
-            <div className="program-legend"> Icon Legend
+            <h1 className="program-list-header">Scholarships</h1>
+            
+            { auth.token ? (
+                <>
+                <div className='application-page'>
+                  
+                <div className="program-legend"> Icon Legend - Application Status
                 <div className="program-legend-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="program-icons-close" title="Closed">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -151,137 +84,94 @@ function Scholarships() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg> Future
                 </div>
-            </div> */}
-            
-            { auth.token ? (
-                <>  
+            </div>                
                 { ( scholarship.length > 0 ) && 
                 <>
-                    <ul className="program-card-list">
-                    <li>
-                        <div className='program-card-header'> 
-                        <div 
-                            className='program-card-grid' 
-                            id='program'         
-                            value='program' 
-                            // onClick={handleClick}
-                        > 
-                            <button onClick={handleClick} id='program' value='program' className='program-card-sort-btn'>
-                                <div className='program-card-sort-left'>
-                                    <h3>Scholarship 
-                                        {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
-                                        className={sortToggleAsc ? 
-                                        'program-icons-sort' : 'display-none'} id='program'>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={sortToggleDesc ? 
-                                        'program-icons-sort' : 'display-none' } id='program'>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
-                                        </svg> */}
-                                    </h3>
-                                </div>
+  
 
-                            </button>
-                        </div>
-                        <div className='program-card-grid'
-                            id='location'         
-                            value='location' 
-                        >
-                        <button 
-                            onClick={handleClick} 
-                            id='location' 
-                            value='location' 
-                            className='program-card-sort-btn'
-                        >
-                            <div className='program-card-sort-left'>
-                            <h3>Places
-                                {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
-                                    className={sortToggleAscLoc ? 
-                                    'program-icons-sort' : 'display-none'} id='location'>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={sortToggleDescLoc ? 
-                                    'program-icons-sort' : 'display-none' } id='location'>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
-                                    </svg> */}
-
+                    <ul className="scholarship-group">
+                    <li className="scholarship-items-header">
+                        {/* <div>  */}
+                            <div className='scholarship-items-header-label-left'>
+                                <h3>Scholarship 
+                                </h3>
+                            </div>
+                            <div className='scholarship-items-header-label-display-none'>
+                                <h3>Places
+                                </h3>
+                            </div>
+                            <div className='scholarship-items-header-label-left'>
+                                <h3>Program Name</h3>
+                            </div>
+                            <div className='scholarship-items-header-label'>
+                            <h3>Status
                             </h3>
                             </div>
-                        </button>
-                        </div>
-                        <div className='program-card-sort-none'>
-                            <h3>Program Name</h3>
-                        </div>
-                        <div className='program-card-grid-none'>
-                        <button 
-                            onClick={handleClick} 
-                            id='program-status' 
-                            value='program-status' 
-                            className='program-card-sort-btn'
-                        >
-                            <div className='program-card-sort'>
-                            <h3>Program Status
-                            {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
-                                        className={sortToggleAscProgStat ? 
-                                        'program-icons-sort' : 'display-none'} id='program-status'>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={sortToggleDescProgStat ? 
-                                        'program-icons-sort' : 'display-none' } id='program-status'>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
-                                        </svg>                                 */}
+                            <div className='scholarship-items-header-label'>
+                            <h3>
                             </h3>
-                            </div>
-                            </button>
-                        </div>
-                        <div className='program-card-grid-none'>
-                        <button 
-                            onClick={handleClick} 
-                            id='application-status' 
-                            value='application-status' 
-                            className='program-card-sort-btn'
-                        >
-                            <div className='program-card-sort'>
-                            <h3>Assigned
-                            {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
-                                        className={sortToggleAscAppStatus ? 
-                                        'program-icons-sort' : 'display-none'} id='application-status'>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={sortToggleDescAppStatus ? 
-                                        'program-icons-sort' : 'display-none' } id='application-status'>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
-                                        </svg>                                 */}
-                            </h3>
-                            </div>
-                            </button>
-                        </div>
-                        <div className='program-card-sort-none'>
-                            <h3>Remaining</h3>
-                        </div>
-                        </div>
+                            </div>                            
+                        {/* </div> */}
                     </li>
                     { scholarship.length > 0 && scholarship.map((scholarshipData, key) => {
-                        // return (<p>{programData.program_name}</p>)
+                        
+                        const foundProgram = allPrograms.find((program) => program.id === scholarshipData.program);
+                        let programName = "";
+                        // if (foundProgram !== "" ) { 
+                        //     programName = foundProgram.program_name;
+                        // }
+                        // const applicationStatus = foundProgram.
+                        
                         return (
+                            <li className={'scholarship-items'}>
                                 <ScholarshipCard
                                     key={key}
                                     scholarshipData={scholarshipData}
                                     applicantDetail={undefined}
-                                    // onClick={deleteSingleProgram}
+                                    programDetail = {foundProgram}
+                                    onClick={handleDelete}
                                 />
-                            
+                            </li>
                         )
                                     
                     })}
                     </ul>
+                    { messageBlock ? ( 
+                    
+                    <div className='message'>
+                        
+                        <MessageCard message="Deleted successfully"  />
+                    </div>
+                ) :( null ) }  
                 </>
                  }
+                 <div className="program-buttons">
+                <Link to="/user" className="program-button">
+                    New User/Admin
+                </Link>
+                <Link to="/Programs" className="program-button">
+                    Programs
+                </Link>
+                <Link to="/newProgram" className="program-button">
+                    New Program
+                </Link>
+                <Link to="/applicants" className="program-button">
+                    Applicants
+                </Link>
+                {/* <Link to="/scholarships" className="program-button">
+                    Scholarships
+                </Link> */}
+            </div>
                 
+                
+                </div>
+                <Footer />
                 </>
-                
             ) : (
+                <>
                 <LoginForm />
+                <Footer />
+                </>
             ) } 
         </>
         

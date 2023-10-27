@@ -4,6 +4,10 @@ import { useState } from "react";
 import LoginForm from "../../components/AdminLogin/LoginForm";
 import ProgramCard from "../../components/ProgramCard/ProgramCard";
 import Spinner from "../../components/Spinner/Spinner";
+import Footer from '../../components/Footer/Footer.jsx';
+import { Link } from "react-router-dom";
+
+
 
 function Programs() {
 
@@ -131,7 +135,7 @@ function Programs() {
         
         <>
         
-            <h1 className="program-list-header">All Programs List</h1>
+            <h1 className="program-list-header">Programs</h1>
             
             <div className="program-legend"> Icon Legend
                 <div className="program-legend-icon">
@@ -274,12 +278,32 @@ function Programs() {
                     })}
                     </ul>
                 </>
-                 }
-                
+                }<div className="program-buttons">
+                <Link to="/user" className="program-button">
+                    New User/Admin
+                </Link>
+                {/* <Link to="/Programs" className="program-button">
+                    Programs
+                </Link> */}
+                <Link to="/newProgram" className="program-button">
+                    New Program
+                </Link>
+                <Link to="/applicants" className="program-button">
+                    Applicants
+                </Link>
+                <Link to="/scholarships" className="program-button">
+                    Scholarships
+                </Link>
+            </div>
+                            <Footer/>
+
                 </>
                 
             ) : (
+                <>
                 <LoginForm />
+                <Footer />
+                </>
             ) } 
         </>
         

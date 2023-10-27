@@ -1,0 +1,14 @@
+#openprogramsdetail-body {
+    background-color: lightblue;
+    border: 2px solid #007bff;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+  
+#openprogramsdetail-body h1{
+text-align: left;
+font-size: 32px;
+
+}

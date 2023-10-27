@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+
+
+.application-page {
+    width: 95%;
+    margin: auto;
+    list-style-type: none;
+    background-color: white;
+    font-size: 0.8rem;
+}
+
+.applicant-header {
+    color: var(--orange);
+    font-weight: bold;
+    text-align: center;
+}
+
+.applicant-items-header {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    /* background-color: var(--orange); */
+    background-color: rgb(133, 74, 177,0.8);
+    /* rgb(220, 152, 73, 0.7); */
+    /* border-style: solid; */
+    font-size: 0.8rem;
+    width: 100%;
+    display: grid;
+    border-radius: 4px;
+    grid-template-columns: 30% 30% 35%; 
+    /* margin: auto; */
+    height: 30px;
+    align-items: center;
+    /* vertical-align: middle; */
+    box-shadow: unset;
+}
+
+.applicant-items-header-label-left {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.applicant-items {
+    list-style-type: none;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(133, 74, 177,0.4);
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% 30% 35%; 
+    background-color: white;
+    height: 30px;
+    align-items: center;
+    text-align: center;
+    box-shadow: unset;
+    font-size: 0.8rem;
+}
+
+.applicant-items-assigned {
+    list-style-type: none;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(133, 74, 177,0.4);
+    width: 100%;
+    display: grid;
+    grid-template-columns: 35% 25% 25%; 
+    background-color: rgb(220, 152, 73, 0.1);
+    height: 30px;
+    align-items: center;
+    text-align: center;
+    box-shadow: unset;
+    font-size: 0.8rem;
+}
+
+.applicant-items:hover {
+    /* background-color: rgb(133, 74, 177,0.2); */
+    background-color: rgb(220, 152, 73, 0.1);
+    /* transition: all ease-in-out 0.8s; */
+}
+
+.applicant-grid-left {
+    text-align: left;
+    vertical-align: middle;
+    padding: 0px;
+    padding-left: 10px;
+    box-shadow: unset;
+}
+
+.applicant-grid {
+    text-align: center;
+    vertical-align: middle;
+    padding: 0px;
+    box-shadow: unset;
+}
+
+.applicant-header {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.applicant-statistics-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border-style: solid; */
+    margin: auto;
+    width: 100%;
+}
+
+.applicant-statistics-group-item {
+    border-style: solid;
+    border-color: rgb(133, 74, 177, 0.3);
+    background-color: rgb(133, 74, 177, 0.8);
+    border-radius: 4px;
+    padding: 8px;
+    margin: 8px;
+    text-align: center;
+    min-width: 150px;
+}
+
+.applicant-statistics-group-label {
+    color: white;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+
+}
+.applicant-statistics-group-number {
+    color: gold;
+    font-family: "Satisfy", Sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 8px #DC9849, 0 0 26px #DC9849, 0 0 30px #DC9849, 0 0 36px #DC9849, 0 0 45px #DC9849;
+}
+
+/* .label input, input[type="text"], textarea {
+    border-style: none;
+    background-color: white;
+
+} */
+
+.form-input  {
+    border-style: none;
+}
+
+.label label {
+    font-size: 0.8rem;
+    margin: 3px;
+    font-weight: bold;
+}
+
+.label select {
+    height: 20px;
+    padding: 0px;
+}
+
+.reset {
+    all: initial;
+}
+
+.applicant-grid-display-none, .applicant-items-header-label-display-none {
+    display: none;
+}
+
+.applicant-btn {
+    all: initial;
+    background-color: var(--purple);
+    padding: 0px;
+    margin: 0px;
+    width: 50px;
+    height: 12px;
+    vertical-align: middle;
+    border-style: solid;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+.applicant-btn:hover {
+    background-color: var(--gold);
+}
+
+.label a:hover {
+    background-color: rgb(220, 152, 73, 0.2);
+}
+
+.applicant-form-bottom {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.message {
+    margin-top: 20px;
+}
+
+.applicant-applicant-profile {
+    /* margin-top: 40px; */
+    display: grid;
+    grid-template-columns: 35% 65%;
+    font-size: 0.8rem;
+    padding: 10px;
+    width: 90%;
+    margin: auto;
+    align-items: center;    
+    /* border-style: solid; */
+}
+
+.applicant-detail-section summary {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.applicant-detail-section {
+        border: 1px solid rgb(133, 74, 177, 0.7);
+        border-radius: 4px;
+        width: 90%;
+        margin: auto;
+        margin-top: 40px;
+        align-items: center;        
+}
+
+.applicant-applicant-detail {
+    align-items: top;    
+    display: grid;
+    grid-template-columns: 18% 75%;   
+}
+
+@media (min-width: 768px) {
+    .application-page {
+        width: 70%;
+        margin: auto;
+        list-style-type: none;
+        background-color: white;
+    }
+
+    .applicant-statistics-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        /* border-style: solid; */
+        margin: auto;
+        width: 100%;
+        overflow: visible;
+    }
+
+    .applicant-applicant-profile {
+        /* margin-top: 10px; */
+        display: grid;
+        grid-template-columns: 20% 30% 20% 30%;
+        font-size: 0.8rem;
+        padding: 10px;
+        width: 100%;
+        /* margin: auto; */
+        align-items: center;    
+        /* border-style: solid; */
+    }
+
+    .applicant-detail-section {
+        width: 100%;
+        padding-left: 10px;
+    }
+
+    .applicant-items {
+        grid-template-columns: 15% 15% 30% 20% 20%; 
+    }
+
+    .applicant-items-assigned {
+        grid-template-columns: 15% 15% 30% 20% 20%; 
+        background-color: rgb(220, 152, 73, 0.1);
+    }
+
+    .applicant-items-header {
+        grid-template-columns: 15% 15% 30% 20% 20%; 
+    }
+
+    .applicant-items-header-label-display-none, .applicant-grid-display-none {
+        display: inline;
+    }
+} 

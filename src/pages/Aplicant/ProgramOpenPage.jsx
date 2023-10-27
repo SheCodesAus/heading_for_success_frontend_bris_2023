@@ -1,5 +1,6 @@
 import React from 'react'
 import OpenPrograms from "../../components/OpenProgramsList/OpenProgamsList";
+import Footer from '../../components/Footer/Footer.jsx';
 
 function ProgramOpenPage() {
     return (
@@ -10,6 +11,7 @@ function ProgramOpenPage() {
             <div className="open-program-container">
                 < OpenPrograms />
             </div>
+            <Footer />
         </div>
     );
 }

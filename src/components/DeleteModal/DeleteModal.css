@@ -1,0 +1,67 @@
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+  
+  .modal.show {
+    display: flex;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    color: black;
+  }
+
+  .modal-content h3 {
+    font-size: 1.2rem;  
+  }
+
+  .modal-content p {
+    font-family: 'Bellota Text', Arial, sans-serif;  
+    padding-top: 20px;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin: 20px;
+  }
+ 
+  .button-delete {
+    /* padding: 10px 20px; */
+    cursor: pointer;
+    background-color: none;
+    color: var(--purple);
+    border-style: none;
+    
+  }
+
+  .cancel-button {
+    padding: 10px 20px;
+    background-color: var(--purple);
+    color: white;
+    margin-right: 10px;
+  }
+
+  .confirm-button {
+    padding: 10px 20px;
+    background-color: var(--purple);
+    color: white;
+  }
+
+  /* button:hover {
+      transition: 0.7s ease-in-out;
+      color: var(--orange);
+  } */

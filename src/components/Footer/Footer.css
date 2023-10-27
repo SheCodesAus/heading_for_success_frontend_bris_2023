@@ -4,9 +4,10 @@
     justify-content: center;
     background-image: linear-gradient(to right, #854AB1, #DC9849);
     color: white;
-    font-size: .5em;
+    font-weight: 500;
+    font-size: 1em;
 }
 
 #footer img {
-    width: 15%
+    width: 15%;
 }

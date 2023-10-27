@@ -1,3 +1,24 @@
+.adminhome {
+    /* background-color: #DC9849; */
+    position: relative; /* Container needs a position context for absolute positioning of its children */
+    text-align: center; /* Center the image horizontally */
+    padding: 20px; /* Add padding for spacing */
+    z-index: 0;
+}
+
+.adminhome img {
+    position: absolute;
+    top: 50%; /* Position the top edge at the vertical center of the container */
+    left: 50%; /* Position the left edge at the horizontal center of the container */
+    transform: translate(-120%, -50%); /* Move the image up and left by 50% of its own width and height */
+    width: 700px; /* Set the width to your desired size, e.g., 150px */
+    height: 700px; /* Set the height to your desired size, e.g., 150px */
+    z-index: 0;
+}
+
+#backgroundimage {
+    z-index: 0;
+}
 /* 
 #admin-home {
     display: flex;
@@ -33,32 +54,34 @@
     margin-right: auto;
     width: 90%;
 } 
+*/
 
-.adminhome {
+/* .adminhome {
     background-color: #DC9849;
-  } */
+} */
 
-
-
-
+/* 
 body{
-    background-color: var(--gold); 
-    /* Change the color code to the desired color */
+    background-color:rgba(173, 216, 230, 0.5);
+    Change the color values and alpha (0.5 for 50% transparency) as needed
 }
+*/
+
 .program-list-header {
-    font-size: 40px; /* Set your desired font size */
-    color: white; /* Set your desired text color */
-    /* Additional styles like margin, padding, etc. */
+    font-size: 40px;
+    color: var(--orange);
     margin: 40px;
+    z-index: 1;
 }
+
 .admin-home {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     height: 400px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    /* margin: 80px; */
+    padding: 40px;
 }
 
 /* Styles for icons */
@@ -80,22 +103,33 @@ body{
 .program-buttons {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    margin:40px;
+    padding-left: 200px;
+    padding-right: 200px;
+    z-index: 1;
+
 }
 
 .program-button {
     display: inline-block;
-    padding: 20px 20px;
-    background-color: var(--purple);
+    padding: 16px 16px;
+    background-color: var(--orange);
     color: white;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     margin: 8px;
     font-size: 16px;
+    z-index: 1;
 }
 
 .program-button:hover {
-    background-color: var(--dark-purple);
+    background-color: var(--gold);
+    z-index: 1;
 }
 
+.admin-dashboard {
+    margin: 20px; /* Adds a 20px margin around the element */
+    padding: 10px; /* Adds a 10px padding inside the element */
+    z-index: 1;
+}

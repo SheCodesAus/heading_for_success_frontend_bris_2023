@@ -1,4 +1,4 @@
-.scholarship-grid-left {
+.applicant-grid-left {
     text-align: left;
     vertical-align: middle;
     padding: 0px;
@@ -6,20 +6,20 @@
     box-shadow: unset;
 }
 
-.scholarship-grid {
+.applicant-grid {
     text-align: center;
     vertical-align: middle;
     padding: 0px;
     box-shadow: unset;
 }
 
-.scholarship-grid-display-none {
+.applicant-grid-display-none {
     display: none;
 }
 
 @media (min-width: 768px) {
 
-    .scholarship-grid-display-none {
+    .applicant-grid-display-none {
         display: inline;
     }
 

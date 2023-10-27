@@ -30,7 +30,7 @@ function OpenProgramDetails() {
     
     return (
             <>
-            <h1>Program Detail page for {openProgramDetail.program_name}.</h1>
+            <h1>Check out {openProgramDetail.program_name}!</h1>
 
             <h3>Location: {openProgramDetail.location}</h3>
             <img src={openProgramDetail.image} />

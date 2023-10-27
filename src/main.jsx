@@ -36,16 +36,13 @@ const router = createBrowserRouter([
       { path: "/application/:id/:programId", element: <ApplicationDetails /> },
       { path: "/user", element: <CreateUser /> },
       { path: "/newProgram", element: <NewProgram /> },
-      { path: "/program/:id", element: <ProgramDetails /> }, ///Changing to hardcoded 1 to test scholarship component. will need to change to /program/:id
+      { path: "/program/:id", element: <ProgramDetails /> }, 
       { path: "/programs", element: <Programs /> },
       { path: "/applicants", element: <Applicants /> },
       { path: "/scholarships", element: <Scholarships /> },
-      //For applicants
       { path: "/", element: <HomePage /> },
       { path: "/programOpen", element: <ProgramOpenPage /> },
-
       { path: "/programOpen/:id", element: <ProgramOpenDetails /> },
-
       { path: "/apply", element: <Apply /> },
       { path: "/thanks", element: <ThanksForApplying /> },
     ],
