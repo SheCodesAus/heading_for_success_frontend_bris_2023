@@ -13,9 +13,12 @@
     list-style: none;
   }
   
+  .navbar {
+    background-color: var(--dark-purple); /* Replace 'your-color-here' with the desired color */
+  }
 .imageContainer {
  max-width: 60%;
- max-height: 60%;
+ max-height: 20%;
  justify-content: center;
  align-items: center;
 }
@@ -30,7 +33,15 @@
   display: flex;
   justify-content: center;
   align-items: top;
-}
+  background-color: var(--dark-purple); /* Set a background color */
+  border-radius: 50%; /* Make it a circle using border-radius */
+  background-image: url('path_to_circle_image.png');
+  background-size: cover; /* Make sure the image covers the entire circle */
+  /* margin-top: -400px;
+  margin-right: -200px; */
+  /* Define the size of the circle */
+  /* width: 800px; /* Adjust the width as needed */
+} */
 
 .middleContainer :hover {
   transform: scale(105%);

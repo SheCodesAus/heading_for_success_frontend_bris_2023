@@ -39,7 +39,7 @@ function NavBarResponsive() {
         <div className='middleContainer'>
           <div className='imageContainer'>
           <Link to="/">
-            <img id src={Shefunds} />
+            <img id src="src/assets/she.svg" />
             </Link>
             </div>
         </div>
