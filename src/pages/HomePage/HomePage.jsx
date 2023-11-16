@@ -16,7 +16,7 @@ function HomePage() {
                 <OpenProgramsList />
             </div>
             <Header />
-            {/* <img src="src/assets/Humaaans - Standing (3).svg"  class="homeCartoon"></img> */}
+            <img src="src/assets/Humaaans - Standing (3).svg"  class="homeCartoon"></img>
             <Footer/>
         </div>
     );
