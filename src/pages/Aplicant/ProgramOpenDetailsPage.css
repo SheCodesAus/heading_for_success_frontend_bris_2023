@@ -1,0 +1,20 @@
+.open-program-page{
+    position: relative;
+    text-align: center;
+    flex-grow: 3;
+    width: 50%;
+}
+#list {
+    /* grid-column: 30% 30% 30%; */
+    display: flex;
+}
+
+#one {
+    flex-grow: 2;
+    background-color: var(--purple);
+}
+
+#two {
+    flex-grow: 2;
+    background-color: var(--orange);
+}

@@ -2,7 +2,7 @@ import React from "react";
 import  "../OpenProgramsList/OpenProgramsList.css"
 import { useOpenProgram } from "../../hooks/use-program";
 import OpenPrograms from "../OpenPrograms/OpenPrograms";
-// import "./OpenProgramsList.css";
+import "./OpenProgramsList.css";
 
 function OpenProgramsList() {
     const { isLoading, error, program } = useOpenProgram();
@@ -15,14 +15,14 @@ function OpenProgramsList() {
     }
     return (
         <div id="openprograms-title">
-        {/* <h2> <span>OPEN</span> programs, click to learn more and <span>APPLY!</span> </h2> */}
+        <h2> <span>OPEN</span> programs currently available: </h2>
         <div id="open-programs"> 
+        
             {program.map((programOpen) => (
                 <OpenPrograms key={programOpen.id} programOpen={programOpen} />
             ))}
         </div>
-        {/* <h2> <span>OPEN</span> programs, click to learn more and <span>APPLY!</span> </h2> */}
-
+            <img id="quote" src="src/assets/into female education and empowerment.svg"></img>
         </div>
     );
     

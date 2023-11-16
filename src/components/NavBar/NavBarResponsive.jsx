@@ -39,7 +39,7 @@ function NavBarResponsive() {
         <div className='middleContainer'>
           <div className='imageContainer'>
           <Link to="/">
-            <img id src={Shefunds} />
+            <img id src="src/assets/she.svg" />
             </Link>
             </div>
         </div>
@@ -55,38 +55,43 @@ function NavBarResponsive() {
             {/* <li>
               <Link to='/login'>LOGIN</Link>
             </li> */}
-
-             <li> 
                 {auth.token ? (
+                  <>
+             <li> 
+
                       <Link to='/adminHome' onClick={handleClick} >DASHBOARD</Link>
-                ) : (null)}
+
             </li>
 
             <li className='services'>
-            {auth.token ? (
+            
                 <Link to='/user'  onClick={handleClick}>CREATE USER</Link> 
-                ) : (null)}
+                
             </li>
 
             <li>
-            {auth.token ? (
+            
                 <Link to='/newProgram' onClick={handleClick}>NEW PROGRAM</Link> 
-                ) : (null)}
+                
             </li>
             
             <li>
-            {auth.token ? (
+            
                         <Link to='/programs' onClick={handleClick}>PROGRAMS</Link>
-                ) : (null)}
+
             </li>
             
                 <li className='dropdown-link'>
-                {auth.token ? (
+                
                          <Link to="/" onClick={handleLogout}>LOG OUT</Link>
+                         </li>
+                         </>
                      ) : (
+                      <li>
                      <Link to="/login" onClick={handleClick}>LOG IN</Link>
+                     </li>
                      )}
-            </li>
+            
             
           </div>
         </ul>

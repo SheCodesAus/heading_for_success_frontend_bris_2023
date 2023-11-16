@@ -21,13 +21,11 @@ import ProgramOpenPage from './pages/Aplicant/ProgramOpenPage';
 import ProgramOpenDetails from './pages/Aplicant/ProgramOpenDetailsPage';
 
 //COMPONENTS IMPORTS
-import NavBarResponsive from './components/NavBar/NavBarResponsive.jsx';
-// import NavBar from './components/NavBar/NavBar.jsx'
+import NavBarResponsive from './components/NavBar/NavBarResponsive.jsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    // element: <NavBar />,
     element: <NavBarResponsive />,
     children: [
 

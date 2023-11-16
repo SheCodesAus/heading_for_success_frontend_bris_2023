@@ -1,14 +1,28 @@
 #openprogramsdetail-body {
-    background-color: lightblue;
-    border: 2px solid #007bff;
-    padding: 10px;
-    margin: 20px;
+    padding: 30px;
+    margin: 0px auto;
     text-align: center;
     font-size: 18px;
+    width: auto;
 }
-  
-#openprogramsdetail-body h1{
-text-align: left;
-font-size: 32px;
+
+#openprogramsdetail-body img{
+border-radius: 10px;
+width: 100%;
 
 }
+
+#openprogramsdetail-body h3{
+    font-size: 1em;
+}
+button{
+    width:50%;
+    margin-top: 32px;
+    background-color: var(--dark-purple);
+}
+
+button :hover{
+    transform: scale(120%);
+}
+
+

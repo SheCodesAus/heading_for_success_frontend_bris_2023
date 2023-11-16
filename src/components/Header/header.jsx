@@ -13,8 +13,9 @@ function Header() {
     return (
         <>
             <div class="heroheader">
-                <h1>Putting the <span>FUN</span>ds in female education and empowerment in the tech industry.</h1>
-                <img id src="src/assets/Humaaans - Standing (3).svg"/>
+                {/* <h1>Putting the <span>FUN</span>ds in female education and empowerment in the tech industry.</h1>
+                <img id src="src/assets/Humaaans - Standing (3).svg"/> */}
+                <img id src="src/assets/image white background (1).svg"/>
             </div>     
         </>
     );
